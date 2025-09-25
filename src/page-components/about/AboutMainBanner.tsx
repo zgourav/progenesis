@@ -7,7 +7,7 @@ const AboutMainBanner = () => {
                 <div className='col-span-12 md:col-span-7 csLg:col-span-8 section-spacing'>
                     <div className='flex flex-col' >
                         <div className=''> 
-                        <h2 className='font-manrope text-[12px] md:text-[16px] csLg:text-[18px] font-semibold leading-[26px] tracking-[-0.02em]'>Home  <span className="text-[#1656A5]"> About Us </span> 
+                        <h2 className='font-manrope text-[12px] md:text-[16px] csLg:text-[18px] font-semibold leading-[26px] tracking-[-0.02em]'>Home   <span className="px-[12px]">›</span>  <span className="text-[#1656A5]"> About Us </span> 
                              </h2>
                         </ div>
                     <div className=''>

@@ -12,7 +12,7 @@ const CareersLanding = () => {
                 <div className="container md:pr-0 grid grid-cols-12 gap-6 items-start">
                     <div className="col-span-12 csLg:col-span-8 flex flex-col gap-4">
                         <p className="font-manrope csLg:text-[18px] text-[12px] leading-[26px] tracking-[-0.02em] text-gray-700">
-                            Home <span className="text-sky-500"> Careers</span>
+                            Home <span className="px-[12px]">›</span> <span className="text-[#1656A5]"> Careers</span>
                         </p>
                         <h1 className="font-manrope font-semibold csLg:text-[64px] text-[32px] csLg:leading-[72px] leading-[40px] tracking-[-0.02em] text-[#111827]">
                             What We Offer: Care,
