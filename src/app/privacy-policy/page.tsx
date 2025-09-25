@@ -1,191 +1,332 @@
-import Image from "next/image";
+"use client";
 
-const PrivacyPolicy = () => {
+import React, { useEffect, useState } from "react";
+
+const PrivacyPolicyPage = () => {
+  const sections = [
+    { id: "overview", label: "Overview" },
+    { id: "coverage", label: "What This Privacy Policy Covers" },
+    { id: "personal-info", label: "Collection & Use of Personal Information" },
+    { id: "nonpersonal-info", label: "Collection & Use of Non-personal Information" },
+    { id: "sharing", label: "Information Sharing & Disclosure" },
+    { id: "consent", label: "Consent" },
+    { id: "security", label: "Security" },
+    { id: "changes", label: "Changes to this Privacy Policy" },
+    { id: "questions", label: "Questions or Suggestions" },
+  ];
+
+  const [activeId, setActiveId] = useState("overview");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      let current = "overview";
+      sections.forEach((section) => {
+        const el = document.getElementById(section.id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 120 && rect.bottom > 120) {
+            current = section.id;
+          }
+        }
+      });
+      setActiveId(current);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [sections]);
+
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const targetId = e.target.value;
+    const el = document.getElementById(targetId);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
-    <div className="w-full">
-      {/* ===== Hero Section ===== */}
-
-
+    <main className="w-full font-manrope text-[#202020] scroll-smooth">
+      {/* 🔹 Hero Section */}
       <section
-        className="relative w-full h-[500px] md:h-[600px] flex pl-[12px] md:pl-[120px] bg-cover bg-center overflow-hidden"
-        style={{
-          backgroundImage: "/online-consultation/online_consultation_bg.png",
-        }}
+        className="
+          relative w-full px-6 md:px-[80px] xl:px-[120px]
+          py-12 md:py-20 lg:py-28 overflow-hidden
+          bg-[url('/PrivacyPolicy/privacy-bg.png')] bg-cover bg-center md:bg-none
+        "
       >
-        {/* Blurred gradient shape */}
-        <div
-          className="absolute left-[-150px] top-[80px] w-[445px] h-[441px] rounded-full opacity-70"
-          style={{
-            background: "#94BA3D",
-            filter: "blur(250px)",
-            transform: "rotate(-2deg)",
-          }}
-        ></div>
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-b from-[#E6F0FF] to-white"></div>
+        <img
+          src="/PrivacyPolicy/privacy-bg.png"
+          alt="Hero Background Pattern"
+          className="hidden md:block absolute inset-0 w-full h-full object-cover"
+        />
 
-        {/* Left content */}
-        {/* <div className="relative z-10 mt-2 md:mt-[85px] max-w-5xl">
-          <p className="text-[18px] text-gray-600 mb-2 md:mb-[44px]">
-            Home<span className="px-[12px]">›</span>
-            <span
-              className="inline-block px-3 py-1 rounded-md text-[18px] font-medium leading-[40px] tracking-[-0.36px] text-blue-700"
-            >
-              International Patient
-            </span>
-          </p>
-          <h1 className="md:text-[5rem] font-bold leading-tight mb-[44px] text-[#252525]">
-            IVF Treatment for International Patient
+        <div className="relative z-10">
+          <h1
+            className="
+              text-[#252525]
+              text-[32px] leading-[40px] tracking-[-0.64px] font-semibold
+              md:text-[56px] md:leading-[64px] md:tracking-[-1.12px]
+              lg:text-[80px] lg:leading-[88px] lg:tracking-[-1.6px]
+              mb-[24px] md:mb-[32px] lg:mb-[40px]
+            "
+          >
+            Privacy Policy
           </h1>
-          <button className="mt-6 px-[20px] py-[16px] bg-black text-white rounded-[14px]">
-            Book Your Appointment
-          </button>
-        </div> */}
-
-        {/* Right image */}
-        <div className="hidden md:block relative w-[591px] h-[600px] ml-auto mr-[150px]">
-          <Image
-            src="/online-consultation/Backgroundshape.png"
-            alt="Background shape"
-            fill
-            className="object-contain object-bottom rounded-lg"
-          />
-
+          <h2
+            className="
+              text-[#202020]
+              text-[16px] leading-[24px] tracking-[-0.32px] font-normal
+              md:text-[24px] md:leading-[32px] md:tracking-[-0.48px]
+              lg:text-[32px] lg:leading-[40px] lg:tracking-[-0.64px]
+            "
+          >
+            Latest Updates on August 2025
+          </h2>
         </div>
       </section>
-      {/* <section
-        className="relative w-full h-[250px] md:h-[300px] flex flex-col justify-center px-6 md:px-[120px] bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/privacy-bg.jpg')", // must be in /public
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/80 to-transparent"></div>
-        <div className="relative z-10">
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-900">Privacy Policy</h1>
-          <p className="text-sm md:text-lg text-gray-700 mt-2">
-            Last updated: August 2025
-          </p>
-        </div>
-      </section> */}
 
-      {/* ===== Content Section ===== */}
-      <section className="w-full flex flex-col md:flex-row gap-10 px-6 md:px-[120px] py-[60px] md:py-[80px] max-w-[1440px] mx-auto">
+      {/* 🔹 Content Section */}
+      <section className="px-6 md:px-[80px] xl:px-[120px] py-12 md:py-20 lg:py-24 flex flex-col md:flex-row gap-12 lg:gap-16 items-start">
+        {/* Mobile Dropdown */}
+        <div className="block md:hidden mb-6 w-[328px]">
+          <select
+            value={activeId}
+            onChange={handleSelectChange}
+            className="
+              w-full flex justify-between items-center
+              border border-gray-300 rounded-lg
+              px-3 py-2
+              text-[#2C2C2C]
+              text-[14px] leading-[24px] tracking-[-0.28px] font-normal
+            "
+          >
+            {sections.map((section) => (
+              <option
+                key={section.id}
+                value={section.id}
+                className="text-[#2C2C2C] text-[14px] leading-[24px] tracking-[-0.28px]"
+              >
+                {section.label}
+              </option>
+            ))}
+          </select>
+        </div>
+
         {/* Sidebar */}
-        {/* <aside className="w-full md:w-1/4 border-l-4 border-blue-600 pl-4"> */}
-        <ul className="space-y-3 text-sm md:text-base">
-          <li className="text-blue-600 font-medium">Overview</li>
-          <li className="text-gray-700 hover:text-blue-600 cursor-pointer">What This Privacy Policy Covers</li>
-          <li className="text-gray-700 hover:text-blue-600 cursor-pointer">Collection & Use of Personal Information</li>
-          <li className="text-gray-700 hover:text-blue-600 cursor-pointer">Collection & Use of Non-personal Information</li>
-          <li className="text-gray-700 hover:text-blue-600 cursor-pointer">Information Sharing & Disclosure</li>
-          <li className="text-gray-700 hover:text-blue-600 cursor-pointer">Consent</li>
-          <li className="text-gray-700 hover:text-blue-600 cursor-pointer">Security</li>
-          <li className="text-gray-700 hover:text-blue-600 cursor-pointer">Changes to this Privacy Policy</li>
-          <li className="text-gray-700 hover:text-blue-600 cursor-pointer">Questions or Suggestions</li>
-        </ul>
-        {/* </aside> */}
+        <aside className="hidden md:block md:w-1/4 sticky top-28 self-start">
+          <ul className="space-y-4">
+            {sections.map((section) => (
+              <li key={section.id}>
+                <a
+                  href={`#${section.id}`}
+                  className={`block text-[16px] leading-[24px] tracking-[-0.32px] transition-colors ${activeId === section.id
+                    ? "text-[#1656A5] font-semibold"
+                    : "text-[#202020] hover:text-[#1656A5]"
+                    }`}
+                >
+                  {section.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </aside>
 
         {/* Main Content */}
-        <article className="w-full md:w-3/4 space-y-10">
+        <article className="md:w-3/4 space-y-[56px] md:space-y-[64px] lg:space-y-[80px]">
           {/* Overview */}
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Overview</h2>
-            <p className="text-gray-700 leading-relaxed">
-              Progenesis Fertility Center, from the house of We Care Hospital Services & Advanced Center for
-              Reproductive Medicine (hereinafter “Progenesis IVF”), is the author of this Privacy Policy.
-              This policy demonstrates our commitment to protect the privacy of clients and users of our website.
-              We urge everyone to read the terms of this Privacy Policy that describe acceptable uses and outline
-              how we treat the personally identifiable information we collect.
+          <div id="overview">
+            <h3
+              className="
+    text-[#202020]
+    font-manrope text-[16px] font-semibold leading-[24px] tracking-[-0.32px]
+    md:text-[28px] md:leading-[36px] md:tracking-[-0.56px] md:font-medium
+    lg:font-['Plus Jakarta Sans'] lg:text-[40px] lg:leading-normal lg:font-medium
+  mb-[24px]"
+            >
+              Overview
+            </h3>
+            <p className="section-body">
+              Progenesis Fertility Center, from the house of We Care Hospital Services.
+              is Advanced Center for Reproductive Medicine (here onwards described as ‘Progenesis IVF’)
+              is the author of this Privacy Policy. This policy demonstrates our commitment to ensure
+              the privacy of entities using our website. We urge everyone to read the minutes of our
+              Privacy Policy that are explained below and learn about how we treat the personally
+              identifiable information that we collect from consenting visitors and users of our website.
             </p>
           </div>
 
-          {/* What This Privacy Policy Covers */}
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">What This Privacy Policy Covers</h2>
-            <p className="text-gray-700 leading-relaxed">
-              This Privacy Policy only covers the treatment of personally identifiable information that we collect
-              through websites owned and operated by Progenesis IVF. It does not apply to organizations not owned
-              by us, individuals we do not employ, or third-party websites linked from our site.
+          {/* Coverage */}
+          <div id="coverage">
+            <h3
+              className="
+    text-[#202020]
+    font-manrope text-[16px] font-semibold leading-[24px] tracking-[-0.32px]
+    md:text-[28px] md:leading-[36px] md:tracking-[-0.56px] md:font-medium
+    lg:font-['Plus Jakarta Sans'] lg:text-[40px] lg:leading-normal lg:font-medium
+  mb-[24px]"
+            >
+              What This Privacy Policy Covers
+            </h3>
+            <p className="section-body">
+              This Privacy Policy only covers the treatment of personally identifiable information that we
+              collect through our website and are operated by Progenesis IVF. Information covered by this
+              Privacy Policy includes editors of companies and organizations that are not owned or set up by us,
+              or by individuals that we do not employ or associate with, and any third-party websites that our website links to.
             </p>
           </div>
 
-          {/* Collection & Use of Personal Information */}
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Collection & Use of Personal Information</h2>
-            <p className="text-gray-700 leading-relaxed">
-              You can visit our website without revealing any personal information. However, we may collect
-              personal information if you choose to use our services. This information helps us respond to
-              enquiries, provide treatment-related services, and contact you regarding new services. By providing
-              this information voluntarily, you consent to its collection and use in accordance with this Privacy Policy.
+          {/* Personal Info */}
+          <div id="personal-info">
+            <h3
+              className="
+    text-[#202020]
+    font-manrope text-[16px] font-semibold leading-[24px] tracking-[-0.32px]
+    md:text-[28px] md:leading-[36px] md:tracking-[-0.56px] md:font-medium
+    lg:font-['Plus Jakarta Sans'] lg:text-[40px] lg:leading-normal lg:font-medium
+  mb-[24px]"
+            >
+              Collection & Use of Personal Information
+            </h3>
+            <p className="section-body">
+              You can use our website without revealing any personal information. However, we will need
+              certain personal information if you decide to use Progenesis’s treatment and/or counseling services.
+              Where required, this information may comprise your personal contact information. We will use this
+              information to reply to your queries, provide you with requested services, and contact you regarding
+              new services. By accessing the website of Progenesis and providing us with requested personal
+              information, you consent to the collection and the use of information in keeping with this Privacy Policy.
             </p>
           </div>
 
-          {/* Collection & Use of Non-personal Information */}
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Collection & Use of Non-personal Information</h2>
-            <p className="text-gray-700 leading-relaxed">
-              We automatically collect non-personal information such as your IP address, cookie data, and page
-              requests. This may be used to customize content and improve services. However, we do not link
-              non-personal data with personally identifiable information.
+          {/* Non-personal Info */}
+          <div id="nonpersonal-info">
+            <h3
+              className="
+    text-[#202020]
+    font-manrope text-[16px] font-semibold leading-[24px] tracking-[-0.32px]
+    md:text-[28px] md:leading-[36px] md:tracking-[-0.56px] md:font-medium
+    lg:font-['Plus Jakarta Sans'] lg:text-[40px] lg:leading-normal lg:font-medium
+  mb-[24px]"
+            >
+              Collection & Use of Non-personal Information
+            </h3>
+            <p className="section-body">
+              Progenesis automatically receives and stores non-personal information on our server logs
+              from your web browser which includes your IP address, cookie information, and the page you requested.
+              We may use this information to customize the advertisements and content you see and to fulfill your
+              requests for certain services. However, we do not connect this non-personal data to any personal
+              information collected from you.
             </p>
           </div>
 
-          {/* Information Sharing & Disclosure */}
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Information Sharing & Disclosure</h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              We may share personal information with trusted third parties who help provide treatment and counseling
-              services, but only with your explicit consent. We may also disclose your information:
+          {/* Sharing */}
+          <div id="sharing">
+            <h3
+              className="
+    text-[#202020]
+    font-manrope text-[16px] font-semibold leading-[24px] tracking-[-0.32px]
+    md:text-[28px] md:leading-[36px] md:tracking-[-0.56px] md:font-medium
+    lg:font-['Plus Jakarta Sans'] lg:text-[40px] lg:leading-normal lg:font-medium
+  mb-[24px]"
+            >
+              Information Sharing & Disclosure
+            </h3>
+            <p className="section-body">
+              Progenesis may disclose your personal information to third parties who work with us to provide
+              treatment and counseling services requested by you. We will never sell personal information that we
+              possess to any other parties whose privacy policies are not consistent with ours without your knowledge
+              and consent with respect to use of personal information.
             </p>
-            <ul className="list-disc list-inside text-gray-700 space-y-2">
-              <li>When legally required (court orders, legal processes, etc.)</li>
-              <li>To protect the rights and safety of users and Progenesis</li>
-              <li>If your actions violate our Terms of Use</li>
+            <p className="section-body">
+              We may also disclose your personal information under the following conditions:
+            </p>
+            <ul className="list-disc list-inside space-y-2 section-body">
+              <li>We have your definite consent to share the information for a specified purpose</li>
+              <li>We need to respond to summons, court orders, or any other legal process/function</li>
+              <li>We need to protect the personal safety of the users of our website or defend Progenesis’s rights or property</li>
+              <li>We find that your actions on our website violate the usage guidelines contained within our Terms of Use or any other similar document</li>
             </ul>
           </div>
-
           {/* Consent */}
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Consent</h2>
-            <p className="text-gray-700 leading-relaxed">
-              If you do not agree to the collection, use, or disclosure of your personal information as outlined,
-              please do not provide any personal information. If you wish to withdraw consent, contact us at{" "}
-              <a href="mailto:contact@progenesisivf.com" className="text-blue-600 underline">
-                contact@progenesisivf.com
-              </a>.
+          <div id="consent">
+            <h3
+              className="
+    text-[#202020]
+    font-manrope text-[16px] font-semibold leading-[24px] tracking-[-0.32px]
+    md:text-[28px] md:leading-[36px] md:tracking-[-0.56px] md:font-medium
+    lg:font-['Plus Jakarta Sans'] lg:text-[40px] lg:leading-normal lg:font-medium
+ mb-[24px] "
+            >
+              Consent
+            </h3>
+            <p className="section-body">
+              If you do not agree to the collection, use, or disclosure of your personal information as outlined above,
+              please do not provide any personal information to Progenesis. If you have provided personal information
+              to Progenesis but no longer consent to its use or disclosure as outlined herein, please notify us at{" "}
+              <a href="mailto:progenesisivf.com" className="text-[#1656A5] underline">progenesisivf.com</a>.
             </p>
           </div>
 
           {/* Security */}
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Security</h2>
-            <p className="text-gray-700 leading-relaxed">
-              No internet transmission is 100% secure, but Progenesis employs strict internal security policies,
-              access controls, firewalls, and physical security measures to protect your information.
+          <div id="security">
+            <h3
+              className="
+    text-[#202020]
+    font-manrope text-[16px] font-semibold leading-[24px] tracking-[-0.32px]
+    md:text-[28px] md:leading-[36px] md:tracking-[-0.56px] md:font-medium
+    lg:font-['Plus Jakarta Sans'] lg:text-[40px] lg:leading-normal lg:font-medium
+  mb-[24px]"
+            >
+              Security
+            </h3>
+            <p className="section-body">
+              Unfortunately, no transmission of data over the Internet is 100% safe and secure. However, your
+              Progenesis information is protected for your privacy and security in certain parts of our network,
+              as identified in the site itself. We also protect your personal information from unauthorized access
+              by implementing access control procedures, network firewalls, and physical security measures.
             </p>
           </div>
 
-          {/* Changes to this Privacy Policy */}
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Changes to this Privacy Policy</h2>
-            <p className="text-gray-700 leading-relaxed">
-              Progenesis may amend this Privacy Policy at any time without notice. We encourage users to review
-              this page periodically. Continued use of our website after changes implies acceptance.
+          {/* Changes */}
+          <div id="changes">
+            <h3
+              className="
+    text-[#202020]
+    font-manrope text-[16px] font-semibold leading-[24px] tracking-[-0.32px]
+    md:text-[28px] md:leading-[36px] md:tracking-[-0.56px] md:font-medium
+    lg:font-['Plus Jakarta Sans'] lg:text-[40px] lg:leading-normal lg:font-medium
+  mb-[24px]"
+            >
+              Changes to this Privacy Policy
+            </h3>
+            <p className="section-body">
+              Progenesis reserves the right to amend this Privacy Policy from time to time, at any time without notifying
+              its users. We suggest users to refer to this section periodically and stay updated of any changes. Your continued
+              use of our website after any such amendments signifies your acceptance thereof.
             </p>
           </div>
 
-          {/* Questions or Suggestions */}
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Questions or Suggestions</h2>
-            <p className="text-gray-700 leading-relaxed">
-              For any questions or suggestions about this Privacy Policy, please email us at{" "}
-              <a href="mailto:sandeep@progenesisivf.com" className="text-blue-600 underline">
+          {/* Questions */}
+          <div id="questions">
+            <h3
+              className="
+    text-[#202020]
+    font-manrope text-[16px] font-semibold leading-[24px] tracking-[-0.32px]
+    md:text-[28px] md:leading-[36px] md:tracking-[-0.56px] md:font-medium
+    lg:font-['Plus Jakarta Sans'] lg:text-[40px] lg:leading-normal lg:font-medium
+ mb-[24px] "
+            >
+              Questions or Suggestions
+            </h3>
+            <p>If you have any questions or suggestions about this Privacy Policy, or regarding your own personal information,
+              please contact us at{" "}
+              <a href="mailto:sandeep@progenesisivf.com" className="text-[#1656A5] underline">
                 sandeep@progenesisivf.com
               </a>.
             </p>
           </div>
         </article>
       </section>
-    </div>
+    </main>
   );
 };
 
-export default PrivacyPolicy;
+export default PrivacyPolicyPage;
+
