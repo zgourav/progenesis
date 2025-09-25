@@ -15,7 +15,7 @@
 }
 
 /* Mobile screens (up to 767px) */
-@media (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .section-spacing {
     padding-left: 16px;
     padding-top: 30px;
@@ -51,10 +51,10 @@
 /* Large screens (small laptops, 1024px to 1279px) */
 @media (min-width: 1024px) and (max-width: 1279px) {
   .section-spacing {
-    padding-left: 90px;
-    padding-top: 70px;
-    padding-right: 90px;
-    padding-bottom: 70px;
+    padding-left: 120px;
+    padding-bottom: 80px;
+    padding-top: 80px;
+    padding-right: 120px;
   }
   .why-bott-pad {
     padding-bottom: 100px;
