@@ -13,7 +13,7 @@ import './AboutMain.css'
 
 const AboutMainPage = () => {
   return (
-    <div className='flex flex-col gap-6 md:gap-8 lg:gap-10'>
+    <div className=''>
         <AboutMainBanner />
         <AboutNav />
         <OurStories />

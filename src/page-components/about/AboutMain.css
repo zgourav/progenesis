@@ -49,21 +49,7 @@
 }
 
 /* Large screens (small laptops, 1024px to 1279px) */
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .section-spacing {
-    padding-left: 120px;
-    padding-bottom: 80px;
-    padding-top: 80px;
-    padding-right: 120px;
-  }
-  .why-bott-pad {
-    padding-bottom: 100px;
-  }
-  .Blog-Cta {
-    padding-left: 300px;
-    padding-right: 80px;
-  }
-}
+
 
 
 

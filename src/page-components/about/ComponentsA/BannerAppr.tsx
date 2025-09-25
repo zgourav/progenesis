@@ -100,20 +100,20 @@ const BannerOfApproach: React.FC = () => {
   const isLast = activeTab === slides.length - 1;
 
   return (
-    <div className="w-full bg-white px-6 md:px-10 lg:px-[90px] py-8 md:py-10 lg:py-12 section-spacing" >
+    <div className="w-full bg-white px-6 md:px-12 lg:px-[90px] py-10 md:py-12 section-spacing" >
       {/* Headings */}
-      <div className="mb-6 md:mb-8 lg:mb-10">
-        <span className="inline-block bg-[#1656A50D] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 md:px-4 md:py-2 rounded-[8px]">Our Approach</span>
-        <h2 className="text-[34px] md:text-[42px] lg:text-[48px] leading-tight md:leading-[1.2] tracking-[-0.02em] text-black font-[Manrope] font-normal mt-3 md:mt-4">
+      <div className="mb-8" style={{paddingBottom:'50px'}}>
+        <span className="inline-block bg-[#E9F0FF] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" style={{padding:'8px'}}>Our Approach</span>
+        <h2 className="text-[34px] md:text-[44px] lg:text-[48px] leading-tight tracking-[-0.02em] text-black font-[Manrope] font-normal">
           Compassion Meets Science
         </h2>
       </div>
 
       {/* Tabs */}
-      <div className="relative mb-6 md:mb-8 lg:mb-10">
+      <div className="relative" style={{paddingBottom:'20px'}}>
         {/* Grey baseline across full width */}
         <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gray-200" />
-        <div className="relative flex items-center justify-between gap-6 md:gap-8 lg:gap-10 max-w-5xl pb-4">
+        <div className="relative flex items-center justify-between gap-10 max-w-5xl pb-4">
           {slides.map((s, index) => (
             <button
               key={s.tab}
@@ -122,7 +122,7 @@ const BannerOfApproach: React.FC = () => {
                 // Scroll the corresponding mobile slide into view
                 slideRefs.current[index]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
               }}
-              className={`relative text-center text-[14px] md:text-[15px] lg:text-[16px] font-medium font-[Manrope] transition-colors ${
+              className={`relative text-center text-[15px] md:text-[16px] font-medium font-[Manrope] transition-colors ${
                 activeTab === index ? 'text-[#1656A5]' : 'text-gray-500 hover:text-blue-600'
               }`}
             >
@@ -137,13 +137,13 @@ const BannerOfApproach: React.FC = () => {
       </div>
 
       {/* Banner - Mobile: horizontal scroll of all slides */}
-      <div className="md:hidden mt-6">
-        <div className="flex overflow-x-auto gap-3 snap-x snap-mandatory">
+      <div className="md:hidden mt-10 p-5">
+        <div className="flex overflow-x-auto gap-4 snap-x snap-mandatory px-5">
           {slides.map((s, index) => (
             <div
               key={s.tab}
               ref={(el) => (slideRefs.current[index] = el)}
-              className="relative snap-start shrink-0 w-[92%] h-[640px] rounded-xl bg-[#000000B2] overflow-hidden bg-cover bg-center text-white shadow-lg border border-white/10"
+              className="relative snap-start shrink-0 w-[88%] h-[690px] rounded-2xl bg-[#000000B2] overflow-hidden bg-cover bg-center text-white shadow-lg border border-white/10"
               style={{ backgroundImage: `url(${s.image})` }}
             >
               {/* Left dark gradient overlay */}
@@ -189,9 +189,9 @@ const BannerOfApproach: React.FC = () => {
         </div>
       </div>
 
-      {/* Banner - Desktop/Tablet */}
+      {/* Banner - Desktop/Tablet unchanged */}
       <div
-        className="hidden md:flex relative w-full h-[480px] lg:h-[520px] rounded-2xl bg-[#000000B2] overflow-hidden bg-cover bg-center text-white shadow-lg mt-8 md:mt-10"
+        className="hidden md:flex relative w-full h-[520px] rounded-2xl bg-[#000000B2] overflow-hidden bg-cover bg-center text-white  shadow-lg mt-10"
         style={{ backgroundImage: `url(${current.image})` }}
       >
         {/* Left dark gradient overlay */}
@@ -202,14 +202,14 @@ const BannerOfApproach: React.FC = () => {
         <div className="absolute inset-0 bg-black/30 z-0" />
 
         {/* Internal content with padding */}
-        <div className="relative z-10 p-8 md:p-10 lg:p-12 flex flex-col">
-          <h3 className="font-manrope text-[24px] md:text-[26px] lg:text-[28px] leading-[1.2] tracking-[-0.02em] font-normal max-w-2xl">
+        <div className="relative z-10 p-6 md:p-10 lg:p-12" style={{paddingLeft:'60px', paddingTop:'80px', paddingRight:'60px'}}>
+          <h3 className="font-manrope text-[28px] leading-[30px] tracking-[-0.02em] font-normal">
             {current.heading}
           </h3>
-          <div className="flex flex-wrap gap-3 md:gap-4 mt-6 md:mt-8 mb-8 md:mb-10">
+          <div className="flex flex-wrap gap-3 md:gap-4 mb-10" style={{paddingTop:'30px', paddingBottom:'100px'}}>
             <button
               onClick={() => setCtaActive((prev) => ({ ...prev, [activeTab]: 'primary' }))}
-              className={`${(ctaActive[activeTab] ?? 'primary') === 'primary' ? 'bg-white text-black' : 'border border-white/90 text-white'} w-[160px] md:w-[183px] h-[48px] md:h-[56px] px-4 md:px-5 py-2 md:py-2.5 rounded-[14px] md:rounded-[16px] text-sm font-semibold shadow-sm`}
+              className={`${(ctaActive[activeTab] ?? 'primary') === 'primary' ? 'bg-white text-black' : 'border border-white/90 text-white'} w-[183px] h-[56px] px-5 py-2.5 rounded-[16px] text-sm font-semibold shadow-sm`}
             >
               {current.ctaPrimary}
             </button>
@@ -222,12 +222,12 @@ const BannerOfApproach: React.FC = () => {
           </div>
 
           {/* Feature cards */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 max-w-[1100px] mt-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-[1100px]">
             {current.features.map((item, idx) => (
-              <div key={idx} className="flex flex-col gap-2 md:gap-3">
-                <span className="text-xl md:text-2xl">{item.icon}</span>
-                <h4 className="font-semibold text-[14px] md:text-[15px] lg:text-[16px]">{item.title}</h4>
-                <p className="text-[13px] md:text-sm text-gray-200 leading-[1.4]">{item.desc}</p>
+              <div key={idx} className="flex flex-col gap-2">
+                <span className="text-2xl">{item.icon}</span>
+                <h4 className="font-semibold text-[15px] md:text-[16px]">{item.title}</h4>
+                <p className="text-sm text-gray-200">{item.desc}</p>
               </div>
             ))}
           </div>
