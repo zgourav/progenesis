@@ -36,8 +36,8 @@ const EmiLanding = () => {
             </div>
 
             {/* CTA */}
-            <div className='pt-[44px]' style={{paddingTop:'44px'}}>
-              <span className='bg-[#252525] csLg:text-[14px] text-[12px] p-8 text-[#F9F9F9]' style={{padding:"16px",borderRadius:"12px"}}>
+            <div className='pt-11'>
+              <span className='bg-[#252525] csLg:text-[14px] text-[12px] p-4 text-[#F9F9F9] rounded-xl'>
                 Book Your Appointment
               </span>
             </div>

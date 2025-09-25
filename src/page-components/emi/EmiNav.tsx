@@ -11,7 +11,7 @@ const EmiNav: React.FC = () => {
 
   return (
     <nav className="w-full bg-[#FFFFFF]">
-      <div className="section-spacing max-w-7xl mx-auto px-6 md:px-8 lg:px-14 py-6">
+      <div className="section-spacing max-w-7xl ">
         <div className="flex flex-wrap items-center gap-4 md:gap-6">
           {tabs.map((t) => {
             const isActive = t.key === active;

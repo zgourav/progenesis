@@ -29,8 +29,7 @@ const AboutNav: React.FC = () => {
         <button
           key={section.id}
           onClick={() => handleScroll(section.id)}
-          style={{ padding: '10px' }}
-          className={`w-auto h-[44px] px-4 py-2 text-[12px] csLg:text-[14px] gap-4 rounded-[16px] border transition-colors duration-300 csLg:w-auto csLg:h-[56px] ${
+          className={`w-auto h-[44px] px-4 py-2 text-[12px] csLg:text-[14px] gap-4 rounded-[16px] border transition-colors duration-300 csLg:w-auto csLg:h-[56px] p-2.5 ${
             active === section.id
               ? "bg-[#1656A5] text-white border-[#1656A5]"
               : "text-[#1656A5] border-[#1656A5] hover:bg-[#1656A5] hover:text-white"

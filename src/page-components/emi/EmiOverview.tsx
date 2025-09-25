@@ -62,18 +62,18 @@ const EmiOverview = () => {
       <div className="section-spacing w-full px-6 md:px-8 lg:px-16 py-10 md:py-14">
         {/* Badge */}
         <div className="mb-4">
-          <span className="inline-block bg-[#E9F0FF] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" style={{padding:'8px'}}>We Take Care of You</span>
+          <span className="inline-block bg-[#1656A50D] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]">We Take Care of You</span>
         </div>
 
         {/* Heading */}
-        <h2 className="text-[#2C2C2C] font-semibold tracking-tight text-[32px] sm:text-[32px] md:text-[48px] leading-tight mb-8" style={{paddingBottom:'48px'}}>
+        <h2 className="text-[#2C2C2C] font-semibold tracking-tight text-[32px] sm:text-[32px] md:text-[48px] leading-tight mb-8 pb-12">
           Financial Support That Puts You First
         </h2>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3 lg:gap-4 mb-10" >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3 lg:gap-4 mb-10">
           {items.map((it, idx) => (
-            <div key={idx} className=" bg-white lg:h-[128px] border border-[#E3ECF7] rounded-[16px] p-5 md:p-6 h-full" style={{padding:'8px'}}>
+            <div key={idx} className="bg-white lg:h-[128px] border border-[#E3ECF7] rounded-[16px] p-2 h-full">
               <div className="flex flex-col items-start gap-3">
                 <div className="shrink-0">{it.icon}</div>
                 <p className="text-[#2C2C2C] text-[16px] md:text-[18px] leading-[1.6]">
@@ -85,8 +85,8 @@ const EmiOverview = () => {
         </div>
 
         {/* CTA */}
-        <div style={{paddingTop:'48px'}}>
-          <button type="button" className="inline-flex items-center justify-center bg-[#1656A5] text-white rounded-[12px] h-10 px-4 md:h-11 md:px-5 shadow" style={{padding:'8px'}}>
+        <div className="pt-12">
+          <button type="button" className="inline-flex items-center justify-center bg-[#1656A5] text-white rounded-[12px] h-10 px-4 md:h-11 md:px-5 shadow p-2">
             Know more about EMI facilities
           </button>
         </div>

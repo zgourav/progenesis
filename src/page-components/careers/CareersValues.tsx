@@ -51,13 +51,13 @@ const CareersValues = () => {
 	return (
 		<section className="section-spacing bg-[#FFFFFF]">
 			<div className="max-w-5xl carr-opp-padd" >
-				<span className="inline-block bg-[#E9F0FF] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" style={{padding:'8px'}}>What Defines Us</span>
+				<span className="inline-block bg-[#1656A50D] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" >What Defines Us</span>
 				<h2 className="mt-4 font-manrope font-semibold csLg:text-[48px] text-[32px] leading-tight text-gray-900 tracking-[-0.02em]">
 					Every company has its unique <br/> DNA. Here’s ours
 				</h2>
 			</div>
 
-			<div className="mt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-16 gap-y-12" style={{marginTop:'56px'}}>
+			<div className="mt-14 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-16 gap-y-12">
 				{items.map((item, idx) => (
 					<div key={idx} className="pr-6">
 						<div className="flex items-start gap-4">
@@ -67,7 +67,7 @@ const CareersValues = () => {
 								<p className="mt-2 text-[14px] leading-6 text-gray-600 max-w-md">{item.description}</p>
 							</div>
 						</div>
-						<div style={{marginTop:'32px'}} className="mt-8 h-px w-full bg-gray-200/70" />
+						<div className="mt-8 h-px w-full bg-gray-200/70" />
 					</div>
 				))}
 			</div>

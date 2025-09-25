@@ -79,7 +79,7 @@ export default function SingleDoctor({ selectedSlug }: { selectedSlug?: string }
 
   return (
     <section className="section-spacing w-full bg-white px-6 md:px-12 lg:px-[90px] py-10 md:py-14">
-      <div style={{ paddingBottom: "16px" }}>
+      <div className="pb-4">
         {selectedDoctor && (
           <div className="w-full border-b border-gray-200 py-8 md:py-10 mb-8 md:mb-10 last:border-b-0 last:mb-0">
             <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-6 items-start">
@@ -96,7 +96,7 @@ export default function SingleDoctor({ selectedSlug }: { selectedSlug?: string }
                 <p className="mt-2 text-[14px] md:text-[15px] text-[#6B7280] max-w-[780px]">{selectedDoctor.bio}</p>
 
                 {/* Meta row: Hospital | Specialty | Languages */}
-                <div className="mt-6 flex flex-row  items-start gap-8 md:gap-10" style={{paddingBottom:'16px'}}>
+                <div className="mt-6 flex flex-row items-start gap-8 md:gap-10 pb-4">
                   <div className="min-w-[68px] lg:min-w-[90px]">
                     <div className="text-sm text-[#1656A5]">Hospital</div>
                     <div className="text-[16px] text-[#2C2C2C] font-medium">{selectedDoctor.hospital}</div>
@@ -112,12 +112,12 @@ export default function SingleDoctor({ selectedSlug }: { selectedSlug?: string }
                 </div>
                 {/* CTA buttons under meta: row on mobile, column on desktop */}
                 <div className="mt-5 flex flex-row lg:flex-col items-start gap-3 lg:gap-4 ju">
-                  <button style={{padding:'8px'}}
-                    className="h-[44px] px-5 rounded-[16px] bg-white text-[#606060] border border-[#606060] text-sm font-semibold shadow-sm hover:bg-white hover:text-black hover:border-black"
+                  <button
+                    className="h-[44px] px-5 rounded-[16px] bg-white text-[#606060] border border-[#606060] text-sm font-semibold shadow-sm hover:bg-white hover:text-black hover:border-black p-2"
                   >
                     Call Our Team
                   </button>
-                  <button style={{padding:'8px'}}
+                  <button
                     className="h-[44px] px-5 rounded-[16px] bg-[#252525] text-white text-sm font-semibold shadow-sm hover:bg-[#000000]"
                   >
                     Book Your Appointment

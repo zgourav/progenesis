@@ -33,41 +33,55 @@ const OurStories: React.FC = () => {
   const [activeTab, setActiveTab] = useState<number>(0);
 
   return (
-    <section className="w-full px-6 lg:px-[90px] py-20 bg-white">
+    <section className="w-full  bg-white">
       <div className="grid grid-cols-1 csLg:grid-cols-[300px_1fr] gap-10 csLg:gap-x-28 xl:gap-x-32 section-spacing" >
         {/* Left Column: Heading + Tab List (desktop only) */}
         <div className="hidden csLg:flex flex-col gap-12">
           {/* Heading */}
           <div>
-            <span className="inline-block bg-[#E9F0FF] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" style={{padding:'8px'}}>Why choose us</span>
+            <span className="inline-block bg-[#1656A50D] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" >Why choose us</span>
             <h2 className="text-4xl font-normal text-black leading-[56px] tracking-tight font-[Manrope]">
               Our Story
             </h2>
           </div>
 
           {/* Tab List */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col pt-4">
             {tabItems.map((item, index) => (
-              <div
-                key={index}
-                onClick={() => setActiveTab(index)}
-                className="flex items-center justify-between cursor-pointer"
-              >
-                <span
-                  className={`text-lg csLg:text-[32px] font-medium font-[Manrope] tracking-tight ${
-                    activeTab === index ? 'text-[#1656A5]' : 'text-gray-600'
-                  }`}
-                >
-                  {item.title}
-                </span>
-                <span
-                  className={`w-2 h-2 rounded-full ml-4 ${
-                    activeTab === index ? 'bg-[#1656A5]' : 'bg-gray-400'
-                  }`}
-                />
-              </div>
+            <div key={index}>
+            <div className="h-[1px] w-full bg-[#A5A5A5] relative">
+            {activeTab === index && (
+            <div className="absolute left-0 top-[-1px] h-[2px] w-32 bg-[#1656A5]" />
+            )}
+             </div>
+            <div
+            onClick={() => setActiveTab(index)}
+            className="flex items-center justify-between cursor-pointer py-3"
+            >
+            <span
+            className={`text-lg csLg:text-[32px] font-medium font-[Manrope] tracking-tight ${
+            activeTab === index ? "text-[#1656A5]" : "text-gray-600"
+            }`}
+            >
+            {item.title}
+            </span>
+            <span
+            className={`w-2 h-2 rounded-full ml-4 ${
+            activeTab === index ? "bg-[#1656A5]" : "bg-gray-400"
+            }`}
+            />
+            </div>
+            {/* Separator line (after every tab) */}
+            {index === tabItems.length - 1 && (
+            <div className="h-[1px] w-full bg-[#A5A5A5] relative">
+            </div>
+            )}
+
+      
+            </div>
             ))}
           </div>
+
         </div>
 
         {/* Right Column: Paragraph + Image + Info Box */}
@@ -86,7 +100,7 @@ const OurStories: React.FC = () => {
     <img
       src={tabItems[activeTab].image}
       alt={tabItems[activeTab].title}
-      className="w-[90%] h-[90%] object-cover rounded-xl transition-all duration-300 ease-in-out"
+      className="w-[100%] h-[100%] object-cover rounded-xl transition-all duration-300 ease-in-out"
     />
   </div>
 

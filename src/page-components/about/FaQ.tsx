@@ -68,16 +68,16 @@ const FaQ: React.FC = () => {
   const activeItems = tabs[activeTab].items;
 
   return (
-    <section className="section-spacing w-full bg-white px-6 md:px-12 lg:px-[90px] py-12 md:py-16 font-[Manrope]" >
+    <section className="section-spacing w-full bg-[#FAFAFA] px-6 md:px-12 lg:px-[90px] py-12 md:py-16 font-[Manrope]" >
       <div className="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-10">
         {/* Left intro */}
         <div>
-          <span className="inline-block bg-[#E9F0FF] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" style={{padding:'8px'}}>Real Stories. Real Miracles.</span>
+          <span className="inline-block bg-[#1656A50D] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]">Real Stories. Real Miracles.</span>
           <div style={{paddingBottom:'20px'}}>
           <h2 className="text-[36px] md:text-[44px] font-semibold leading-tight text-[#2C2C2C]">
-            Quick answers to
-            <br />
-            <span className="text-[#77B255]">the most common</span>
+            Quick answers to the
+            
+            <span className="text-[#77B255]"> most common</span>
             <br />
             <span className="text-[#77B255]">fertility-related</span>
             <br />
@@ -105,7 +105,7 @@ const FaQ: React.FC = () => {
                       ? "bg-[#1656A5] text-white border-[#1656A5]"
                       : "bg-white text-[#2C2C2C] border-gray-300 hover:border-blue-400"
                   }`}
-                  style={{padding:'8px'}}
+                  
                 >
                   {t.label}
                 </button>
@@ -127,13 +127,13 @@ const FaQ: React.FC = () => {
                   <button
                     aria-expanded={open}
                     onClick={() => setOpenIndex(open ? -1 : i)}
-                    className="w-full flex items-center justify-between gap-3 text-left px-5 py-4 md:px-5 md:py-4 min-h-[48px] text-[14px] md:text-[15px] text-[#2C2C2C]"
+                    className="w-full flex items-center justify-between gap-3 text-left md:py-4 rounded-2xl  text-[14px] md:text-[15px] text-[#2C2C2C]"
                   >
                     <span style={{padding:'8px'}}>{item.q}</span>
                     <span className="text-gray-500">{open ? "▴" : "▾"}</span>
                   </button>
                   {open && (
-                    <div className="px-5 py-4 md:px-5 md:py-4 text-left text-[14px] text-[#4B5563]" style={{padding:'8px'}}>
+                    <div className="px-2 py-4 md:px-2 md:py-4 text-left text-[14px] text-[#4B5563]" >
                       {item.a}
                     </div>
                   )}
