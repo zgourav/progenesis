@@ -63,7 +63,7 @@ const WhyProgenesis: React.FC = () => {
           </h2></div>
 
           {/* List */}
-          <div className="mt-6 space-y-4" style={{paddingTop:'30px'}}>
+          <div className="mt-6 space-y-4 pt-8">
             {slides.map((s, idx) => {
               const activeRow = idx === active;
               return (

@@ -77,7 +77,7 @@ const DoctorsInfo: React.FC = () => {
         Meet our Experts
       </h2>
 
-      <div className="" style={{paddingBottom:'16px'}}>
+      <div className="pb-4">
         {doctors.map((d, idx) => (
           <div key={idx} className="w-full border-b border-gray-200 py-8 md:py-10 mb-8 md:mb-10 last:border-b-0 last:mb-0">
             <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr_260px] gap-6 items-start">
@@ -125,9 +125,9 @@ const DoctorsInfo: React.FC = () => {
                 </div>
 
                 {/* CTA */}
-                <button style={{padding:'8px'}}
+                <button
                   onClick={() => router.push(`/doctors/${d.slug}`)}
-                  className="h-[44px] px-5 rounded-[16px] bg-[#252525] text-white text-sm font-semibold shadow-sm hover:bg-[#000000]"
+                  className="h-[44px] px-5 rounded-[16px] bg-[#252525] text-white text-sm font-semibold shadow-sm hover:bg-[#000000] p-2"
                 >
                   Book Your Appointment
                 </button>

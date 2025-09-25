@@ -20,7 +20,7 @@ const CareersLanding = () => {
                             Growth & Purpose
                         </h1>
                         <div>
-                            <button style={{padding:'8px'}} className="bg-[#252525] h-[40px] text-[#F9F9F9] font-manrope csLg:text-[18px] text-[14px] rounded-xl">
+                            <button className="bg-[#252525] h-[40px] text-[#F9F9F9] font-manrope csLg:text-[18px] text-[14px] rounded-xl p-2">
                                 See Open Positions
                             </button>
                         </div>
@@ -52,7 +52,7 @@ const CareersLanding = () => {
                         className="w-[860px] sm:w-full csLg:h-[560px] h-[260px]  flex-none object-cover rounded-xl snap-start"
                     />
                 </div>
-                <div className="flex items-center justify-center gap-2 mt-6 md:mt-8" style={{paddingTop:'16px'}}>
+                <div className="flex items-center justify-center gap-2 mt-6 md:mt-8 pt-4">
                     <button
                         aria-label="Previous"
                         onClick={() => {

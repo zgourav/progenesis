@@ -2,7 +2,7 @@ import React from "react";
 
 const JoinUs: React.FC = () => {
   return (
-    <div className="section-spacing flex flex-col csLg:flex-row items-center bg-gradient-to-r from-[#f6fbf5] via-[#f6fbf5] to-[#e3eef7] py-10 px-4 gap-6" style={{paddingBottom:'1px'}}>
+    <div className="section-spacing flex flex-col csLg:flex-row items-center bg-gradient-to-r from-[#f6fbf5] via-[#f6fbf5] to-[#e3eef7] py-10 px-4 gap-6 pb-[1px]">
       {/* Left: Doctor Image (mobile: comes second) */}
       <div className="order-2 csLg:order-1 flex-shrink-0 w-full csLg:w-[350px] flex justify-center csLg:justify-end">
         <img

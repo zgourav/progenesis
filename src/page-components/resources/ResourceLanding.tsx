@@ -14,7 +14,7 @@ const ResourceLanding = () => {
 
           <div className="section-spacing absolute inset-x-0 bottom-0 px-4 sm:px-6 md:px-10 lg:px-14 xl:px-20 pb-10 md:pb-14 lg:pb-16">
             <div className="max-w-6xl">
-              <span className="inline-block text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" style={{padding:'8px'}}>Featured</span>
+              <span className="inline-block text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px] p-2">Featured</span>
 
               <h1 className="text-white font-semibold leading-tight md:leading-tight lg:leading-tight text-[28px] sm:text-[34px] md:text-[40px] lg:text-[52px] xl:text-[58px]">
                 Our Complete Guide to Parenthood

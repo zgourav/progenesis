@@ -29,7 +29,7 @@ const VisionMission: React.FC = () => {
   return (
     <section id="our-vision" className="w-full bg-white px-6 md:px-16 py-12 section-spacing" >
       {/* Top Label */}
-      <div style={{paddingBottom:'50px'}}>
+      <div className="pb-12">
       <span className="inline-block bg-[#1656A50D] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]">Our Vision & Mission</span>
 
       {/* Section Title */}
@@ -39,7 +39,7 @@ const VisionMission: React.FC = () => {
       </div>
 
       {/* Our Vision Row */}
-      <div className="border-t border-gray-200 pt-8 pb-6 md:flex md:space-x-12 " style={{paddingTop:'40px', paddingBottom:'40px'}} >
+      <div className="border-t border-gray-200 pt-10 pb-10 md:flex md:space-x-12">
         <div className="md:w-1/3 mb-4 md:mb-0">
           <h3 className="text-[32px] leading-[40px] tracking-[-0.02em] font-normal text-gray-900 csLg:text-[48px] csLg:font-medium">Our Vision</h3>
         </div>
@@ -57,7 +57,7 @@ const VisionMission: React.FC = () => {
       <div className="border-t border-gray-200 my-6"></div>
 
       {/* Our Mission Row */}
-      <div className="pb-6 md:flex md:space-x-12 " style={{paddingTop:'40px', paddingBottom:'40px'}} >
+      <div className="pb-10 pt-10 md:flex md:space-x-12">
         <div className="md:w-1/3 mb-4 md:mb-0">
           <h3 className="text-[32px] leading-[40px] tracking-[-0.02em] font-normal text-gray-900 csLg:text-[48px] csLg:font-medium">Our Mission</h3>
         </div>

@@ -16,8 +16,8 @@ const AboutMainBanner = () => {
                         </h1>
 
                     </div>
-                     <div className='pt-[44px]'style={{paddingTop:'44px'}}>
-                        <span className='bg-[#252525] csLg:text-[24px] p-8 text-[#F9F9F9]' style={{padding:"12px",borderRadius:"8px"}}>
+                     <div className='pt-11'>
+                        <span className='bg-[#252525] csLg:text-[24px] p-3 text-[#F9F9F9] rounded-lg'>
                         Book Your Appointment
                         </span>
                      </div>

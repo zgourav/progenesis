@@ -36,16 +36,16 @@ const benefits: Benefit[] = [
 const CareersBenefits = () => {
 	return (
 		<section className="section-spacing mx-auto px-4 py-16 bg-[#FAFAFA]">
-			<div className="max-w-4xl" style={{paddingBottom:'80px'}}>
-				<span className="inline-block bg-[#1656A50D] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" >We Take Care of You</span>
+			<div className="max-w-4xl pb-20">
+				<span className="inline-block bg-[#1656A50D] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]">We Take Care of You</span>
 				<h2 className="mt-4 font-manrope font-semibold csLg:text-[56px] text-[32px] leading-tight text-gray-900 tracking-[-0.02em]">
 					Grow personally, professionally, purposefully.
 				</h2>
 			</div>
 
-			<div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6" style={{padding:'8px'}}>
+			<div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6 p-2">
 				{benefits.map((benefit, idx) => (
-					<div key={idx} className="rounded-2xl bg-[#F2F2F2] border border-gray-100 p-6 md:p-8" style={{padding:'12px'}}>
+					<div key={idx} className="rounded-2xl bg-[#F2F2F2] border border-gray-100 p-3">
 						<div className="flex flex-col items-start gap-3">
 							<div>{benefit.icon}</div>
 							<h3 className="font-manrope text-[20px] md:text-[22px] font-semibold text-gray-900">{benefit.title}</h3>

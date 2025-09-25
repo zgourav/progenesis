@@ -57,7 +57,7 @@ const CareersValues = () => {
 				</h2>
 			</div>
 
-			<div className="mt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-16 gap-y-12" style={{marginTop:'56px'}}>
+			<div className="mt-14 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-16 gap-y-12">
 				{items.map((item, idx) => (
 					<div key={idx} className="pr-6">
 						<div className="flex items-start gap-4">
@@ -67,7 +67,7 @@ const CareersValues = () => {
 								<p className="mt-2 text-[14px] leading-6 text-gray-600 max-w-md">{item.description}</p>
 							</div>
 						</div>
-						<div style={{marginTop:'32px'}} className="mt-8 h-px w-full bg-gray-200/70" />
+						<div className="mt-8 h-px w-full bg-gray-200/70" />
 					</div>
 				))}
 			</div>

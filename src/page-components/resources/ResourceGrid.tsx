@@ -62,11 +62,11 @@ const ResourceGrid = () => {
           Insights & Inspiration for Your Parenthood Journey
         </h3>
 
-        <div className="mt-8 md:mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" style={{paddingTop:'56px'}}>
+        <div className="mt-8 md:mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-14">
           {cards.map((c, idx) => (
             <article key={idx} className="group">
               <p className="text-gray-400 text-[12px] md:text-[13px] mb-2">{c.views} views • {c.posted}</p>
-              <div className="relative w-full aspect-[16/11] overflow-hidden rounded-xl bg-gray-100" style={{marginTop:'8px'}}>
+              <div className="relative w-full aspect-[16/11] overflow-hidden rounded-xl bg-gray-100 mt-2">
                 <img
                   src={c.img}
                   alt={c.title}
