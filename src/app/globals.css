@@ -1,13 +1,16 @@
-/* custom styles after */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
-
-@tailwind base;
-@tailwind components;
+@import "tailwindcss";
 @tailwind utilities;
+@config "../../tailwind.config.ts";
 
-/* ensure Manrope is applied after Tailwind base */
-@layer base {
-  html, body {
-    font-family: 'Manrope', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  }
+
+:root {
+  --background: #F3F5F8;
+  --foreground: #2C2C2C;
+  --font-manrope: var(--font-manrope);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope);
 }

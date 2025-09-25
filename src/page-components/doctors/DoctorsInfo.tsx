@@ -79,7 +79,7 @@ const DoctorsInfo: React.FC = () => {
 
       <div className="" style={{paddingBottom:'16px'}}>
         {doctors.map((d, idx) => (
-          <div key={idx} className="w-full border-b border-gray-200 py-8 md:py-10 mb-8 md:mb-10 last:border-b-0 last:mb-0">
+          <div key={idx} className="w-full p-10 bg-pink-600 border-b border-gray-200 py-8 md:py-10 mb-8 md:mb-10 last:border-b-0 last:mb-0">
             <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr_260px] gap-6 items-start">
               {/* Left: Image */}
               <div className="w-full h-full md:h-full lg:h-full overflow-hidden rounded-[16px] bg-gray-100">
