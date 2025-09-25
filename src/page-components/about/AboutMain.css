@@ -1,0 +1,38 @@
+.section-spacing {
+  padding-left: 120px;
+  padding-bottom: 80px;
+  padding-top: 80px;
+  padding-right: 120px;
+}
+.Blog-Cta{
+  padding-left: 400px;
+  padding-right: 100px;
+}
+
+
+.why-bott-pad{
+  padding-bottom:120px;
+}
+
+@media (max-width: 376px) {
+  /* iPhone SE width */
+  .section-spacing {
+    padding-left: 16px;
+    padding-top: 30px;
+    padding-right: 16px;
+    padding-bottom: 40px;
+  }
+  .why-bott-pad{
+    padding-bottom:1px;
+  }
+ .Blog-Cta{
+  padding-right: 16px;
+  padding-left: 16px;
+ }
+}
+
+
+
+
+
+
