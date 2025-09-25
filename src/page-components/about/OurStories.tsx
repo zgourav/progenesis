@@ -33,10 +33,10 @@ const OurStories: React.FC = () => {
   const [activeTab, setActiveTab] = useState<number>(0);
 
   return (
-    <section className="w-full  bg-white">
-      <div className="grid grid-cols-1 csLg:grid-cols-[300px_1fr] gap-10 csLg:gap-x-28 xl:gap-x-32 section-spacing" >
-        {/* Left Column: Heading + Tab List (desktop only) */}
-        <div className="hidden csLg:flex flex-col gap-12">
+    <section className="w-full bg-white">
+      <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] lg:grid-cols-[300px_1fr] gap-6 md:gap-8 lg:gap-10 xl:gap-x-32 section-spacing" >
+        {/* Left Column: Heading + Tab List (hidden on mobile, visible on md and up) */}
+        <div className="hidden md:flex flex-col gap-8 lg:gap-12">
           {/* Heading */}
           <div>
             <span className="inline-block bg-[#1656A50D] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" >Why choose us</span>
@@ -94,13 +94,13 @@ const OurStories: React.FC = () => {
           </p>
 
           {/* Image + Info Box */}
-          <div className="flex flex-col md:flex-row gap-5 w-full max-w-full overflow-hidden">
+          <div className="flex flex-col md:flex-row gap-4 md:gap-5 w-full max-w-full overflow-hidden">
   {/* Image */}
-  <div className="w-full md:w-1/2 max-w-[604px] aspect-[4/3] rounded-[20px] overflow-hidden flex items-center justify-center">
+  <div className="w-full md:w-1/2 lg:max-w-[604px] aspect-[4/3] rounded-[16px] md:rounded-[20px] overflow-hidden flex items-center justify-center">
     <img
       src={tabItems[activeTab].image}
       alt={tabItems[activeTab].title}
-      className="w-[100%] h-[100%] object-cover rounded-xl transition-all duration-300 ease-in-out"
+      className="w-full h-full object-cover rounded-xl transition-all duration-300 ease-in-out"
     />
   </div>
 
@@ -118,11 +118,11 @@ const OurStories: React.FC = () => {
 
         </div>
 
-        {/* Mobile & tablet: show heading + all stories sequentially, hide tabs */}
-        <div className="csLg:hidden flex flex-col gap-8">
+        {/* Mobile only: show heading + all stories sequentially */}
+        <div className="md:hidden flex flex-col gap-6 md:gap-8">
           {/* Mobile heading */}
           <div>
-            <span className="inline-block bg-[#E9F0FF] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" style={{padding:'8px'}}>Why choose us</span>
+            <span className="inline-block bg-[#E9F0FF] text-[#1656A5] text-[12px] px-3 py-2 rounded-[8px]">Why choose us</span>
             <h2 className="text-3xl font-normal text-black leading-[42px] tracking-tight font-[Manrope]">
               Our Story
             </h2>

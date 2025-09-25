@@ -52,8 +52,8 @@ const WhyProgenesis: React.FC = () => {
   const current = slides[active];
 
   return (
-    <section id="why-choose-us" className="w-full bg-[#1656A50D] px-6 md:px-12 lg:px-[90px] py-12 md:py-16 section-spacing" >
-      <div className="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-10 items-start">
+    <section id="why-choose-us" className="w-full bg-[#1656A50D] px-6 md:px-10 lg:px-[90px] py-12 md:py-14 lg:py-16 section-spacing" >
+      <div className="grid grid-cols-1 md:grid-cols-[320px_1fr] lg:grid-cols-[420px_1fr] gap-6 md:gap-8 lg:gap-10 items-start">
         {/* Left column */}
         <div>
           <div className="why-bott-pad">

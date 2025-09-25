@@ -27,9 +27,9 @@ const HoverText: React.FC<{ text: string; className?: string }> = ({ text, class
 
 const VisionMission: React.FC = () => {
   return (
-    <section id="our-vision" className="w-full bg-white px-6 md:px-16 py-12 section-spacing" >
+    <section id="our-vision" className="w-full bg-white px-6 md:px-12 lg:px-16 py-10 md:py-12 section-spacing" >
       {/* Top Label */}
-      <div className="pb-12">
+      <div className="pb-8 md:pb-10 lg:pb-12">
       <span className="inline-block bg-[#1656A50D] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]">Our Vision & Mission</span>
 
       {/* Section Title */}

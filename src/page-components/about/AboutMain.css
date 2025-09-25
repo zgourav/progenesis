@@ -4,31 +4,65 @@
   padding-top: 80px;
   padding-right: 120px;
 }
-.Blog-Cta{
+
+.Blog-Cta {
   padding-left: 400px;
   padding-right: 100px;
 }
 
-
-.why-bott-pad{
-  padding-bottom:120px;
+.why-bott-pad {
+  padding-bottom: 120px;
 }
 
-@media (max-width: 376px) {
-  /* iPhone SE width */
+/* Mobile screens (up to 767px) */
+@media (max-width: 767px) {
   .section-spacing {
     padding-left: 16px;
     padding-top: 30px;
     padding-right: 16px;
     padding-bottom: 40px;
   }
-  .why-bott-pad{
-    padding-bottom:1px;
+  .why-bott-pad {
+    padding-bottom: 40px;
   }
- .Blog-Cta{
-  padding-right: 16px;
-  padding-left: 16px;
- }
+  .Blog-Cta {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
+
+/* Medium screens (tablets, 768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .section-spacing {
+    padding-left: 60px;
+    padding-top: 60px;
+    padding-right: 60px;
+    padding-bottom: 60px;
+  }
+  .why-bott-pad {
+    padding-bottom: 80px;
+  }
+  .Blog-Cta {
+    padding-left: 200px;
+    padding-right: 60px;
+  }
+}
+
+/* Large screens (small laptops, 1024px to 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .section-spacing {
+    padding-left: 90px;
+    padding-top: 70px;
+    padding-right: 90px;
+    padding-bottom: 70px;
+  }
+  .why-bott-pad {
+    padding-bottom: 100px;
+  }
+  .Blog-Cta {
+    padding-left: 300px;
+    padding-right: 80px;
+  }
 }
 
 
