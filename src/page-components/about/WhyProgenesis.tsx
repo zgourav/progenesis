@@ -57,7 +57,7 @@ const WhyProgenesis: React.FC = () => {
         {/* Left column */}
         <div>
           <div className="why-bott-pad">
-          <span className="inline-block bg-[#E9F0FF] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" style={{padding:'8px'}}>Why choose us</span>
+          <span className="inline-block bg-[#1656A50D] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]">Why choose us</span>
           <h2 className="mt-3 text-[36px] md:text-[42px] font-semibold text-gray-900">
             Why Progenesis?
           </h2></div>
@@ -73,7 +73,7 @@ const WhyProgenesis: React.FC = () => {
                   className="w-full text-left group"
                 >
                   {/* Top separator line (always visible) */}
-                  <div className="h-[1px] w-full bg-gray-200 relative">
+                  <div className="h-[1px] w-full bg-[#A5A5A5] relative">
                     {activeRow && (
                       <div className="absolute left-0 top-[-1px] h-[2px] w-32 bg-[#1656A5]" />
                     )}
@@ -93,7 +93,11 @@ const WhyProgenesis: React.FC = () => {
                     </p>
                   )}
                   {/* Bottom separator line (always visible) */}
-                  <div className="mt-3 h-[1px] w-full bg-gray-200" />
+                  {idx === slides.length - 1 && (
+                    <div className="h-[1px] w-full bg-[#A5A5A5] relative">
+                    
+                   </div>
+               )}
                 </button>
               );
             })}
@@ -101,7 +105,7 @@ const WhyProgenesis: React.FC = () => {
         </div>
 
         {/* Right banner */}
-        <div className="relative w-full rounded-2xl overflow-hidden min-h-[220px] shadow-sm csLg:min-h-[480px] flex items-center justify-center" style={{}}>
+        <div className="relative w-full rounded-2xl overflow-hidden min-h-[220px] shadow-sm csLg:min-h-[720px] flex items-center justify-center" style={{}}>
           <div
             className="absolute inset-0 bg-cover bg-center items-center"
             style={{ backgroundImage: `url(${current.image})` }}

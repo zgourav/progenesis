@@ -72,14 +72,14 @@ const DoctorsInfo: React.FC = () => {
   return (
     <section className="section-spacing w-full bg-white px-6 md:px-12 lg:px-[90px] py-10 md:py-14">
       {/* Top breadcrumb tag */}
-      <span className="inline-block bg-[#E9F0FF] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" style={{padding:'8px'}}>Our Doctors</span>
+      <span className="inline-block bg-[#1656A50D] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" >Our Doctors</span>
       <h2 className="text-[32px] gap-[16px] md:text-[40px] font-semibold leading-tight text-[#2C2C2C] mb-2 font-[Manrope]" >
         Meet our Experts
       </h2>
 
       <div className="" style={{paddingBottom:'16px'}}>
         {doctors.map((d, idx) => (
-          <div key={idx} className="w-full p-10 bg-pink-600 border-b border-gray-200 py-8 md:py-10 mb-8 md:mb-10 last:border-b-0 last:mb-0">
+          <div key={idx} className="w-full border-b border-gray-200 py-8 md:py-10 mb-8 md:mb-10 last:border-b-0 last:mb-0">
             <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr_260px] gap-6 items-start">
               {/* Left: Image */}
               <div className="w-full h-full md:h-full lg:h-full overflow-hidden rounded-[16px] bg-gray-100">

@@ -51,7 +51,7 @@ const CareersValues = () => {
 	return (
 		<section className="section-spacing bg-[#FFFFFF]">
 			<div className="max-w-5xl carr-opp-padd" >
-				<span className="inline-block bg-[#E9F0FF] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" style={{padding:'8px'}}>What Defines Us</span>
+				<span className="inline-block bg-[#1656A50D] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" >What Defines Us</span>
 				<h2 className="mt-4 font-manrope font-semibold csLg:text-[48px] text-[32px] leading-tight text-gray-900 tracking-[-0.02em]">
 					Every company has its unique <br/> DNA. Here’s ours
 				</h2>

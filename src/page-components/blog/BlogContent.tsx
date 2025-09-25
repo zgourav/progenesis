@@ -7,7 +7,7 @@ const BlogContent = () => {
       {/* Main Content */}
       <div className="relative w-full md:flex md:items-start">
         {/* Social Buttons at left-top of the content container */}
-        <div className="hidden md:flex flex-col gap-3 md:mr-6" style={{paddingRight:'16px', gap:'16px'}}>
+        <div className="hidden md:flex flex-col gap-4 md:mr-6 pr-4">
           <a aria-label="Share on Facebook" href="#" className="w-10 h-10 rounded-full border border-black bg-black text-white flex items-center justify-center hover:bg-white hover:text-black transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M22 12.06C22 6.503 17.523 2 12 2S2 6.503 2 12.06C2 17.08 5.656 21.246 10.438 22v-7.03H7.898v-2.91h2.54V9.845c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.47h-1.26c-1.242 0-1.63.776-1.63 1.572v1.888h2.773l-.443 2.91h-2.33V22C18.344 21.246 22 17.08 22 12.06z"/></svg>
           </a>
@@ -20,12 +20,12 @@ const BlogContent = () => {
         </div>
         {/* Main Title */}
         <div className="flex-1" >
-        <h1 className="text-4xl md:text-5xl font-bold text-[#2C2C2C] mb-8 leading-tight text-start" style={{paddingBottom:'20px'}}>
+        <h1 className="text-4xl md:text-5xl font-bold text-[#2C2C2C] mb-8 leading-tight text-start pb-5">
           Every Story Begins with Hope
         </h1>
 
         {/* Introduction */}
-        <div className="prose prose-lg max-w-none text-justify" style={{paddingBottom:'20px'}}>
+        <div className="prose prose-lg max-w-none text-justify pb-5">
           <p className="text-[#606060] leading-relaxed mb-6 text-lg">
             The dream of parenthood is one of the most profound desires that can fill a person's heart. It's a journey that begins with hope, a tiny spark that ignites the possibility of creating new life, of nurturing a child, of building a family. Yet, for many couples, this journey is not always straightforward. It can be filled with challenges that test both the body and the spirit—medical complexities, emotional roller coasters, financial considerations, and the weight of uncertainty that can sometimes feel overwhelming.
           </p>
@@ -40,12 +40,12 @@ const BlogContent = () => {
         </div>
 
         {/* Knowledge Section */}
-        <div className="mb-12" style={{paddingBottom:'20px'}}>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-8 leading-tight" style={{paddingBottom:'20px'}}>
+        <div className="mb-12 pb-5">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-8 leading-tight pb-5">
             Knowledge Empowers Your Choices
           </h2>
           
-          <div className="prose prose-lg max-w-none text-justify" style={{paddingBottom:'20px'}}>
+          <div className="prose prose-lg max-w-none text-justify pb-5">
             <p className="text-[#606060] leading-relaxed mb-6 text-lg">
               In the world of fertility treatment, knowledge is not just power—it's peace of mind. Every decision you make on this journey should be informed, understood, and aligned with your personal values and circumstances. At Progenesis, we believe that transparency and education are fundamental to your success and well-being.
             </p>
@@ -61,12 +61,12 @@ const BlogContent = () => {
         </div>
 
         {/* Heart of Journey Section */}
-        <div className="mb-12" style={{paddingBottom:'20px'}}>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-8 leading-tight" style={{paddingBottom:'20px'}}>
+        <div className="mb-12 pb-5">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-8 leading-tight pb-5">
             The Heart of the Journey
           </h2>
           
-          <div className="prose prose-lg max-w-none text-justify" style={{paddingBottom:'20px'}}>
+          <div className="prose prose-lg max-w-none text-justify pb-5">
             <p className="text-[#606060] leading-relaxed mb-6 text-lg">
               While medical expertise forms the foundation of fertility treatment, we know that emotional support is equally crucial. The journey to parenthood can evoke a complex tapestry of emotions—excitement and anticipation, worry and fear, joy and disappointment, hope and grief. These feelings are not just normal; they're an integral part of your story.
             </p>
@@ -82,12 +82,12 @@ const BlogContent = () => {
         </div>
 
         {/* Conclusion Section */}
-        <div className="mb-12" style={{paddingBottom:'20px'}}>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-8 leading-tight" style={{paddingBottom:'20px'}}>
+        <div className="mb-12 pb-5">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#2C2C2C] mb-8 leading-tight pb-5">
             Conclusion
           </h2>
           
-          <div className="prose prose-lg max-w-none text-justify" style={{paddingBottom:'20px'}}>
+          <div className="prose prose-lg max-w-none text-justify pb-5">
             <p className="text-[#606060] leading-relaxed mb-6 text-lg">
               The path to parenthood is not just a medical journey—it's a deeply personal story of courage, learning, and hope. It's about making informed decisions, finding emotional support, and believing in the possibility of your dreams. At Progenesis, we're honored to be part of your story, combining the best of science with the warmth of human compassion.
             </p>

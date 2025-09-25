@@ -57,7 +57,7 @@ const ResourceGrid = () => {
   return (
     <section className="section-spacing px-4 sm:px-6 md:px-10 lg:px-14 xl:px-20 py-10 md:py-14">
       <div className="max-w-7xl mx-auto">
-        <span className="inline-block bg-[#E9F0FF] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" style={{padding:'8px'}}>Insights</span>
+        <span className="inline-block bg-[#1656A50D] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]">Insights</span>
         <h3 className="text-[22px] sm:text-[26px] md:text-[34px] lg:text-[38px] font-semibold text-gray-900 leading-snug max-w-3xl">
           Insights & Inspiration for Your Parenthood Journey
         </h3>

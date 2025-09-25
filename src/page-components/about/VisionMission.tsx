@@ -30,7 +30,7 @@ const VisionMission: React.FC = () => {
     <section id="our-vision" className="w-full bg-white px-6 md:px-16 py-12 section-spacing" >
       {/* Top Label */}
       <div style={{paddingBottom:'50px'}}>
-      <span className="inline-block bg-[#E9F0FF] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" style={{padding:'8px'}}>Our Vision & Mission</span>
+      <span className="inline-block bg-[#1656A50D] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]">Our Vision & Mission</span>
 
       {/* Section Title */}
       <h2 className="font-[Manrope] text-[32px] leading-[40px] tracking-[-0.02em] font-normal text-gray-900 mb-12 csLg:text-[48px] csLg:leading-[56px] csLg:font-semibold">

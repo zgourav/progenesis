@@ -21,7 +21,7 @@ const ResourceStories = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between" style={{paddingBottom:'16px'}}>
           <div>
-            <span className="inline-block bg-[#E9F0FF] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" style={{padding:'8px'}}>First Person. Real Stories.</span>
+            <span className="inline-block bg-[#1656A50D] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]">First Person. Real Stories.</span>
             <h3 className="mt-1 text-[22px] sm:text-[26px] md:text-[32px] lg:text-[34px] font-semibold text-gray-900">
               Inspiring stories of strength & Victories
             </h3>

@@ -1,7 +1,14 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { Manrope } from 'next/font/google';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
+const manrope = Manrope({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-manrope',
+});
 
 export const metadata: Metadata = {
   title: "Progenesis",
@@ -15,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="antialiased">
+      <body className={`antialiased ${manrope.variable}`}>
         <Navbar />
         {children}
         <Footer />

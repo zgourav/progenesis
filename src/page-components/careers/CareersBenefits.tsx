@@ -37,7 +37,7 @@ const CareersBenefits = () => {
 	return (
 		<section className="section-spacing mx-auto px-4 py-16 bg-[#FAFAFA]">
 			<div className="max-w-4xl" style={{paddingBottom:'80px'}}>
-				<span className="inline-block bg-[#E9F0FF] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" style={{padding:'8px'}}>We Take Care of You</span>
+				<span className="inline-block bg-[#1656A50D] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" >We Take Care of You</span>
 				<h2 className="mt-4 font-manrope font-semibold csLg:text-[56px] text-[32px] leading-tight text-gray-900 tracking-[-0.02em]">
 					Grow personally, professionally, purposefully.
 				</h2>
