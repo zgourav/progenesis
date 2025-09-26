@@ -26,9 +26,9 @@ const items = [
 
 const Impact: React.FC = () => {
   return (
-    <section id="impact-growth" className="w-full font-[Manrope] bg-[#1656A50D] px-6 md:px-12 lg:px-[90px] py-12 md:py-16 section-spacing" >
+    <section id="impact-growth" className="w-full font-[Manrope] bg-[#1656A50D] px-6 md:px-10 lg:px-[90px] py-10 md:py-14 lg:py-16 section-spacing" >
       {/* Label & Heading */}
-      <div className="max-w-5xl">
+      <div className="max-w-5xl md:max-w-3xl lg:max-w-5xl">
         <span className="inline-block bg-[#1656A50D] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" >Impact & Growth</span>
         <h2 className="csLg:text-[48px] csLg:leading-[56px] text-[32px] tracking-[0] text-[#2C2C2C] font-normal mb-10">
           Extending care through

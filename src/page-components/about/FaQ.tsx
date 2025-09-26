@@ -68,8 +68,8 @@ const FaQ: React.FC = () => {
   const activeItems = tabs[activeTab].items;
 
   return (
-    <section className="section-spacing w-full bg-[#FAFAFA] px-6 md:px-12 lg:px-[90px] py-12 md:py-16 font-[Manrope]" >
-      <div className="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-10">
+    <section className="section-spacing w-full bg-[#FAFAFA] px-6 md:px-10 lg:px-[90px] py-10 md:py-14 lg:py-16 font-[Manrope]" >
+      <div className="grid grid-cols-1 md:grid-cols-[360px_1fr] lg:grid-cols-[420px_1fr] gap-6 md:gap-8 lg:gap-10">
         {/* Left intro */}
         <div>
           <span className="inline-block bg-[#1656A50D] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]">Real Stories. Real Miracles.</span>

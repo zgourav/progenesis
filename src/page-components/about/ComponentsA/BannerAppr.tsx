@@ -103,7 +103,7 @@ const BannerOfApproach: React.FC = () => {
     <div className="w-full bg-white px-6 md:px-12 lg:px-[90px] py-10 md:py-12 section-spacing" >
       {/* Headings */}
       <div className="mb-8" style={{paddingBottom:'50px'}}>
-        <span className="inline-block bg-[#1656A50D] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]">Our Approach</span>
+        <span className="inline-block bg-[#E9F0FF] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]" style={{padding:'8px'}}>Our Approach</span>
         <h2 className="text-[34px] md:text-[44px] lg:text-[48px] leading-tight tracking-[-0.02em] text-black font-[Manrope] font-normal">
           Compassion Meets Science
         </h2>

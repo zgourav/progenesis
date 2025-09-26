@@ -2,12 +2,12 @@ import React from 'react'
 
 const AboutMainBanner = () => {
     return (
-        <div className='bg-gradient-to-r from-green-100 via-white to-sky-200  grid grid-cols-12 gap-4'>
+        <div className='bg-gradient-to-r from-green-100 via-white to-sky-200  grid grid-cols-12'>
           
-                <div className='col-span-12 csLg:col-span-8 section-spacing'>
-                    <div className=' flex flex-col' >
+                <div className='col-span-12 md:col-span-7 csLg:col-span-8 section-spacing'>
+                    <div className='flex flex-col' >
                         <div className=''> 
-                        <h2 className='font-manrope csLg:text-[18px] font-semibold text-[12px] leading-[26px] tracking-[-0.02em]'>Home  <span className="text-[#1656A5]"> About Us </span> 
+                        <h2 className='font-manrope text-[12px] md:text-[16px] csLg:text-[18px] font-semibold leading-[26px] tracking-[-0.02em]'>Home   <span className="px-[12px]">›</span>  <span className="text-[#1656A5]"> About Us </span> 
                              </h2>
                         </ div>
                     <div className=''>
@@ -23,7 +23,7 @@ const AboutMainBanner = () => {
                      </div>
                     </div>
                 </div>
-            <div className='col-span-12 csLg:col-span-4'>
+            <div className='col-span-12 md:col-span-5 csLg:col-span-4 pr-0'>
                 <img src="/images/about-banner-img.png" alt="" className='h-[100%] w-full'  />
             </div>
         </div>
