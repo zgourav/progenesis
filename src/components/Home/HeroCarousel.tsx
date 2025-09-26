@@ -27,7 +27,7 @@ const HeroCarousel = () => {
     },
   ];
 
-  const goToSlide = (index) => setCurrentSlide(index);
+  const goToSlide = (index: number) => setCurrentSlide(index);
 
   // // Optional autoplay (5s)
   // useEffect(() => {
