@@ -34,7 +34,7 @@ const TestimonialsSection = () => {
     <section className="w-full h-[750px] md:h[700px] bg-white">
       <div className="flex flex-col md:flex-row h-[700px]">
   {/* Left Rating Panel */}
-  <div className="bg-blue-700 text-white p-10 flex flex-col justify-between h-full md:w-1/3 px-4 md:px-[80px] lg:px-[120px pt-[128px]">
+  <div className="bg-blue-700 text-white p-10 flex flex-col justify-between h-full md:w-[528] px-4 md:px-[80px] lg:px-[120px pt-[128px]">
  <div className="md:text-left text-center">
   
   {/* Google Rating */}
@@ -109,27 +109,27 @@ const TestimonialsSection = () => {
   {/* Right Testimonials Carousel */}
   <div
     className="relative bg-cover bg-center h-full md:w-2/3 py-[42px] md:pt-[82px]"
-    style={{ backgroundImage: "/TestimonialsSection/testimonial.png" }}
+    style={{ backgroundImage:"url('/TestimonialsSection/testimonial.png')" }}
   >
     <Swiper
-      modules={[Navigation]}
-      spaceBetween={40}
-      slidesPerView={1.2}
-      breakpoints={{
-        768: { slidesPerView: 1.5 },
-        1024: { slidesPerView: 2 },
-      }}
-      navigation={{
-        prevEl: prevRef.current,
-        nextEl: nextRef.current,
-      }}
-      onBeforeInit={(swiper) => {
-        swiper.params.navigation.prevEl = prevRef.current;
-        swiper.params.navigation.nextEl = nextRef.current;
-      }}
-
-      onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
-    >
+  modules={[Navigation]}
+  spaceBetween={40}
+  slidesPerView={1.2}
+  centeredSlides={true}   // ✅ ensures last slide centers
+  breakpoints={{
+    768: { slidesPerView: 1.5, centeredSlides: true },
+    1024: { slidesPerView: 2.5, centeredSlides: true },
+  }}
+  navigation={{
+    prevEl: prevRef.current,
+    nextEl: nextRef.current,
+  }}
+  onBeforeInit={(swiper) => {
+    swiper.params.navigation.prevEl = prevRef.current;
+    swiper.params.navigation.nextEl = nextRef.current;
+  }}
+  onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
+>
       {testimonials.map((t, i) => (
         <SwiperSlide key={i}>
           {({ isActive }) => (

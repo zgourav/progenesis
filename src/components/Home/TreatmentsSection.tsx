@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 
 const Letter = ({ char, index, total, scrollYProgress }) => {
   // Each letter animates in its slice of scroll progress
@@ -40,37 +41,37 @@ const TreatmentsSection = () => {
       title: "In-Vitro Fertilization (IVF)",
       description:
         "We offer you more than a procedure. We offer a chance. A chance to hold, to cradle, to begin.",
-      image: "/TreatmentsSection/In-VitroFertilization.png",
+      image: "/TreatmentsSection/IVF.png",
     },
     {
       title: "Egg Freezing and Preservation",
       description:
         "Your journey is uniquely yours. Whenever you feel ready, we’ll be right here waiting for you.",
-      image: "/TreatmentsSection/In-VitroFertilization.png",
+      image: "/TreatmentsSection/eggfreezing.png",
     },
     {
       title: "Multiple IVF & IUI Failures",
       description:
         "Advanced care and tailored treatments to give fresh hope after repeated failed attempts.",
-      image: "/TreatmentsSection/In-VitroFertilization.png",
+      image: "/TreatmentsSection/multipleivf.png",
     },
     {
       title: "Intrauterine Insemination (IUI)",
       description:
         "For some, the gentlest nudge is all it takes. We guide you with care and precision.",
-      image: "/TreatmentsSection/In-VitroFertilization.png",
+      image: "/TreatmentsSection/iui.png",
     },
     {
       title: "Male Fertility Solutions",
       description:
         "Fertility is not just a woman’s story. We’re here for every partner, every question, every step.",
-      image: "/TreatmentsSection/In-VitroFertilization.png",
+      image: "/TreatmentsSection/malefertility.png",
     },
     {
       title: "Pregnancy after Menopause",
       description:
         "Advanced techniques that make motherhood possible, even beyond menopause.",
-      image: "/TreatmentsSection/In-VitroFertilization.png",
+      image: "/TreatmentsSection/menopause.png",
     },
   ];
 
@@ -84,24 +85,22 @@ const TreatmentsSection = () => {
         style={{
           position: "sticky",
           top: 0,
-          height: "35vh", // stick full screen
+          height: "35vh",
           overflow: "hidden",
         }}
       >
         <motion.div
           className="flex flex-col justify-center h-full"
           style={{
-            y: useTransform(scrollYProgress, [0.5, 1], [30, -60]),   // slower upward drift
-            opacity: useTransform(scrollYProgress, [0.5, 1], [1, 0]), // fade out gradually
-            scale: useTransform(scrollYProgress, [0.5, 1], [1, 0.9])  // smoother shrink
+            y: useTransform(scrollYProgress, [0.5, 1], [30, -60]),
+            opacity: useTransform(scrollYProgress, [0.5, 1], [1, 0]),
+            scale: useTransform(scrollYProgress, [0.5, 1], [1, 0.9]),
           }}
           transition={{
-            ease: [0.25, 0.1, 0.25, 1], // ease-in-out cubic bezier
-            duration: 1.2               // smoother timing
+            ease: [0.25, 0.1, 0.25, 1],
+            duration: 1.2,
           }}
         >
-
-
           <div className="flex flex-col xl:flex-row items-start justify-between gap-8">
             {/* Left */}
             <div className="w-full max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-3xl">
@@ -132,14 +131,14 @@ const TreatmentsSection = () => {
         </motion.div>
       </div>
 
-      {/* Treatments Cards (scrolls after sticky block) */}
+      {/* Treatments Cards */}
       <div className="px-4 md:px-[80px] lg:px-[120px] pt-[60px] pb-[60px]">
         <div className="flex flex-wrap gap-6 w-full">
           {treatments.map((item, index) => {
             const isSmall = index === 2 || index === 3;
             const widthClass = isSmall
-              ? "xl:w-[26%] md:w-[47%] sm:[30%] min-w-[280px]"
-              : "xl:w-[35%] md:w-[47%] sm:[30%] min-w-[280px]";
+              ? "xl:w-[26%] md:w-[47%] sm:w-[30%] min-w-[280px]"
+              : "xl:w-[35%] md:w-[47%] sm:w-[30%] min-w-[280px]";
 
             return (
               <div
@@ -150,8 +149,7 @@ const TreatmentsSection = () => {
                   flex flex-col md:flex-row items-center justify-between transition
                   ${selected === index
                     ? "border border-[#1656A5] bg-white"
-                    : "border border-transparent bg-white"
-                  }
+                    : "border border-transparent bg-white"}
                   w-full ${widthClass}
                 `}
               >
@@ -165,23 +163,27 @@ const TreatmentsSection = () => {
                   </p>
                 </div>
 
-                {/* Right Side (Image) */}
+                {/* Right Side (Image with Next.js) */}
                 <div className="flex-shrink-0 md:-mt-[150px]">
-                  <img
+                  <Image
                     src={item.image}
                     alt={item.title}
-                    className="max-h-[180px] w-[150px] object-contain"
+                    width={150}
+                    height={180}
+                    className="object-contain"
                   />
                 </div>
 
                 {/* Arrow Button */}
                 <div
-                  className={`absolute top-4 left-4 w-8 h-8 flex items-center justify-center rounded-lg ${selected === index ? "bg-[#1656A5]" : "bg-gray-100"
-                    }`}
+                  className={`absolute top-4 left-4 w-8 h-8 flex items-center justify-center rounded-lg ${
+                    selected === index ? "bg-[#1656A5]" : "bg-gray-100"
+                  }`}
                 >
                   <ArrowRight
-                    className={`w-4 h-4 ${selected === index ? "text-white" : "text-gray-600"
-                      }`}
+                    className={`w-4 h-4 ${
+                      selected === index ? "text-white" : "text-gray-600"
+                    }`}
                   />
                 </div>
               </div>
