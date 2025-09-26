@@ -68,7 +68,7 @@ const FaQ: React.FC = () => {
   const activeItems = tabs[activeTab].items;
 
   return (
-    <section className="section-spacing w-full bg-[#FAFAFA] px-6 md:px-10 lg:px-[90px] py-10 md:py-14 lg:py-16 font-[Manrope]" >
+    <section id="faqs" className="section-spacing w-full bg-[#FAFAFA] px-6 md:px-10 lg:px-[90px] py-10 md:py-14 lg:py-16 font-[Manrope]" >
       <div className="grid grid-cols-1 md:grid-cols-[360px_1fr] lg:grid-cols-[420px_1fr] gap-6 md:gap-8 lg:gap-10">
         {/* Left intro */}
         <div>

@@ -4,8 +4,8 @@ import React, { useState } from "react";
 
 const sections = [
   { id: "our-approach", label: "Our Approach" },
-  { id: "why-choose-us", label: "Why choose us" },
   { id: "our-vision", label: "Our Vision & Mission" },
+  { id: "why-choose-us", label: "Why choose us" },
   { id: "impact-growth", label: "Impact & Growth" },
   { id: "faqs", label: "FAQ's" },
 ];
