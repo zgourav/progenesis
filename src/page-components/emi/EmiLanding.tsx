@@ -3,7 +3,7 @@ import '../about/AboutMain.css'
 
 const EmiLanding = () => {
   return (
-    <section className="relative w-full h-[60%]">
+    <section id="landing" className="relative w-full h-[60%]">
       {/* Background images: mobile and desktop */}
       <div
         className="absolute inset-0 md:hidden bg-cover bg-center"

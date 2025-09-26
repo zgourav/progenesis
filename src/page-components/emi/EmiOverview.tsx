@@ -58,7 +58,7 @@ const items = [
 
 const EmiOverview = () => {
   return (
-    <section className="w-full bg-[#FFFFFF]">
+    <section id="care" className="w-full bg-[#FFFFFF]">
       <div className="section-spacing w-full px-6 md:px-8 lg:px-16 py-10 md:py-14">
         {/* Badge */}
         <div className="mb-4">
