@@ -43,7 +43,7 @@ export default function SingleCenter({ selectedId }: { selectedId?: number }) {
 
       {/* Center Details Section */}
       <section className="section-spacing w-full bg-white px-6 md:px-12 lg:px-[90px] py-10 md:py-14">
-        <div className="max-w-7xl mx-auto flex flex-row">
+        <div className="max-w-7xl mx-auto lg:flex lg:flex-row">
           <div className="w-full py-8 md:py-10">
             <p className="text-sm text-[#1656A5] mb-2">Our Centers</p>
             <h1 className="text-[#1656A5] text-3xl font-[Manrope] font-semibold mb-6">
