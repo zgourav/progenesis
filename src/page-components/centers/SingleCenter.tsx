@@ -5,8 +5,8 @@ import { centersData, type Center } from './CenterCard';
 import { useRouter } from 'next/navigation';
 import ResourceConsultation from '../resources/ResourceConsultation';
 import FaQ from '../about/FaQ';
-import TestimonialsSection from '@/components/Home/TestimonialsSection';
 import CenterDoctorsSection from './SingleCenterDoctors';
+import TestimonialsCenters from './TestimonialCenters';
 
 export default function SingleCenter({ selectedId }: { selectedId?: number }) {
   const router = useRouter();
@@ -191,7 +191,7 @@ export default function SingleCenter({ selectedId }: { selectedId?: number }) {
         <img src="/images/CenterFixed.png" alt="fixed" className='h-[100%] w-full overflow-hidden' />
     </div>
     <CenterDoctorsSection />
-    <TestimonialsSection />
+    <TestimonialsCenters />
     <ResourceConsultation />
     <FaQ />
 </div>
