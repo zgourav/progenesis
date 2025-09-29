@@ -4,7 +4,7 @@ import React from 'react';
 
 const OpinionContent: React.FC = () => {
   return (
-    <section className="w-full bg-white">
+    <section id='why' className="w-full bg-white">
       <div className="section-spacing w-full">
         {/* Top Section: Tag + Main Heading */}
         <div className="mb-8">

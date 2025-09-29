@@ -27,7 +27,7 @@ const careItems = [
 
 const OpinionCare: React.FC = () => {
   return (
-    <section className="w-full bg-gray-100">
+    <section id='care' className="w-full bg-gray-100">
       <div className="section-spacing w-full">
         {/* Top Section: Tag + Main Heading */}
         <div className="mb-12">
