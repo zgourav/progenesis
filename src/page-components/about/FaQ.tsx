@@ -93,7 +93,7 @@ const FaQ: React.FC = () => {
         {/* Right content */}
         <div>
           {/* Tabs */}
-          <div className="flex flex-wrap gap-3 mb-6" style={{paddingBottom:'30px'}}>
+          <div className="flex flex-wrap gap-3 mb-6" >
             {tabs.map((t, idx) => {
               const active = idx === activeTab;
               return (
@@ -129,11 +129,11 @@ const FaQ: React.FC = () => {
                     onClick={() => setOpenIndex(open ? -1 : i)}
                     className="w-full flex items-center justify-between gap-3 text-left md:py-4 rounded-2xl  text-[14px] md:text-[15px] text-[#2C2C2C]"
                   >
-                    <span style={{padding:'8px'}}>{item.q}</span>
-                    <span className="text-gray-500">{open ? "▴" : "▾"}</span>
+                    <span className="pl-4 pr-2">{item.q}</span>
+                    <span className="text-gray-500 pr-2">{open ? "▴" : "▾"}</span>
                   </button>
                   {open && (
-                    <div className="px-2 py-4 md:px-2 md:py-4 text-left text-[14px] text-[#4B5563]" >
+                    <div className="pl-4 pb-4 text-left text-[14px] text-[#4B5563]" >
                       {item.a}
                     </div>
                   )}
