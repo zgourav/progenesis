@@ -17,33 +17,45 @@ const PrivacyPolicyPage = () => {
 
   const [activeId, setActiveId] = useState("overview");
 
+  // 🔹 Smooth highlight update while scrolling
   useEffect(() => {
     const handleScroll = () => {
       let current = "overview";
       sections.forEach((section) => {
         const el = document.getElementById(section.id);
         if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 120 && rect.bottom > 120) {
+          const offsetTop = el.offsetTop - 140; // account for header
+          if (window.scrollY >= offsetTop) {
             current = section.id;
           }
         }
       });
       setActiveId(current);
     };
-    window.addEventListener("scroll", handleScroll);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // run once at start
     return () => window.removeEventListener("scroll", handleScroll);
   }, [sections]);
 
-  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const targetId = e.target.value;
-    const el = document.getElementById(targetId);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  // 🔹 Smooth scroll behavior
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const yOffset = -120; // adjust for sticky header
+      const y =
+        el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
-    <main className="w-full font-manrope text-[#202020] scroll-smooth">
-      {/* 🔹 Hero Section */}
+    <main className="w-full font-manrope text-[#202020]">
+{/* 🔹 Hero Section */}
       <section
         className="
           relative w-full px-6 md:px-[80px] xl:px-[120px]
@@ -83,27 +95,17 @@ const PrivacyPolicyPage = () => {
         </div>
       </section>
 
-      {/* 🔹 Content Section */}
-      <section className="px-6 md:px-[80px] xl:px-[120px] py-12 md:py-20 lg:py-24 flex flex-col md:flex-row gap-12 lg:gap-16 items-start">
+      {/* Content Section */}
+      <section className="px-6 md:px-[80px] xl:px-[120px] py-12 md:py-20 flex flex-col md:flex-row gap-12">
         {/* Mobile Dropdown */}
-        <div className="block md:hidden mb-6 w-[328px]">
+        <div className="block md:hidden mb-6 w-full">
           <select
             value={activeId}
-            onChange={handleSelectChange}
-            className="
-              w-full flex justify-between items-center
-              border border-gray-300 rounded-lg
-              px-3 py-2
-              text-[#2C2C2C]
-              text-[14px] leading-[24px] tracking-[-0.28px] font-normal
-            "
+            onChange={(e) => scrollToSection(e.target.value)}
+            className="w-full border border-gray-300 rounded-lg px-3 py-2"
           >
             {sections.map((section) => (
-              <option
-                key={section.id}
-                value={section.id}
-                className="text-[#2C2C2C] text-[14px] leading-[24px] tracking-[-0.28px]"
-              >
+              <option key={section.id} value={section.id}>
                 {section.label}
               </option>
             ))}
@@ -115,15 +117,16 @@ const PrivacyPolicyPage = () => {
           <ul className="space-y-4">
             {sections.map((section) => (
               <li key={section.id}>
-                <a
-                  href={`#${section.id}`}
-                  className={`block text-[16px] leading-[24px] tracking-[-0.32px] transition-colors ${activeId === section.id
-                    ? "text-[#1656A5] font-semibold"
-                    : "text-[#202020] hover:text-[#1656A5]"
-                    }`}
+                <button
+                  onClick={() => scrollToSection(section.id)}
+                  className={`block text-left text-[16px] transition-colors ${
+                    activeId === section.id
+                      ? "text-[#1656A5] font-semibold"
+                      : "text-[#202020] hover:text-[#1656A5]"
+                  }`}
                 >
                   {section.label}
-                </a>
+                </button>
               </li>
             ))}
           </ul>
