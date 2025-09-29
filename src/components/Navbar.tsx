@@ -677,29 +677,35 @@ useEffect(() => {
               Discover Us
             </h2>
             <ul className="space-y-3">
-              {[
-                "Our Story",
-                "Our Approach",
-                "Our Vision & Mission",
-                "Why choose us",
-                "Leadership Team",
-                "Impact & Growth",
-                "FAQs",
-              ].map((title, i) => (
-                <li key={i}>
-                  <Link
-                    href="/about-us"
-                    className={`font-[Manrope] text-[14px] leading-[24px] tracking-[-0.28px] ${
-                      title === "Our Story"
-                        ? "text-[#1656A5] font-semibold"
-                        : "text-[#2C2C2C] hover:text-[#1656A5]"
-                    }`}
-                  >
-                    {title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+  {[
+    "Our Story",
+    "Our Approach",
+    "Our Vision & Mission",
+    "Why choose us",
+    "Leadership Team",
+    "Impact & Growth",
+    "FAQs",
+  ].map((title, i) => {
+    // conditionally set the link path
+    const path = title === "Leadership Team" ? "/leadership-team" : "/about-us";
+
+    return (
+      <li key={i}>
+        <Link
+          href={path}
+          className={`font-[Manrope] text-[14px] leading-[24px] tracking-[-0.28px] ${
+            title === "Our Story"
+              ? "text-[#1656A5] font-semibold"
+              : "text-[#2C2C2C] hover:text-[#1656A5]"
+          }`}
+        >
+          {title}
+        </Link>
+      </li>
+    );
+  })}
+</ul>
+
           </div>
 
           {/* Divider */}
