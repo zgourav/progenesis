@@ -27,7 +27,7 @@ const benefits = [
 
 const OpinionBenefits: React.FC = () => {
   return (
-    <section className="w-full px-6 lg:px-[90px] py-20 bg-[#FFFFFF]">
+    <section className="w-full bg-[#FFFFFF]">
       <div className="section-spacing w-full">
         {/* Top Section: Tag + Main Heading */}
         <div className="mb-12" style={{paddingBottom:'32px'}}>

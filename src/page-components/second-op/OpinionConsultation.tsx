@@ -4,7 +4,7 @@ import React from 'react';
 
 const OpinionConsultation: React.FC = () => {
   return (
-    <section className="w-full px-6 lg:px-[90px] py-20 bg-gradient-to-br from-orange-50 to-pink-50 relative overflow-hidden"  style={{padding:'8px'}}>
+    <section className="w-full bg-gradient-to-br from-orange-50 to-pink-50 relative overflow-hidden"  style={{padding:'8px'}}>
       {/* Background blur effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-orange-100/30 to-pink-100/30 backdrop-blur-sm"></div>
       

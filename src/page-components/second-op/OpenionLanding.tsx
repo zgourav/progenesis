@@ -24,7 +24,7 @@ const OpenionLanding = () => {
             {/* Breadcrumb-like line */}
             <div>
               <h2 className='font-manrope csLg:text-[18px] font-semibold text-[12px] leading-[26px] tracking-[-0.02em]'>
-                Home <span className="text-[#1656A5]"> Second Opinion </span>
+                Home <span className="px-[12px]">›</span> <span className="text-[#1656A5]"> Second Opinion </span>
               </h2>
             </div>
 
