@@ -27,7 +27,7 @@ const stats = [
 
 const OpinionStats: React.FC = () => {
   return (
-    <section className="w-full px-6 lg:px-[90px] py-20 bg-gradient-to-br from-green-50 via-[#FFFFFF] to-blue-50">
+    <section id='numbers' className="w-full bg-gradient-to-br from-green-50 via-[#FFFFFF] to-blue-50">
       <div className="section-spacing w-full">
         {/* Top Section: Tag + Main Heading */}
         <div className="mb-12">

@@ -1,27 +1,36 @@
+"use client"
 import React, { useState } from "react";
 
 const tabs = [
-  { key: "why", label: "Why Get a Second Opinion?" },
-  { key: "how", label: "How a Second Opinion Helps" },
-  { key: "numbers", label: "Numbers That Set Us Apart" },
-  { key: "care", label: "We Take Care of You" },
+  { id: "why", label: "Why Get a Second Opinion?" },
+  { id: "how", label: "How a Second Opinion Helps" },
+  { id: "numbers", label: "Numbers That Set Us Apart" },
+  { id: "care", label: "We Take Care of You" },
 ];
 
 const OpinionNav: React.FC = () => {
   const [active, setActive] = useState<string>("why");
+
+  const handleScroll = (id: string) => {
+    setActive(id);
+    const element = document.getElementById(id);
+    if (!element) return;
+    const y = element.getBoundingClientRect().top + window.scrollY - 20; // offset for any sticky header
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
 
   return (
     <nav className="w-full bg-[#FFFFFF]">
       <div className="section-spacing w-full px-6 md:px-8 lg:px-14 py-6">
         <div className="flex flex-wrap items-center gap-4 md:gap-6">
           {tabs.map((t) => {
-            const isActive = t.key === active;
+            const isActive = t.id === active;
             return (
               <button
-                key={t.key}
+                key={t.id}
                 type="button"
                 style={{padding:'8px'}}
-                onClick={() => setActive(t.key)}
+                onClick={() => handleScroll(t.id)}
                 className={[
                   "min-w-[180px] h-10 px-5 inline-flex items-center justify-center rounded-[12px] text-sm font-medium transition-colors",
                   isActive

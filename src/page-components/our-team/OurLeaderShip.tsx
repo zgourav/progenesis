@@ -75,7 +75,7 @@ const LeadershipTeam: React.FC = () => {
       </section>
 
       {/* 2️⃣ Team Members Section */}
-      <section className="w-full px-6 md:px-24 py-16 bg-white">
+      <section className="w-full px-6 md:px-24 py-16 bg-[#FAFAFA]">
         <span className="inline-block text-sm font-medium text-[#1656A5] bg-[#1656A50D] px-3 py-1 rounded-full mb-6">
               The Experts
             </span>
@@ -90,7 +90,7 @@ const LeadershipTeam: React.FC = () => {
             <button
               onClick={() => setIsGridView(true)}
               className={`p-2 rounded-md ${
-                isGridView ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-600"
+                isGridView ? "bg-[#1656A5] text-white" : "bg-gray-200 text-gray-600"
               }`}
             >
               <FaThLarge />
@@ -98,7 +98,7 @@ const LeadershipTeam: React.FC = () => {
             <button
               onClick={() => setIsGridView(false)}
               className={`p-2 rounded-md ${
-                !isGridView ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-600"
+                !isGridView ? "bg-[#1656A5] text-white" : "bg-gray-200 text-gray-600"
               }`}
             >
               <FaList />
@@ -117,7 +117,7 @@ const LeadershipTeam: React.FC = () => {
           {teamMembers.map((member) => (
             <article
               key={member.id}
-              className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition ${
+              className={`bg-[#FFFFFF] rounded-lg overflow-hidden hover:shadow-lg transition ${
                 isGridView ? "text-center p-6" : "flex items-center gap-4 p-4"
               }`}
             >
@@ -134,7 +134,7 @@ const LeadershipTeam: React.FC = () => {
                 />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-blue-800">
+                <h3 className="text-lg font-semibold text-[#1656A5]">
                   {member.name}
                 </h3>
                 <p className="text-sm text-gray-600">{member.role}</p>

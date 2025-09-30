@@ -137,13 +137,13 @@ const BannerOfApproach: React.FC = () => {
       </div>
 
       {/* Banner - Mobile: horizontal scroll of all slides */}
-      <div className="md:hidden mt-10 p-5">
+      <div className="md:hidden mt-10 p-5 h-auto">
         <div className="flex overflow-x-auto gap-4 snap-x snap-mandatory px-5">
           {slides.map((s, index) => (
             <div
               key={s.tab}
               ref={(el) => (slideRefs.current[index] = el)}
-              className="relative snap-start shrink-0 w-[88%] h-[690px] rounded-2xl bg-[#000000B2] overflow-hidden bg-cover bg-center text-white shadow-lg border border-white/10"
+              className="relative snap-start shrink-0 w-[88%] h-auto rounded-2xl bg-[#000000B2] overflow-hidden bg-cover bg-center text-white shadow-lg border border-white/10"
               style={{ backgroundImage: `url(${s.image})` }}
             >
               {/* Left dark gradient overlay */}
@@ -191,7 +191,7 @@ const BannerOfApproach: React.FC = () => {
 
       {/* Banner - Desktop/Tablet unchanged */}
       <div
-        className="hidden md:flex relative w-full h-[520px] rounded-2xl bg-[#000000B2] overflow-hidden bg-cover bg-center text-white  shadow-lg mt-10"
+        className="hidden md:flex relative w-full md:h-auto h-[520px] rounded-2xl bg-[#000000B2] overflow-hidden bg-cover bg-center text-white  shadow-lg mt-10"
         style={{ backgroundImage: `url(${current.image})` }}
       >
         {/* Left dark gradient overlay */}

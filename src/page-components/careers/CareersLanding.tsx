@@ -39,17 +39,17 @@ const CareersLanding = () => {
                     <img
                         src="/images/ReBanner1.png"
                         alt="Clinic 1"
-                        className="w-[860px] sm:w-full csLg:h-[560px] h-[260px] flex-none object-cover rounded-xl snap-start"
+                        className="w-[834px] sm:w-full csLg:h-[560px] h-[260px] flex-none object-cover rounded-xl snap-start"
                     />
                     <img
                         src="/images/ReBanner2.png"
                         alt="Clinic 2"
-                        className="w-[860px] sm:w-full csLg:h-[560px] h-[260px] flex-none object-cover rounded-xl snap-start"
+                        className="w-[834px] sm:w-full csLg:h-[560px] h-[260px] flex-none object-cover rounded-xl snap-start"
                     />
                     <img
                         src="/images/Rebanner3.png"
                         alt="Clinic 3"
-                        className="w-[860px] sm:w-full csLg:h-[560px] h-[260px]  flex-none object-cover rounded-xl snap-start"
+                        className="w-[834px] sm:w-full csLg:h-[560px] h-[260px]  flex-none object-cover rounded-xl snap-start"
                     />
                 </div>
                 <div className="flex items-center justify-center gap-2 mt-6 md:mt-8 pt-4">

@@ -105,7 +105,7 @@ const WhyProgenesis: React.FC = () => {
         </div>
 
         {/* Right banner */}
-        <div className="relative w-full rounded-2xl overflow-hidden min-h-[220px] shadow-sm csLg:min-h-[720px] flex items-center justify-center" style={{}}>
+        <div className="relative w-full rounded-2xl overflow-hidden min-h-[320px] shadow-sm csLg:min-h-[720px] flex items-center justify-center" style={{}}>
           <div
             className="absolute inset-0 bg-cover bg-center items-center"
             style={{ backgroundImage: `url(${current.image})` }}
@@ -158,7 +158,7 @@ const WhyProgenesis: React.FC = () => {
             )}
             {active === 3 && (
               // Fourth banner: top center
-              <div className="absolute top-6 md:top-10 lg:top-12 left-1/2 -translate-x-1/2 text-center px-4">
+              <div className="absolute top-6 md:top-10 lg:top-12  text-center px-4">
                 <h3 className="text-[26px] md:text-[32px] lg:text-[36px] font-semibold text-gray-900 max-w-[720px]">
                   {current.bannerHeading}
                 </h3>

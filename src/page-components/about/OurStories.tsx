@@ -33,7 +33,7 @@ const OurStories: React.FC = () => {
   const [activeTab, setActiveTab] = useState<number>(0);
 
   return (
-    <section className="w-full bg-white">
+    <section id='why-1' className="w-full bg-white">
       <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] lg:grid-cols-[300px_1fr] gap-6 md:gap-8 lg:gap-10 xl:gap-x-32 section-spacing" >
         {/* Left Column: Heading + Tab List (hidden on mobile, visible on md and up) */}
         <div className="hidden md:flex flex-col gap-8 lg:gap-12">
@@ -85,8 +85,8 @@ const OurStories: React.FC = () => {
         </div>
 
         {/* Right Column: Paragraph + Image + Info Box */}
-        {/* Desktop (csLg and up): keep tab-driven single story */}
-        <div className="hidden csLg:flex flex-col gap-10">
+        {/* Show desktop-style layout on md and up */}
+        <div className="hidden md:flex flex-col gap-10">
           {/* Paragraph (top of right column) */}
           <p className="text-lg csLg:text-[32px] leading-[36px] text-black tracking-tight font-[Manrope]">
             We believe every hopeful parent deserves a team that listens, cares, and fights to make
