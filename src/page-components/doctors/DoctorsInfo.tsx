@@ -3,7 +3,7 @@
 import React from "react";
 import { useRouter, usePathname } from "next/navigation";
 
-type Doctor = {
+export type Doctor = {
   slug: string;
   name: string;
   bio: string;
@@ -12,10 +12,11 @@ type Doctor = {
   fellowship: string;
   hospital: string;
   specialty: string;
+  languages?: string;
   image: string;
 };
 
-const doctors: Doctor[] = [
+export const doctors: Doctor[] = [
   {
     slug: "dr-narhari-s-malgaonkar",
     name: "Dr. Narhari S. Malgaonkar",
@@ -26,6 +27,7 @@ const doctors: Doctor[] = [
     fellowship: "Fellowship in Reproductive Medicine",
     hospital: "Mumbai",
     specialty: "Obstetrics and Gynaecology",
+    languages: "Marathi, Hindi, English",
     image: "/images/doctor-narhari.png",
   },
   {
@@ -38,6 +40,7 @@ const doctors: Doctor[] = [
     fellowship: "Fellowship in Reproductive Medicine",
     hospital: "Mumbai",
     specialty: "Obstetrics and Gynaecology",
+    languages: "Marathi, Hindi, English",
     image: "/images/doctor-sonali.png",
   },
    {
@@ -49,6 +52,7 @@ const doctors: Doctor[] = [
     fellowship: "Fellowship in Reproductive Medicine",
     hospital: "Borivali, Mumbai",
     specialty: "Obstetrics and Gynaecology",
+    languages: "Marathi, Hindi, English",
     image: "/images/doctors/Unnati.png",
 },
 {
@@ -60,6 +64,7 @@ const doctors: Doctor[] = [
     fellowship: "Fellowship in Reproductive Medicine",
     hospital: "Aundh, Pune",
     specialty: "MBBS, MS, DNB (OBST & GYNAE), FNB, MRCOG (UK)",
+    languages: "Marathi, Hindi, English",
     image: "/images/doctors/Dinesh.png",
 },
 {
@@ -71,6 +76,7 @@ const doctors: Doctor[] = [
     fellowship: "Fellowship in Reproductive Medicine",
     hospital: "Nashik",
     specialty: "MS (Obstetrics and Gynaecology)",
+    languages: "Marathi, Hindi, English",
     image: "/images/doctors/Shital.png",
 },
 {
@@ -82,6 +88,7 @@ const doctors: Doctor[] = [
     fellowship: "Fellowship in Reproductive Medicine",
     hospital: "Virar, Mumbai",
     specialty: "Obstetrics and Gynaecology",
+    languages: "Marathi, Hindi, English",
     image: "/images/doctors/Rajashree.png",
 },
 {
@@ -93,6 +100,7 @@ const doctors: Doctor[] = [
     fellowship: "Fellowship in Reproductive Medicine",
     hospital: "Panvel, Mumbai",
     specialty: "MBBS DGO (OBST & GYNAE)",
+    languages: "Marathi, Hindi, English",
     image: "/images/doctors/Darshna.png",
 },
 {
@@ -104,6 +112,7 @@ const doctors: Doctor[] = [
     fellowship: "Fellowship in Reproductive Medicine",
     hospital: "Kalyan, Mumbai",
     specialty: "DGO (Obstetrics and Gynaecology)",
+    languages: "Marathi, Hindi, English",
     image: "/images/doctors/Priti.png",
 },
 {
@@ -115,6 +124,7 @@ const doctors: Doctor[] = [
     fellowship: "Fellowship in Reproductive Medicine",
     hospital: "Andheri, Mumbai",
     specialty: "DNB DGO (Obstetrics and Gynaecology)",
+    languages: "Marathi, Hindi, English",
     image: "/images/doctors/Teena.png",
 },
 {
@@ -126,6 +136,7 @@ const doctors: Doctor[] = [
     fellowship: "Fellowship in Reproductive Medicine",
     hospital: "Andheri, Mumbai",
     specialty: "DGO (Obstetrics and Gynaecology)",
+    languages: "Marathi, Hindi, English",
     image: "/images/doctors/Bhavika.png",
 },
 {
@@ -137,6 +148,7 @@ const doctors: Doctor[] = [
     fellowship: "Fellowship in Reproductive Medicine",
     hospital: "Thane, Mumbai",
     specialty: "MS (Obstetrics and Gynaecology)",
+    languages: "Marathi, Hindi, English",
     image: "/images/doctors/Prerna.png",
 },
 {
@@ -148,6 +160,7 @@ const doctors: Doctor[] = [
     fellowship: "Fellowship in Reproductive Medicine",
     hospital: "Thane, Mumbai",
     specialty: "MS (Obstetrics and Gynaecology)",
+    languages: "Marathi, Hindi, English",
     image: "/images/doctors/Shradha.png",
 },
 {
@@ -159,6 +172,7 @@ const doctors: Doctor[] = [
     fellowship: "Fellowship in Reproductive Medicine",
     hospital: "Jalgaon",
     specialty: "DGO (Obstetrics and Gynaecology)",
+    languages: "Marathi, Hindi, English",
     image: "/images/doctors/Vivek.png",
 }
 ];
@@ -209,14 +223,14 @@ const DoctorsInfo: React.FC = () => {
               {/* Right: Meta row (Hospital + Specialty) + CTA */}
               <div className="flex flex-col items-start lg:items-end gap-6 font-[Manrope]">
                 {/* Row: Hospital | Specialty */}
-                <div className="w-full flex flex-row items-start justify-between gap-6 md:gap-10 lg:justify-end">
+                <div className="w-full flex xsm:flex-row md:flex-col justify-between gap-6 md:gap-10 lg:justify-end">
                   <div className="min-w-[110px] lg:text-right">
-                    <div className="text-sm text-[#1656A5]">Hospital</div>
+                    <div className="text-[16px] lg:text-[32px] text-[#1656A5]">Hospital</div>
                     <div className="text-[16px] text-[#2C2C2C] font-medium">{d.hospital}</div>
                   </div>
                   <div className="min-w-[140px] lg:text-right">
-                    <div className="text-sm text-[#1656A5]">Specialty</div>
-                    <div className="text-[16px] text-[#2C2C2C] font-medium max-w-[220px]">
+                    <div className="text-[16px] lg:text-[32px] text-[#1656A5]">Specialty</div>
+                    <div className="text-[16px] text-[#2C2C2C] font-medium">
                       {d.specialty}
                     </div>
                   </div>

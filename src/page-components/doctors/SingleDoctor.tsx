@@ -1,80 +1,13 @@
 "use client";
 
 import React, { useMemo } from "react";
-import '../about/AboutMain.css'
+import "../about/AboutMain.css";
 
-// Reuse the same structure and styling as DoctorsInfo, with an option to
-// show only the selected doctor (via slug) or toggle to show all doctors.
-
-type Doctor = {
-  slug: string;
-  name: string;
-  bio: string;
-  experience: string;
-  qualifications: string;
-  fellowship: string;
-  hospital: string;
-  specialty: string;
-  languages: string;
-  image: string;
-};
-
-const doctorsData: Doctor[] = [
-  {
-    slug: "dr-narhari-s-malgaonkar",
-    name: "Dr. Narhari S. Malgaonkar",
-    bio:  "Dr. Narhari S. Malgaonkar is the dedicated and exclusive chief fertility consultant.",
-    experience: "12+ Years of Experience",
-    qualifications: "DNB/DGO (Obstetrics and Gynaecology)",
-    fellowship: "Fellowship in Reproductive Medicine",
-    hospital: "Mumbai",
-    specialty: "Obstetrics and Gynaecology",
-    languages: "Marathi, Hindi, English",
-    image: "/images/doctor-narhari.png",
-  },
-  {
-    slug: "dr-sonali-malgaonkar",
-    name: "Dr. Sonali Malgaonkar",
-    bio:
-      "Dr. Sonali Malgaonkar is the dedicated and exclusive chief fertility consultant.",
-    experience: "12+ Years of Experience",
-    qualifications: "DNB/DGO (Obstetrics and Gynaecology)",
-    fellowship: "Fellowship in Reproductive Medicine",
-    hospital: "Mumbai",
-    specialty: "Obstetrics and Gynaecology",
-    languages: "Marathi, Hindi, English",
-    image: "/images/doctor-sonali.png",
-  },
-  {
-    slug: "dr-narhari-s-malgaonkar",
-    name: "Dr. Narhari S. Malgaonkar",
-    bio:  "Dr. Narhari S. Malgaonkar is the dedicated and exclusive chief fertility consultant.",
-    experience: "12+ Years of Experience",
-    qualifications: "DNB/DGO (Obstetrics and Gynaecology)",
-    fellowship: "Fellowship in Reproductive Medicine",
-    hospital: "Mumbai",
-    specialty: "Obstetrics and Gynaecology",
-    languages: "Marathi, Hindi, English",
-    image: "/images/doctor-narhari.png",
-  },
-  {
-    slug: "dr-sonali-malgaonkar",
-    name: "Dr. Sonali Malgaonkar",
-    bio:
-      "Dr. Sonali Malgaonkar is the dedicated and exclusive chief fertility consultant.",
-    experience: "12+ Years of Experience",
-    qualifications: "DNB/DGO (Obstetrics and Gynaecology)",
-    fellowship: "Fellowship in Reproductive Medicine",
-    hospital: "Mumbai",
-    specialty: "Obstetrics and Gynaecology",
-    languages: "Marathi, Hindi, English",
-    image: "/images/doctor-sonali.png",
-  },
-];
+import { doctors, Doctor } from "./DoctorsInfo";
 
 export default function SingleDoctor({ selectedSlug }: { selectedSlug?: string }) {
   const selectedDoctor: Doctor | undefined = useMemo(() => {
-    return selectedSlug ? doctorsData.find((d) => d.slug === selectedSlug) : undefined;
+    return selectedSlug ? doctors.find((d) => d.slug === selectedSlug) : undefined;
   }, [selectedSlug]);
 
   return (
@@ -98,17 +31,21 @@ export default function SingleDoctor({ selectedSlug }: { selectedSlug?: string }
                 {/* Meta row: Hospital | Specialty | Languages */}
                 <div className="mt-6 flex flex-row items-start gap-8 md:gap-10 pb-4">
                   <div className="min-w-[68px] lg:min-w-[90px]">
-                    <div className="text-sm text-[#1656A5]">Hospital</div>
+                    <div className="text-[16px] lg:text-[32px] text-[#1656A5]">Hospital</div>
                     <div className="text-[16px] text-[#2C2C2C] font-medium">{selectedDoctor.hospital}</div>
                   </div>
                   <div className="min-w-[98px] lg:min-w-[130px]">
-                    <div className="text-sm text-[#1656A5]">Specialty</div>
+                    <div className="text-[16px] lg:text-[32px] text-[#1656A5]">Specialty</div>
                     <div className="text-[16px] text-[#2C2C2C] font-medium max-w-[260px]">{selectedDoctor.specialty}</div>
                   </div>
-                  <div className="min-w-[98px] lg:min-w-[160px]">
-                    <div className="text-sm text-[#1656A5]">Languages</div>
-                    <div className="text-[16px] text-[#2C2C2C] font-medium max-w-[300px]">{selectedDoctor.languages}</div>
-                  </div>
+                  {selectedDoctor.languages && (
+                    <div className="min-w-[98px] lg:min-w-[160px]">
+                      <div className="text-[16px] lg:text-[32px] text-[#1656A5]">Languages</div>
+                      <div className="text-[16px] text-[#2C2C2C] font-medium max-w-[300px]">
+                        {selectedDoctor.languages}
+                      </div>
+                    </div>
+                  )}
                 </div>
                 {/* CTA buttons under meta: row on mobile, column on desktop */}
                 <div className="mt-5 flex flex-row lg:flex-col items-start gap-3 lg:gap-4 ju">

@@ -23,7 +23,7 @@ const ResourceConsultation: React.FC = () => {
       <div className="section-spacing px-4 sm:px-6 md:px-10 lg:px-14 xl:px-20">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-stretch">
           {/* Left: Form Card */}
-          <div className="w-full overflow-visible break-words bg-white/95 backdrop-blur rounded-2xl md:rounded-[18px] p-4 shadow-[0_8px_24px_rgba(0,0,0,0.12)] border border-black/5">
+          <div className="w-full overflow-visible break-words bg-white/95 backdrop-blur rounded-2xl md:rounded-[18px] p-4 hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] border border-black/5">
             <div className="text-center mb-3 pb-4">
               <span className="text-[11px] sm:text-[12px] px-3 py-1 rounded-[8px] border-[#1656A5]/30 text-[#1656A5] bg-[#1656A5]/5 p-1">
                 Schedule a Consultation
@@ -96,7 +96,7 @@ const ResourceConsultation: React.FC = () => {
 
           {/* Right: Stylized Image Panel */}
           <div className="block mt-4 md:mt-0">
-            <div className="relative rounded-2xl overflow-hidden bg-[#1656A5] p-0 shadow-[0_8px_24px_rgba(0,0,0,0.18)]">
+            <div className="relative rounded-2xl overflow-hidden bg-[#1656A5] p-0 hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)]">
               <svg viewBox="0 0 560 520" className="w-full lg:h-[670px] aspect-[7/6]">
                 <defs>
                   {/* Create slashed cutouts using rotated rects in user space */}

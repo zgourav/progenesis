@@ -26,7 +26,7 @@ const ResourceStories = () => {
               Inspiring stories of strength & Victories
             </h3>
           </div>
-          <button className="w-auto h-[32px] inline-flex items-center px-4 py-2 rounded-[8px] bg-blue-600 text-white text-sm shadow-sm hover:bg-blue-700 mt-3 md:mt-0 md:ml-auto p-2">
+          <button className="w-auto h-[32px] inline-flex items-center px-4 py-2 rounded-[8px] bg-[#1656A5] text-white text-sm shadow-sm hover:bg-blue-700 mt-3 md:mt-0 md:ml-auto p-2">
             See all
           </button>
         </div>
