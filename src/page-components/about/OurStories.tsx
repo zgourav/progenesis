@@ -85,8 +85,8 @@ const OurStories: React.FC = () => {
         </div>
 
         {/* Right Column: Paragraph + Image + Info Box */}
-        {/* Desktop (csLg and up): keep tab-driven single story */}
-        <div className="hidden csLg:flex flex-col gap-10">
+        {/* Show desktop-style layout on md and up */}
+        <div className="hidden md:flex flex-col gap-10">
           {/* Paragraph (top of right column) */}
           <p className="text-lg csLg:text-[32px] leading-[36px] text-black tracking-tight font-[Manrope]">
             We believe every hopeful parent deserves a team that listens, cares, and fights to make
