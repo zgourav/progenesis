@@ -42,13 +42,17 @@ const HeroSection = () => {
         {/* Left content */}
         <div className="relative z-10 mt-2 md:mt-[85px] max-w-5xl">
           <p className="text-[18px] text-gray-600 mb-2 md:mb-[44px]">
-            Home<span className="px-[12px]">›</span>
+            <Link href="/" className="hover:text-blue-700 transition-colors">
+              Home
+            </Link>
+            <span className="px-[12px]">›</span>
             <span
               className="inline-block px-3 py-1 rounded-md text-[18px] font-medium leading-[40px] tracking-[-0.36px] text-blue-700"
             >
               International Patient
             </span>
           </p>
+
           <h1 className="md:text-[5rem] font-bold leading-tight mb-[44px] text-[#252525]">
             IVF Treatment for International Patient
           </h1>
@@ -74,7 +78,7 @@ const HeroSection = () => {
         </div>
       </section>
 
-      <div className="flex flex-wrap gap-4 pt-[50px] px-[120px] pb-[80px]">
+      <div className="flex flex-wrap gap-4 pt-[50px] px-[12px] md:px-[80px] xl:px-[120px] pb-[80px] bg-[#fff]">
         {/* Journey */}
         <button
           type="button"
@@ -188,34 +192,35 @@ const StepsSection = () => {
           <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-8">
             Your Steps to Begin
           </h2>
-          <div className="flex flex-col space-y-4">
+          <div className="inline-flex flex-col w-auto divide-y divide-gray-300 border-t border-b border-gray-300 mt-10">
             {steps.map((step, idx) => (
               <button
                 key={idx}
                 onClick={() => setActiveIndex(idx)}
-                className={`flex justify-between items-center text-left p-4 rounded-lg border transition ${activeIndex === idx
-                  ? "bg-blue-50 border-blue-200 text-blue-600"
-                  : "bg-gray-50 border border-gray-100 text-gray-700 hover:bg-gray-100"
+                className={`flex justify-between items-center text-left py-6 transition ${activeIndex === idx ? "text-blue-600" : "text-gray-700 hover:text-blue-500"
                   }`}
               >
-                <div className="flex items-center gap-3">
-                  <span
-                    className={`text-sm font-bold ${activeIndex === idx ? "text-blue-600" : "text-gray-400"
-                      }`}
-                  >
-                    {step.number}
-                  </span>
-                  <span className="text-lg font-medium">{step.title}</span>
-                </div>
                 <span
-                  className={`text-lg ${activeIndex === idx ? "text-blue-600" : "text-gray-400"
-                    }`}
+                  className={`${activeIndex === idx ? "text-blue-600" : "text-[#2C2C2C]"
+                    } font-[Manrope] text-[38px] leading-[56px] tracking-[-0.96px] font-normal`}
                 >
-                  {activeIndex === idx ? "•" : "–"}
+                  {step.title}
+                </span>
+                <span className="ml-10">
+                  {activeIndex === idx ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <circle cx="6" cy="6" r="6" fill="#1656A5" />
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <circle cx="6" cy="6" r="6" fill="#A5A5A5" />
+                    </svg>
+                  )}
                 </span>
               </button>
             ))}
           </div>
+
         </div>
 
         {/* Right */}
@@ -226,11 +231,12 @@ const StepsSection = () => {
             A clear, step-by-step process to make your fertility treatment in
             India smooth, transparent, and stress-free.
           </p>
-          <div className="rounded-2xl overflow-hidden shadow-md">
+          <div className="flex flex-col md:flex-row">
+          <div className="rounded-2xl overflow-hidden shadow-md mr-10">
             <img
               src={steps[activeIndex].image}
               alt={steps[activeIndex].title}
-              className="w-full h-[280px] md:h-[320px] object-cover"
+              className="w-[300px] h-[280px] md:h-[320px] object-cover"
             />
           </div>
           <div>
@@ -242,6 +248,7 @@ const StepsSection = () => {
                 <li key={i}>{line}</li>
               ))}
             </ul>
+          </div>
           </div>
         </div>
       </div>
