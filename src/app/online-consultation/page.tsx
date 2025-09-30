@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import ConsultationForm from "../../components/Consultation/ConsultationForm";
+import Link from "next/link";
 
 
 const OnlineConsultation: React.FC = () => {
@@ -60,7 +61,9 @@ const OnlineConsultation: React.FC = () => {
         {/* Left content */}
         <div className="relative z-10 mt-2 md:mt-[85px] max-w-5xl">
           <p className="text-[12px] md:text-[14px] l:text-[18px] text-gray-600  md:mb-[44px]">
-            Home<span className="px-[12px]">›</span>
+           <Link href="/" className="hover:text-blue-700 transition-colors">
+              Home
+            </Link><span className="px-[12px]">›</span>
             <span
               className="inline-block px-3 py-1 rounded-md text-[12px] md:text-[14px] l:text-[18px] font-medium leading-[40px] tracking-[-0.36px] text-blue-700"
             >
@@ -137,7 +140,7 @@ const OnlineConsultation: React.FC = () => {
 
 
 
-      <div className="flex flex-wrap gap-4 pt-[50px] px-[12px] md:px-[80px] xl:px-[120px] pb-[80px]">
+      <div className="flex flex-wrap gap-4 pt-[50px] px-[12px] md:px-[80px] xl:px-[120px] pb-[80px] bg-[#fff]">
         <button
           type="button"
           onClick={() => document.getElementById("journey-section")?.scrollIntoView({ behavior: "smooth" })}
@@ -390,49 +393,49 @@ const OnlineConsultation: React.FC = () => {
 
 
 
-      <section id="quiz-section"
-        className="relative w-full h-[474px] flex flex-col md:flex-row items-center justify-between overflow-hidden flex-shrink-0"
-      >
-        {/* 🔹 Background Gradient */}
-        {/* <div className="absolute inset-0 bg-gradient-to-r to-[#E8F3E0]  via-[#FFFFFF] from-[#E6EFFA]"></div> */}
+<section
+  id="quiz-section"
+  className="
+    relative w-full flex flex-col items-center justify-center 
+    bg-no-repeat bg-cover bg-center
+    px-6 md:px-[80px] xl:px-[120px] 
+    py-16 md:py-24 lg:py-[80px]
+    /* ✅ Mobile Background */
+    bg-[url('/online-consultation/takeaquizbgdesktop.png')]
+    md:bg-[url('/online-consultation/takeaquizbbgmobile.png')]
+  "
+>
+  {/* 🔹 Overlay if needed */}
+  {/* <div className="absolute inset-0 bg-black/30"></div> */}
 
-        <div className="absolute inset-0 bg-gradient-to-r from-[#E6EFFA] from-30% via-[#FFFFFF] via-60% to-[#E8F3E0]"></div>
+  {/* 🔹 Content */}
+  <div className="relative z-10 max-w-[700px] text-center md:text-left">
+    <span className="inline-block text-[#1656A5] font-[Manrope] text-[12px] font-medium leading-[20px] tracking-[-0.24px] mb-4">
+      Quick Fertility Score, Expert Advice
+    </span>
+
+    <h2
+      className="
+        text-[#2C2C2C] font-[Manrope] font-normal
+        text-[28px] leading-[36px] tracking-[-0.56px] 
+        md:text-[40px] md:leading-[48px] md:tracking-[-0.8px] 
+        lg:text-[48px] lg:leading-[56px] lg:tracking-[-0.96px] 
+        mb-6 md:mb-8
+      "
+    >
+      Not Sure Where to Start? <br /> Take Our 2-Minute Fertility Quiz
+    </h2>
+
+    <button
+      type="button"
+      className="px-6 py-3 rounded-[8px] bg-black text-[#F9F9F9] font-[Manrope] text-[14px] font-medium leading-[24px] tracking-[-0.28px] transition hover:bg-gray-900"
+    >
+      Take a Quiz
+    </button>
+  </div>
+</section>
 
 
-        {/* 🔹 Left Content */}
-        <div className="relative z-10 flex-1 px-[12px] md:px-[80px] xl:px-[120px]  py-[80px]">
-          {/* Small Label */}
-          <span className="inline-block text-[#1656A5] font-[Manrope] text-[12px] font-medium leading-[20px] tracking-[-0.24px] mb-4">
-            Quick Fertility Score, Expert Advice
-          </span>
-
-          {/* Main Heading */}
-          <h2 className="text-[#2C2C2C] font-[Manrope] text-[48px] font-normal leading-[56px] tracking-[-0.96px] mb-8">
-            Not Sure Where to Start? <br /> Take Our 2-Minute Fertility Quiz
-          </h2>
-
-          {/* CTA Button */}
-          <button
-            type="button"
-            className="px-6 py-3 rounded-[8px] bg-black text-[#F9F9F9] font-[Manrope] text-[14px] font-medium leading-[24px] tracking-[-0.28px] transition hover:bg-gray-900"
-          >
-            Take a Quiz
-          </button>
-        </div>
-
-        {/* 🔹 Right Image */}
-        <div className="relative z-10 flex-1 flex justify-center md:justify-end">
-          <img
-            src="/online-consultation/heart_hand.png" // ✅ your image path
-            alt="Fertility Quiz"
-            width={1092}
-            height={846}
-            className="w-[1092px] h-[846px] object-contain transform rotate-[28.403deg] flex-shrink-0 filter grayscale"
-            style={{ aspectRatio: "1092.79/846.01" }}
-          />
-
-        </div>
-      </section>
 
       <ConsultationForm />
     </div>

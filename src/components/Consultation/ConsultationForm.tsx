@@ -77,7 +77,7 @@ const ConsultationForm = () => {
     <section className="relative pt-[42px] md:pt-[84px] mx-0 px-4 md:px-[80px] lg:px-[120px] pb-[60px] flex justify-center bg-gray-50">
       <div className="absolute inset-0 -z-10">
         <img
-          src="/ConsultationForm/formbg.png"
+          src="/ConsultationForm/contact.png"
           alt="Background"
           className="w-full h-full object-cover"
         />
