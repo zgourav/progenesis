@@ -1,12 +1,37 @@
 'use client';
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 // Renders text where all characters gradually turn black one by one
 const HoverText: React.FC<{ text: string; className?: string }> = ({ text, className }) => {
   const chars = Array.from(text);
   const [visibleIndex, setVisibleIndex] = useState(-1);
+  const [startAnimation, setStartAnimation] = useState(false);
+  const ref = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
+    // Trigger animation when element enters viewport
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setStartAnimation(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!startAnimation) return;
+
     let current = -1;
     const interval = setInterval(() => {
       current++;
@@ -15,13 +40,16 @@ const HoverText: React.FC<{ text: string; className?: string }> = ({ text, class
         return;
       }
       setVisibleIndex(current);
-    }, 100); // 100ms per character, adjust for speed
+    }, 100); // 100ms per character
 
     return () => clearInterval(interval);
-  }, [chars.length]);
+  }, [startAnimation, chars.length]);
 
   return (
-    <p className={`${className ?? ''} break-words whitespace-normal max-w-full overflow-hidden`}>
+    <p
+      ref={ref}
+      className={`${className ?? ''} break-words whitespace-normal max-w-full overflow-hidden`}
+    >
       {chars.map((ch, i) => (
         <span
           key={i}
