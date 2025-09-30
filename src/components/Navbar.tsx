@@ -539,7 +539,7 @@ const navigationItems = [
   { label: "Our Centers", path: "/centers", hasMegaMenu: true },
   { label: "Treatments", path: "/infertility-treatment", hasMegaMenu: true },
   { label: "Doctors", path: "/doctors", hasMegaMenu: false },
-  { label: "Success Stories", path: "/success-stories", hasMegaMenu: false },
+  { label: "Success Stories", path: "/resources", hasMegaMenu: false },
   { label: "Patient Resources", path: "/resources", hasMegaMenu: true },
   { label: "Careers", path: "/careers", hasMegaMenu: false },
 ];
