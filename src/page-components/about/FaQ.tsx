@@ -22,6 +22,7 @@ const tabs: Tab[] = [
       { q: "What can cause infertility in Men?", a: "Low sperm count, poor motility or morphology, infections, varicocele, hormonal issues, or lifestyle factors can contribute." },
       { q: "When should I seek consultation for infertility?", a: "Seek consultation after 12 months of trying (or 6 months if over 35), or earlier if you have known medical concerns." },
       { q: "What can cause infertility in Men?", a: "Evaluation by a specialist can identify causes and guide options like lifestyle changes, medication, IUI, or IVF." },
+      { q: "Can I improve my fertility?", a: "Yes, adopting a healthy lifestyle with balanced nutrition, regular exercise, avoiding tobacco and excessive alcohol, and managing stress can improve fertility outcomes for both men and women." },
     ],
   },
   {
@@ -29,6 +30,7 @@ const tabs: Tab[] = [
     items: [
       { q: "Do you offer packages?", a: "Yes, we offer transparent packages tailored to treatment needs. Contact our team for current details." },
       { q: "Are there financing options?", a: "We can guide you to financing partners and flexible payment schedules where available." },
+      { q: "Yes, financing options including installment plans and collaborations with third-party services are available to help patients manage treatment costs.", a: "Are there financing options available?" },
     ],
   },
   {
@@ -36,6 +38,9 @@ const tabs: Tab[] = [
     items: [
       { q: "What is IVF?", a: "IVF involves fertilizing an egg with sperm in a lab and transferring the embryo into the uterus." },
       { q: "What is IUI?", a: "IUI places processed sperm directly into the uterus around ovulation to improve chances of fertilization." },
+      { q: "How long does IVF treatment take?", a: "Typically, one IVF cycle spans about 4 to 6 weeks, encompassing ovarian stimulation, egg retrieval, fertilization, embryo culture, and embryo transfer into the uterus." },
+      { q: "How many IVF cycles are required?", a: "The number of IVF cycles varies by individual cases, but 1 to 3 cycles are common, with personalized plans based on patient response and success rates." },
+      { q: "Is IVF painful?", a: "IVF itself involves minor discomfort; egg retrieval may cause some pain but is conducted under sedation or anesthesia to minimize discomfort." },
     ],
   },
   {
@@ -43,6 +48,10 @@ const tabs: Tab[] = [
     items: [
       { q: "Does age affect fertility?", a: "Yes. Fertility declines with age, especially after 35 in women, and gradually in men over time." },
       { q: "Can lifestyle affect fertility?", a: "Nutrition, sleep, stress, weight, and smoking/alcohol can all influence fertility outcomes." },
+      { q: "What is male infertility?", a: "Male infertility can be caused by low sperm count, poor motility, hormonal imbalances, or structural issues, and many forms can be treated effectively through medication, surgical correction of abnormalities, or assisted reproductive technologies like ICSI." },
+      { q: "How does age affect fertility?", a: "Fertility naturally declines with age, especially in women after age 35, affecting both the quantity and quality of eggs and potentially decreasing IVF success rates." },
+      { q: "Are fertility treatments safe?", a: "Most fertility treatments are considered safe with minimal side effects, though risks vary depending on the specific treatment and individual health factors." },
+      { q: "Can secondary infertility relate to difficulty conceiving after having one or more biological children and can have different causes than primary infertility?", a: "Yes, secondary infertility relates to difficulty conceiving after having one or more biological children and can have different causes than primary infertility." },
     ],
   },
   {
@@ -50,6 +59,10 @@ const tabs: Tab[] = [
     items: [
       { q: "How long does a consult take?", a: "Typically 30–45 minutes for the first visit, depending on tests and history." },
       { q: "Do I need a referral?", a: "No referral is required. You can book directly with our clinic." },
+      { q: "How can I access my fertility test results?", a: "Test results are usually shared through your physician during consultations; many clinics also provide online portals for convenient access to results." },
+      { q: "Can I get a second opinion on fertility treatments?", a: "Yes, Progenesis offers second opinions and provides detailed treatment records to support informed decisions." },
+      { q: "Can I use a known sperm/egg donor for treatment?", a: "Yes, Progenesis facilitates the use of known donors following thorough medical and psychological screening." },
+      { q: "Are donor candidates screened for safety?", a: "Donor candidates undergo comprehensive medical evaluations including genetic testing and screening for infectious diseases to ensure donor and recipient safety." },
     ],
   },
 ];
