@@ -33,33 +33,37 @@ const CareersOpenings = () => {
 			</div>
 
 			<div className="mt-12 divide-y divide-gray-200/60 rounded-2xl overflow-hidden">
-				{openings.map((job, idx) => (
-					<div key={idx} className="flex items-start justify-between gap-6 py-8 carr-opp-padd">
-						<div className="mb-3">
-							<h3 className="font-manrope text-[24px] md:text-[28px] font-semibold text-gray-900">{job.title}</h3>
-							<div className="mt-3 flex flex-wrap items-center gap-2 text-sm text-gray-600">
-								{job.meta.map((m, i) => (
-									<React.Fragment key={i}>
-										<span>{m}</span>
-										{i < job.meta.length - 1 && <span className="mx-1">•</span>}
-									</React.Fragment>
-								))}
-							</div>
-						</div>
-						<button
-							aria-label="Open role"
-							className={
-								(job.primary
-									? 'bg-[#135EC9] text-white'
-									: 'bg-white text-gray-700 border border-gray-300') +
-								' h-10 w-10 rounded-full flex items-center justify-center hover:shadow-sm'
-							}
-						>
-							<span className="translate-x-[1px] translate-y-[-1px]">↗</span>
-						</button>
-					</div>
-				))}
-			</div>
+    {openings.map((job, idx) => (
+        <div 
+            key={idx} 
+            className="flex items-start justify-between gap-6 py-8 carr-opp-padd group"
+        >
+            <div className="mb-3">
+                <h3 className="font-manrope text-[24px] md:text-[28px] font-semibold text-gray-900 group-hover:text-black">{job.title}</h3>
+                <div className="mt-3 flex flex-wrap items-center gap-2 text-sm text-gray-900 group-hover:text-black">
+                    {job.meta.map((m, i) => (
+                        <React.Fragment key={i}>
+                            <span>{m}</span>
+                            {i < job.meta.length - 1 && <span className="mx-1 group-hover:text-black">•</span>}
+                        </React.Fragment>
+                    ))}
+                </div>
+            </div>
+            <button
+                aria-label="Open role"
+                className={
+                    'h-10 w-10 rounded-full flex items-center justify-center transition-colors ' +
+                    (job.primary
+                        ? 'bg-white text-gray-600 border border-gray-300'
+                        : 'bg-white text-gray-600 border border-gray-300') +
+                    ' group-hover:bg-[#135EC9] group-hover:text-white group-hover:border-transparent'
+                }
+            >
+                <span className="translate-x-[1px] translate-y-[-1px] group-hover:text-white">↗</span>
+            </button>
+        </div>
+    ))}
+</div>
 		</section>
 	)
 }

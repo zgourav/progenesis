@@ -25,12 +25,12 @@ const AboutNav: React.FC = () => {
 
   return (
     <nav  className="flex space-x-3 py-3 md:py-4 bg-white" >
-      <div className="section-spacing grid grid-cols-2 md:grid-cols-3 lg:flex lg:flex-row gap-3 md:gap-4 lg:gap-10">
+      <div className="section-spacing grid grid-cols-2 md:grid-cols-3 lg:flex lg:flex-row gap-1 md:gap-2 lg:gap-4">
            {sections.map((section) => (
         <button
           key={section.id}
           onClick={() => handleScroll(section.id)}
-          className={`w-auto h-[44px] md:h-[50px] lg:h-[56px] px-3 md:px-4 py-2 text-[12px] md:text-[13px] lg:text-[14px] gap-3 md:gap-4 rounded-[16px] border transition-colors duration-300 ${
+          className={` h-10 px-5 inline-flex items-center justify-center text-sm font-medium w-auto md:px-4 py-2 text-[12px] md:text-[13px] lg:text-[14px] gap-3 md:gap-4 rounded-[16px] border transition-colors duration-300 ${
             active === section.id
               ? "bg-[#1656A5] text-white border-[#1656A5]"
               : "text-[#1656A5] border-[#1656A5] hover:bg-[#1656A5] hover:text-white"

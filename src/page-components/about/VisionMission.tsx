@@ -1,22 +1,32 @@
 'use client';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-// Renders text where all characters up to the hovered one turn black
-// and characters after remain light grey. Resets on mouse leave.
+// Renders text where all characters gradually turn black one by one
 const HoverText: React.FC<{ text: string; className?: string }> = ({ text, className }) => {
   const chars = Array.from(text);
-  const [hoverIndex, setHoverIndex] = useState<number>(-1);
+  const [visibleIndex, setVisibleIndex] = useState(-1);
+
+  useEffect(() => {
+    let current = -1;
+    const interval = setInterval(() => {
+      current++;
+      if (current >= chars.length) {
+        clearInterval(interval);
+        return;
+      }
+      setVisibleIndex(current);
+    }, 100); // 100ms per character, adjust for speed
+
+    return () => clearInterval(interval);
+  }, [chars.length]);
 
   return (
-    <p
-      className={`${className ?? ''} break-words whitespace-normal max-w-full overflow-hidden`}
-      onMouseLeave={() => setHoverIndex(-1)}
-    >
+    <p className={`${className ?? ''} break-words whitespace-normal max-w-full overflow-hidden`}>
       {chars.map((ch, i) => (
         <span
           key={i}
-          onMouseEnter={() => setHoverIndex(i)}
-          className={`transition-colors duration-100 ${i <= hoverIndex ? 'text-black' : 'text-[#2C2C2C40]'} `}
+          className={`transition-colors duration-1000`}
+          style={{ color: i <= visibleIndex ? '#000000' : '#2C2C2C40' }}
         >
           {ch}
         </span>
@@ -30,12 +40,12 @@ const VisionMission: React.FC = () => {
     <section id="our-vision" className="w-full bg-white px-6 md:px-12 lg:px-16 py-10 md:py-12 section-spacing" >
       {/* Top Label */}
       <div className="pb-8 md:pb-10 lg:pb-12">
-      <span className="inline-block bg-[#1656A50D] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]">Our Vision & Mission</span>
+        <span className="inline-block bg-[#1656A50D] text-[#1656A5] text-[12px] md:text-[13px] px-3 py-1 rounded-[8px]">Our Vision & Mission</span>
 
-      {/* Section Title */}
-      <h2 className="font-[Manrope] text-[32px] leading-[40px] tracking-[-0.02em] font-normal text-gray-900 mb-12 csLg:text-[48px] csLg:leading-[56px] csLg:font-semibold">
-        Guided by Purpose. <br /> Driven by Compassion.
-      </h2>
+        {/* Section Title */}
+        <h2 className="font-[Manrope] text-[32px] leading-[40px] tracking-[-0.02em] font-normal text-gray-900 mb-12 csLg:text-[48px] csLg:leading-[56px] csLg:font-semibold">
+          Guided by Purpose. <br /> Driven by Compassion.
+        </h2>
       </div>
 
       {/* Our Vision Row */}

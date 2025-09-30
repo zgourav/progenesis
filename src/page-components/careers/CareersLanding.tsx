@@ -56,26 +56,26 @@ const CareersLanding = () => {
                     <button
                         aria-label="Previous"
                         onClick={() => {
-                            const el = scrollerRef.current
-                            if (!el) return
-                            const delta = Math.round(el.clientWidth * 0.8)
-                            el.scrollBy({ left: -delta, behavior: 'smooth' })
-                        }}
-                        className="h-8 w-8 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50"
-                    >
-                        ‹
-                    </button>
+                        const el = scrollerRef.current
+                        if (!el) return
+                        const delta = Math.round(el.clientWidth * 0.8)
+                        el.scrollBy({ left: -delta, behavior: 'smooth' })
+                    }}
+                    className="h-[56px] w-[56px] rounded-[16px] font-bold border border-gray-300 flex items-center justify-center text-gray-700 hover:bg-gray-100"
+                >
+                    ←
+                </button>
                     <button
                         aria-label="Next"
                         onClick={() => {
-                            const el = scrollerRef.current
-                            if (!el) return
-                            const delta = Math.round(el.clientWidth * 0.8)
-                            el.scrollBy({ left: delta, behavior: 'smooth' })
-                        }}
-                        className="h-8 w-8 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50"
-                    >
-                        ›
+                        const el = scrollerRef.current
+                        if (!el) return
+                        const delta = Math.round(el.clientWidth * 0.8)
+                        el.scrollBy({ left: delta, behavior: 'smooth' })
+                            }}
+                        className="h-[56px] w-[56px] font-bold rounded-[16px] border border-gray-300 flex items-center justify-center text-gray-700 hover:bg-gray-100"
+                            >
+                                →
                     </button>
                 </div>
             </section>

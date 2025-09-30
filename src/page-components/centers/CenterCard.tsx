@@ -25,27 +25,9 @@ export interface Center {
 
 // Centers data
 export const centersData: Center[] = [
+ 
   {
     id: 1,
-    name: "Thane",
-    city: "Thane",
-    state: "MAHARASHTRA",
-    address: "16, First Floor, Dosti Imperia, Ghodbunder Road, Opp R Mall, Manpada, Thane West 400607",
-    image: "/images/Thane.png",
-    phone: "+91 1234567890",
-    email: "thane@progenesis.in",
-    services: ["IVF", "IUI", "ICSI", "Fertility Preservation"],
-    coordinates: {
-      lat: 19.2183,
-      lng: 72.9781
-    },
-    timings: {
-      weekdays: "9:00 AM - 8:00 PM",
-      weekends: "9:00 AM - 2:00 PM"
-    }
-  },
-  {
-    id: 2,
     name: "Andheri",
     city: "Mumbai",
     state: "MAHARASHTRA",
@@ -61,6 +43,25 @@ export const centersData: Center[] = [
     timings: {
       weekdays: "8:00 AM - 9:00 PM",
       weekends: "9:00 AM - 5:00 PM"
+    }
+  },
+   {
+    id: 2,
+    name: "Thane",
+    city: "Thane",
+    state: "MAHARASHTRA",
+    address: "16, First Floor, Dosti Imperia, Ghodbunder Road, Opp R Mall, Manpada, Thane West 400607",
+    image: "/images/Thane.png",
+    phone: "+91 1234567890",
+    email: "thane@progenesis.in",
+    services: ["IVF", "IUI", "ICSI", "Fertility Preservation"],
+    coordinates: {
+      lat: 19.2183,
+      lng: 72.9781
+    },
+    timings: {
+      weekdays: "9:00 AM - 8:00 PM",
+      weekends: "9:00 AM - 2:00 PM"
     }
   },
   {
@@ -189,7 +190,10 @@ const CenterCard: React.FC<CenterCardProps> = ({ name, address, image }) => {
   }, [name, address, image]);
 
   return (
-    <div className="flex flex-col md:flex-row gap-4 bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+    <div onClick={() => {
+              router.push(`/centers/${centerData.id}`);
+            }}
+     className="flex flex-col md:flex-row gap-4 bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
       {/* Image Container */}
       <div className="relative w-full md:w-[320px] h-[200px] md:h-[240px]">
         <img
@@ -219,11 +223,7 @@ const CenterCard: React.FC<CenterCardProps> = ({ name, address, image }) => {
           {/* Services */}
           {centerData.services && centerData.services.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-4">
-              {centerData.services.map((service, idx) => (
-                <span key={idx} className="px-2 py-1 bg-blue-50 text-[#1656A5] text-xs rounded-md">
-                  {service}
-                </span>
-              ))}
+              
             </div>
           )}
         </div>
@@ -253,9 +253,7 @@ const CenterCard: React.FC<CenterCardProps> = ({ name, address, image }) => {
             {centerData.coordinates ? 'Get Location' : 'View on Map'}
           </button>
           <button 
-            onClick={() => {
-              router.push(`/centers/${centerData.id}`);
-            }}
+          
             className="h-10 px-4 rounded-xl text-sm font-medium text-white bg-[#1656A5] hover:bg-[#1656A5]/90 transition-colors flex items-center justify-center gap-2"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

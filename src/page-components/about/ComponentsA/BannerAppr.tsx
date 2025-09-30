@@ -240,7 +240,7 @@ const BannerOfApproach: React.FC = () => {
           aria-label="Previous slide"
           onClick={goPrev}
           disabled={isFirst}
-          className={`h-[56px] w-[56px] rounded-[16px] border border-gray-300 flex items-center justify-center text-gray-700 hover:bg-gray-100 ${
+          className={`h-[56px] w-[56px] font-bold rounded-[16px] border border-gray-300 flex items-center justify-center text-gray-700 hover:bg-gray-100 ${
             isFirst ? 'opacity-40 cursor-not-allowed hover:bg-transparent' : ''
           }`}
         >
@@ -250,12 +250,12 @@ const BannerOfApproach: React.FC = () => {
           aria-label="Next slide"
           onClick={goNext}
           disabled={isLast}
-          className={`h-[56px] w-[56px] rounded-[16px] border border-gray-300 flex items-center justify-center text-gray-700 hover:bg-gray-100 ${
+          className={`h-[56px] w-[56px] font-bold rounded-[16px] border border-gray-300 flex items-center justify-center text-gray-700 hover:bg-gray-100 ${
             isLast ? 'opacity-40 cursor-not-allowed hover:bg-transparent' : ''
           }`}
         >
-          ➜
-        </button>
+          →
+        </button> 
       </div>
     </div>
   );
