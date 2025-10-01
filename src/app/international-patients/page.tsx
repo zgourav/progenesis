@@ -146,8 +146,9 @@ const steps = [
     title: "Connect With Us",
     image: "/InternationalPatients/connect.png",
     subtitle: "Begin your treatment journey",
+    sub_description:  "Fill the form and our team will guide you",
     description: [
-      "Fill the form and our team will guide you",
+     
       "Clear answers to your questions",
       "Suggested personalized treatment plan",
       "Documentation checklist",
@@ -159,22 +160,19 @@ const steps = [
     title: "Secure Your Visa",
     image: "/InternationalPatients/visa.png",
     subtitle: "Confirm your treatment & travel",
-    description: [
-      "Once treatment is confirmed, we assist in visa processing",
-      "Provide all necessary medical documents",
-      "Accommodation and travel assistance",
-    ],
+    sub_description:
+      "Once treatment is confirmed, we assist in visa processing.Provide all necessary medical documents. Accommodation and travel assistance,",
+    description: []
   },
   {
     number: "03",
     title: "Arrive & Begin Treatment",
     image: "/InternationalPatients/arrive.png",
     subtitle: "We’re with you at every step",
-    description: [
-      "Meet your doctor & team personally",
-      "Start your planned treatment with comfort & clarity",
-      "24x7 support during your stay",
-    ],
+    sub_description: 
+      "Meet your doctor & team personally. Start your planned treatment with comfort & clarity. 24x7 support during your stay",
+       description: []
+ 
   },
 ];
 
@@ -190,23 +188,23 @@ const StepsSection = () => {
             Your Journey Made Simple
           </span>
           <h2 className="text-[48px] leading-[56px] font-normal text-[#2C2C2C] tracking-[-0.96px] font-[Manrope] mb-8">
-  Your Steps to Begin
-</h2>
+            Your Steps to Begin
+          </h2>
           <div className="inline-flex flex-col w-auto divide-y divide-gray-300 border-t border-b border-gray-300 mt-10">
             {steps.map((step, idx) => (
               <button
                 key={idx}
                 onClick={() => setActiveIndex(idx)}
-                className={`flex justify-between items-center text-left py-6 transition ${activeIndex === idx ? "text-blue-600" : "text-gray-700 hover:text-blue-500"
+                className={`flex justify-between items-center text-left py-2 pr-[20px] transition ${activeIndex === idx ? "text-blue-600" : "text-gray-700 hover:text-blue-500"
                   }`}
               >
                 <span
                   className={`${activeIndex === idx ? "text-blue-600" : "text-[#2C2C2C]"
-                    } font-[Manrope] text-[38px] leading-[56px] tracking-[-0.96px] font-normal`}
+                    } font-[Manrope] text-[32px] leading-[56px] tracking-[-0.96px] font-normal`}
                 >
                   {step.title}
                 </span>
-                <span className="ml-10">
+                <span className="ml-9">
                   {activeIndex === idx ? (
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                       <circle cx="6" cy="6" r="6" fill="#1656A5" />
@@ -232,23 +230,66 @@ const StepsSection = () => {
             India smooth, transparent, and stress-free.
           </p>
           <div className="flex flex-col md:flex-row">
-          <div className="rounded-2xl overflow-hidden shadow-md mr-10">
-            <img
-              src={steps[activeIndex].image}
-              alt={steps[activeIndex].title}
-              className="w-[300px] h-[280px] md:h-[320px] object-cover"
-            />
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold text-blue-700 mb-2">
-              {steps[activeIndex].subtitle}
-            </h3>
-            <ul className="list-disc list-inside text-gray-600 space-y-1">
-              {steps[activeIndex].description.map((line, i) => (
-                <li key={i}>{line}</li>
-              ))}
-            </ul>
-          </div>
+            <div className="rounded-2xl overflow-hidden shadow-md mr-10">
+              <img
+                src={steps[activeIndex].image}
+                alt={steps[activeIndex].title}
+                className="w-[300px] h-[280px] md:w-[600px] md:h-[500px] object-cover"
+              />
+            </div>
+            <div className="w-[350px]">
+  {/* Step Count */}
+  <span
+    className="
+      block mb-1 font-[Manrope]
+      text-[#606060] text-[14px] font-normal leading-[24px] tracking-[-0.28px]
+      md:text-[#94BA3D] md:text-[16px] md:leading-[24px] md:tracking-[-0.32px]
+
+      md:mt-16
+    "
+  >
+    0{activeIndex + 1}
+  </span>
+
+  {/* Subtitle */}
+  <h3
+    className="
+      mb-2 font-[Manrope]
+      text-[#2C2C2C] text-[16px] font-semibold leading-[24px] tracking-[-0.32px]
+      md:text-[#1656A5] md:text-[32px] md:font-medium md:leading-[40px] md:tracking-[-0.64px]
+    "
+  >
+    {steps[activeIndex].subtitle}
+  </h3>
+
+  <span
+      
+        className="
+          font-[Manrope]
+          text-[#606060] text-[14px] font-normal leading-[24px] tracking-[-0.28px]
+          md:text-[#2C2C2C] md:text-[16px] md:leading-[24px] md:tracking-[-0.32px]
+        "
+      >
+        {steps[activeIndex].sub_description}
+      </span>
+
+  {/* Description List */}
+  <ul className="space-y-2 list-disc list-inside text-gray-600 space-y-1">
+    {steps[activeIndex].description.map((line, i) => (
+      <li
+        key={i}
+        className="
+          font-[Manrope]
+          text-[#606060] text-[14px] font-normal leading-[24px] tracking-[-0.28px]
+          md:text-[#2C2C2C] md:text-[16px] md:leading-[24px] md:tracking-[-0.32px]
+        "
+      >
+        {line}
+      </li>
+    ))}
+  </ul>
+</div>
+
           </div>
         </div>
       </div>
