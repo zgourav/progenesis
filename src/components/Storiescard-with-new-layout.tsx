@@ -3,12 +3,9 @@ import React, { useRef, useEffect, useState } from "react";
 import { Play } from "lucide-react";
 
 const stories = [
-    { id: 1, thumbnail: "/StoriesSection/stories1.png", title: "Story 1" },
-    { id: 2, thumbnail: "/StoriesSection/stories2.png", title: "Story 2" },
-    { id: 3, thumbnail: "/StoriesSection/stories1.png", title: "Story 3" },
-    { id: 4, thumbnail: "/StoriesSection/stories2.png", title: "Story 4" },
-    { id: 5, thumbnail: "/StoriesSection/stories1.png", title: "Story 5" },
-    { id: 6, thumbnail: "/StoriesSection/stories2.png", title: "Story 6" },
+    { id: 1, thumbnail: "/StoriesSection/stories1.png", title: "The Mehta Story I with Progenesis I New Beginnings" },
+    { id: 2, thumbnail: "/StoriesSection/stories2.png", title: "Our IVF Journey I with Progenesis I Love Finds a Way" },
+    { id: 3, thumbnail: "/StoriesSection/stories1.png", title: "Our IVF Journey I with Progenesis I Love Finds a Way" },
 ];
 
 export default function StoriesSectionNew() {
@@ -66,22 +63,6 @@ export default function StoriesSectionNew() {
                     <div className="flex items-center gap-3">
                         <button className="hidden md:inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
                             See all
-                        </button>
-
-                        <button
-                            onClick={prevSlide}
-                            aria-label="Previous"
-                            className="w-10 h-10 rounded-lg border border-blue-600 text-blue-600 bg-white flex items-center justify-center"
-                        >
-                            ←
-                        </button>
-
-                        <button
-                            onClick={nextSlide}
-                            aria-label="Next"
-                            className="w-10 h-10 rounded-lg border border-blue-600 text-blue-600 bg-white flex items-center justify-center"
-                        >
-                            →
                         </button>
                     </div>
                 </div>

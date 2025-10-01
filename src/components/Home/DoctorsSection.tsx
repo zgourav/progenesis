@@ -1,6 +1,7 @@
 // DoctorsSection.jsx
 import React, { useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Link from "next/link"
 
 const doctors = [
   {
@@ -17,31 +18,162 @@ const doctors = [
     role: "Chief Fertility Consultant",
   },
   {
-    name: "Dr. Jane Doe",
-    image: "/DoctorsSection/doctorimage.png",
+    name: "Dr. Sonali Malagaonkar",
+    image: "/DoctorsSection/DrSonali.png",
     description:
-      "Dr. Jane Doe specializes in advanced fertility treatments with global expertise.",
+      "Dr. Sonali Malgaonkar is a Senior Fertility Consultant in Thane, with a focus on infertility management and reproductive medicine. She is active in professional societies.",
     experience: [
-      "12+ Years of Experience",
-      "MD, OBGYN, Harvard Medical School",
-      "Certified Embryologist",
+      "14+ Years of Experience",
+      "M.S. (Obstetrics and Gynaecology) (Mumbai)",
+      "Fellowship in Reproductive Medicine",
+    ],
+    location: "Mumbai",
+    role: "Sr. Fertility Consultant",
+  },
+  {
+    name: "Dr. Dinesh Wade",
+    image: "/DoctorsSection/DrDinesh.png",
+    description:
+      "Dr. Dinesh Wade is a Senior IVF Consultant specializing in obstetrics, gynecology, and reproductive medicine, dedicated to providing comprehensive fertility care.",
+    experience: [
+      "14+ Years of Experience",
+      "MBBS, MS, DNB (OBST & GYNAE), FNB, MRCOG (UK)",
+      "Fellowship in Reproductive Medicine",
     ],
     location: "Pune",
     role: "Fertility Consultant",
   },
-  {
-    name: "Dr. John Smith",
-    image: "/DoctorsSection/doctorimage.png",
+   {
+    name: "Dr. Unnati Mamtora",
+    image: "/DoctorsSection/DrUnnati.png",
     description:
-      "Dr. John Smith is passionate about helping families achieve their dreams.",
+      "Dr. Unnati Mamora is a Fertility Consultant with several publications and awards, providing research-driven, empathetic care at Progenesis IVF.",
     experience: [
-      "18+ Years of Experience",
-      "MS, Obstetrics & Gynecology",
-      "Fellowship in IVF & ART",
+      "12+ Years of Experience",
+      "DNB DGO (Obstetrics and Gynaecology)",
+      "Fellowship in Reproductive Medicine",
+    ],
+    location: "Borivali",
+    role: "Fertility Consultant",
+  },
+   {
+    name: "Dr. Shital Sonone",
+    image: "/DoctorsSection/DrShital.png",
+    description:
+      "Dr. Shital Sonone is a Senior IVF Consultant in Nashik with expertise in infertility, advanced procedures, and patient education. She is a member of ISAR and holds an MD in Obstetrics and Gynaecology.",
+    experience: [
+      "09+ Years of Experience",
+      "MS (Obstetrics and Gynaecology)",
+      "Fellowship in Reproductive Medicine",
     ],
     location: "Nashik",
-    role: "Senior Fertility Specialist",
+    role: "Fertility Consultant",
   },
+  {
+    name: "Dr. Rajashree Patil",
+    image: "/DoctorsSection/DrRajashree.png",
+    description:
+      "Dr. Rajashree Patil is a Fertility Consultant specializing in gynecology and infertility, known for her attentive and personalized approach to patient care.",
+    experience: [
+      "12+ Years of Experience",
+      "DNB DGO (Obstetrics and Gynaecology) ",
+      "Fellowship in Reproductive Medicine",
+    ],
+    location: "Virar",
+    role: "Fertility Consultant",
+  },
+  {
+    name: "Dr. Darshna Wahane",
+    image: "/DoctorsSection/DrDarshna.png",
+    description:
+      "Dr. Darshna Wahane, Fertility Consultant, manages infertility and designs personalized treatments with a compassionate patient approach.",
+    experience: [
+      "10+ Years of Experience",
+      "MBBS.DGO (OBST & GYNAE) ",
+      "Fellowship in Reproductive Medicine",
+    ],
+    location: "Panvel",
+    role: "Fertility Consultant",
+  },
+  {
+    name: "Dr. Priti Pardeshi",
+    image: "/DoctorsSection/DrPriti.png",
+    description:
+      "Dr. Priti Pardeshi is a Fertility Consultant at Progenesis Fertility Center, Kalyan. She specializes in obstetrics, gynecology, and reproductive medicine, providing personalized fertility care.",
+    experience: [
+      "12+ Years of Experience",
+      "DGO (Obstetrics and Gynaecology) ",
+      "Fellowship in Reproductive Medicine",
+    ],
+    location: "Kalyan",
+    role: "Fertility Consultant",
+  },
+   {
+    name: "Dr. Teena  Desai",
+    image: "/DoctorsSection/DrTeena.png",
+    description:
+      "Dr. Teena Desai is a Fertility Consultant with expertise in high-risk obstetrics, gynecology, and fertility, and has contributed to research in male subfertility.",
+    experience: [
+      "10+ Years of Experience",
+      "DNB DGO (Obstetrics and Gynaecology)  ",
+      "Fellowship in Reproductive Medicine",
+    ],
+    location: "Andheri",
+    role: "Fertility Consultant",
+  },
+  {
+    name: "Dr. Bhavika Sane",
+    image: "/DoctorsSection/DrBhavika.png",
+    description:
+      "Dr. Bhavika Sane is a Fertility Consultant with a background in gynecology and obstetrics, committed to effective and compassionate infertility care.",
+    experience: [
+      "04+ Years of Experience",
+      "DGO (Obstetrics and Gynaecology)   ",
+      "Fellowship in Reproductive Medicine",
+    ],
+    location: "Vashi",
+    role: "Fertility Consultant",
+  },
+  {
+    name: "Dr. Prerna Khandelwal",
+    image: "/DoctorsSection/DrPrerna.png",
+    description:
+      "Dr. Prerna Khandelwal is a Fertility Consultant specializing in reproductive medicine, offering advanced and tailored fertility care at Progenesis IVF.",
+    experience: [
+      "04+ Years of Experience",
+      "MS (Obstetrics and Gynaecology)   ",
+      "Fellowship in Reproductive Medicine",
+    ],
+    location: "Thane",
+    role: "Fertility Consultant",
+  },
+   {
+    name: "Dr. Shraddha Pol",
+    image: "/DoctorsSection/DrShraddha.png",
+    description:
+      "Dr. Shraddha Pol is a Fertility Consultant focused on infertility and IVF, committed to providing supportive care and improving patient outcomes.",
+    experience: [
+      "04+ Years of Experience",
+      "MS (Obstetrics and Gynaecology)   ",
+      "Fellowship in Reproductive Medicine",
+    ],
+    location: "Thane",
+    role: "Fertility Consultant",
+  },
+  {
+    name: "Dr. Vivek  Bagul",
+    image: "/DoctorsSection/DrVivek.png",
+    description:
+      "Dr. Vivek Bagul serves as a Fertility Consultant, experienced in high-risk obstetric and gynecology procedures, and passionate about supporting patients’ fertility journeys.",
+    experience: [
+      "04+ Years of Experience",
+      "DGO (Obstetrics and Gynaecology)   ",
+      "Fellowship in Reproductive Medicine",
+    ],
+    location: "Jalgaon",
+    role: "Fertility Consultant",
+  },
+
 ];
 
 
@@ -113,9 +245,13 @@ const DoctorsSection = () => {
             <h2 className="text-3xl md:text-5xl font-light text-gray-900 mb-6">
               Meet the Experts <br /> Behind the Magic
             </h2>
-            <button className="px-[12px] md:px-12 py-[12px] md:py-3 md:rounded-[16px] rounded-[8px] text-[12px] md:text-sm font-medium  border border-blue-600 text-blue-600  hover:bg-blue-600 hover:text-white transition">
+            <Link href="/doctors">
+            <button className="px-[12px] md:px-12 py-[12px] md:py-3 md:rounded-[16px] rounded-[8px] text-[12px] md:text-sm font-medium  border border-blue-600 text-blue-600  hover:bg-blue-600 hover:text-white transition cursor-pointer ">
+              
               View all Doctors
+              
             </button>
+            </Link>
           </div>
 
           {/* Right */}
@@ -152,14 +288,14 @@ const DoctorsSection = () => {
             </p>
             <div className="inline-flex h-[200px] md:h-[444px] w-auto md:w-[340px] justify-center items-center flex-shrink-0 rounded-xl bg-[#27C3EB] overflow-hidden">
               <img
-                src="/DoctorsSection/doctorimage.png"
+                src={doctor.image}
                 alt={doctor.name}
                 className="h-full w-full object-cover rounded-xl"
               />
             </div>
 
             {/* Middle Section */}
-            <div className="flex flex-col justify-start pl-1 pr-1 md:pl-10 md:pr-10 flex-1">
+            <div className="flex flex-col justify-start pl-1 pr-1 md:pl-10 md:pr-10 flex-1 md:w-[60vw]">
               {/* Heading */}
               <h3 className="text-[#1656A5] font-[Manrope] text-[32px] md:text-[48px] font-normal leading-[42px] md:leading-[56px] tracking-[-0.96px]">
                 {doctor.name}
@@ -171,16 +307,20 @@ const DoctorsSection = () => {
               </p>
 
               {/* Experience Boxes */}
-              <div className="mt-[24px] md:mt-[108px] flex flex-wrap gap-4">
+              <div className="mt-[24px] md:mt-[108px] flex flex-col gap-4">
                 {doctor.experience.map((exp, idx) => (
-                  <span
+                  <div
                     key={idx}
-                    className="flex px-3 py-2 justify-center items-center rounded-xl bg-[rgba(22,86,165,0.05)] text-[#1656A5] font-[Manrope] text-[14px] font-normal leading-[24px] tracking-[-0.28px] backdrop-blur-[25px]"
+                    className="inline-flex px-3 py-2 justify-center items-center rounded-xl 
+                              bg-[rgba(22,86,165,0.05)] text-[#1656A5] font-[Manrope] 
+                              text-[14px] font-normal leading-[24px] tracking-[-0.28px] 
+                              backdrop-blur-[25px] w-fit"
                   >
                     {exp}
-                  </span>
+                  </div>
                 ))}
               </div>
+
             </div>
 
             {/* Divider */}

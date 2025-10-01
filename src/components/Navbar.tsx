@@ -525,6 +525,40 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
@@ -533,21 +567,156 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Search, Menu, X, ChevronDown } from "lucide-react";
 
+
+
+
+
+
+export function SearchSection({ onClose }: { onClose: () => void }) {
+  const [activeStep, setActiveStep] = useState<"what" | "where" | "who" | "doctor" | null>("what");
+
+  const treatments = [
+    "IVF Treatment", "IUI Procedure", "PCOS", "Irregular Periods",
+    "Repeated Miscarriages", "Infertility Issues", "Pregnancy after Menopause",
+    "Ovulation Induction", "Low AMH", "Fibroids"
+  ];
+
+  const locations = [
+    { name: "Nearby", desc: "Find clinic around you", icon: "/icons/nearby.png" },
+    { name: "Pune", desc: "(Aundh – ITI Rd)", icon: "/LocationSection/Pune.png" },
+    { name: "Nashik", desc: "(College Rd)", icon: "/LocationSection/Nashik.png" },
+    { name: "Thane", desc: "(Ghodhbunder Rd)", icon: "/LocationSection/Thane.png" }
+  ];
+
+  const doctors = [
+    { name: "Dr. Dinesh Wade", role: "Fertility Consultant, Pune", img: "/Doctors/dinesh.png" },
+    { name: "Dr. Unnati Mamtora", role: "Fertility Consultant, Borivali", img: "/Doctors/unnati.png" },
+    { name: "Dr. Darshna Wahane", role: "Fertility Consultant, Panvel", img: "/Doctors/darshna.png" },
+    { name: "Dr. Priti Pardeshi", role: "Fertility Consultant, Kalyan", img: "/Doctors/priti.png" },
+  ];
+
+  return (
+    <section className="relative w-full bg-white shadow-md">
+      {/* Search Row */}
+      <div className="flex items-center w-full max-w-[1600px] mx-auto px-4 py-4 md:px-[80px] lg:px-[120px] gap-2">
+        {["what", "where", "who", "doctor"].map((step, idx) => (
+          <button
+            key={idx}
+            onClick={() => setActiveStep(step as any)}
+            className={`flex-1 px-4 py-3 rounded-xl text-left text-sm md:text-base transition ${
+              activeStep === step
+                ? "bg-[#1656A5] text-white"
+                : "bg-gray-100 text-gray-600"
+            }`}
+          >
+            {step === "what" && "What"}
+            {step === "where" && "Where"}
+            {step === "who" && "Who"}
+          </button>
+        ))}
+
+        {/* Close */}
+         <button
+          onClick={onClose}
+          className="h-[44px] w-[44px] rounded-xl bg-[#1656A5] flex items-center justify-center"
+        >
+          <X size={20} color="#fff" />
+        </button>
+      </div>
+
+      {/* Dropdown / Popup */}
+      {activeStep && (
+        <div className="absolute left-1/2 top-[80px] -translate-x-1/2 bg-white rounded-2xl shadow-xl p-6 w-[90%] max-w-[600px] max-h-[400px] overflow-y-auto z-50">
+          {activeStep === "what" && (
+            <div className="grid grid-cols-2 gap-3">
+              {treatments.map((t, i) => (
+                <button
+                  key={i}
+                  className={`px-4 py-2 rounded-lg border text-sm ${
+                    i === 0
+                      ? "bg-[#1656A5] text-white"
+                      : "border-[#1656A5] text-[#1656A5]"
+                  }`}
+                >
+                  {t}
+                </button>
+              ))}
+            </div>
+          )}
+
+          {activeStep === "where" && (
+            <div className="space-y-3">
+              {locations.map((l, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer"
+                >
+                  <Image
+                    src={l.icon}
+                    alt={l.name}
+                    width={40}
+                    height={40}
+                    className="rounded-md object-cover"
+                  />
+                  <div>
+                    <p className="font-medium text-gray-900">{l.name}</p>
+                    <p className="text-sm text-gray-600">{l.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {activeStep === "who" && (
+            <div className="space-y-3">
+              {doctors.map((d, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer"
+                >
+                  <Image
+                    src={d.img}
+                    alt={d.name}
+                    width={48}
+                    height={48}
+                    className="rounded-full object-cover"
+                  />
+                  <div>
+                    <p className="font-medium text-gray-900">{d.name}</p>
+                    <p className="text-sm text-gray-600">{d.role}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+        
+        </div>
+      )}
+    </section>
+  );
+}
+
+
+
+
 const navigationItems = [
   { label: "About Us", path: "/about-us", hasMegaMenu: true },
   { label: "Infertility Issues", path: "/infertility-issues", hasMegaMenu: true },
   { label: "Our Centers", path: "/centers", hasMegaMenu: true },
   { label: "Treatments", path: "/infertility-treatment", hasMegaMenu: true },
   { label: "Doctors", path: "/doctors", hasMegaMenu: false },
-  { label: "Success Stories", path: "/resources", hasMegaMenu: false },
-  { label: "Patient Resources", path: "/resources", hasMegaMenu: true },
+  { label: "Patient Resources", path: "/resources", hasMegaMenu: false },
   { label: "Careers", path: "/careers", hasMegaMenu: false },
 ];
+
+
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState<string | null>(null);
+  const [isSearchOpen, setIsSearchOpen] = useState(false); // ✅ search toggle
 
   const pathname = usePathname();
   const closeTimeoutRef = useRef<number | null>(null);
@@ -578,7 +747,10 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="w-full bg-white font-sans">
+    <header className="w-full bg-white font-sans relative">
+
+
+      {!isSearchOpen && (
       <div className="mx-auto flex items-center justify-between h-20 px-4 md:px-[80px] lg:px-[120px]">
         {/* LOGO */}
         <div className="flex items-center">
@@ -595,185 +767,48 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* DESKTOP NAVBAR */}
-        <nav className="hidden lg:flex items-center space-x-6">
-          {navigationItems.map((item, index) => (
-            <div
-              key={index}
-              className="relative"
-              onMouseEnter={() => handleMouseEnter(item.label)}
-              onMouseLeave={handleMouseLeave}
-            >
-              <Link
-                href={item.path}
-                className={`flex items-center gap-1 px-3 py-2 rounded-md text-[14px] leading-[24px] tracking-[-0.28px] transition ${pathname === item.path || openMenu === item.label
-                    ? "bg-[#1656A5] text-white"
-                    : "text-[#2C2C2C] hover:bg-[#1656A5] hover:text-white"
-                  }`}
+        {/* DESKTOP NAVBAR (hidden when search is open) */}
+        {!isSearchOpen && (
+          <nav className="hidden lg:flex items-center space-x-6">
+            {navigationItems.map((item, index) => (
+              <div
+                key={index}
+                className="relative"
+                onMouseEnter={() => handleMouseEnter(item.label)}
+                onMouseLeave={handleMouseLeave}
               >
-                {item.label}
-                {item.hasMegaMenu && <ChevronDown size={20} className="transition" />}
-              </Link>
-
-              {/* Mega Menu */}
-             {item.hasMegaMenu && openMenu === item.label && (
-  <div
-    className="fixed left-1/2 top-[80px] -translate-x-1/2 
-               bg-white shadow-lg rounded-2xl overflow-hidden z-50
-               w-[90vw] max-w-[1646px]
-               flex flex-col md:flex-row p-6 gap-8"
-  >
-    {/* LEFT IMAGE (Desktop only) */}
-    <div className="hidden lg:block w-[714px] h-[468px] flex-shrink-0">
-      <Image
-        src="/Navbar/about-image.png"
-        alt="About Us"
-        width={714}
-        height={468}
-        className="w-full h-full object-cover rounded-lg"
-      />
-    </div>
-
-    {/* Discover Us */}
-    <div className="w-full md:w-1/3">
-      <h2 className="text-[#2C2C2C] text-[20px] md:text-[28px] font-normal mb-4">
-        Discover Us
-      </h2>
-      <ul className="space-y-3">
-        {[
-          "Our Story",
-          "Our Approach",
-          "Our Vision & Mission",
-          "Why choose us",
-          "Leadership Team",
-          "Impact & Growth",
-          "FAQs",
-        ].map((title, i) => (
-          <li key={i}>
-            <Link
-              href="/about-us"
-              className="text-[14px] leading-[24px] text-[#2C2C2C] hover:text-[#1656A5]"
-            >
-              {title}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-
-    {/* Quick Links */}
-    <div className="w-full md:w-1/3">
-      <h2 className="text-[#2C2C2C] text-[20px] md:text-[28px] font-normal mb-4">
-        Quick Links
-      </h2>
-      <Link
-        href="/online-consultation"
-        className="block text-center bg-[#1656A5] text-white rounded-lg px-4 py-2 mb-4"
-      >
-        Book Appointment →
-      </Link>
-      <a href="tel:+919423971260" className="block mb-2">
-        📞 +91 94239 71260
-      </a>
-      <a href="https://wa.me/917030944041" className="block">
-        💬 +91 70309 44041
-      </a>
-    </div>
-
-    {/* Additional Links */}
-    <div className="w-full md:w-1/3">
-      <h2 className="text-[#2C2C2C] text-[20px] md:text-[28px] font-normal mb-4">
-        Extra
-      </h2>
-      {[
-        { title: "EMI Options", path: "/emi-options" },
-        { title: "Fellowship", path: "/career" },
-        { title: "Our Centers", path: "/centers" },
-        { title: "Our Social Impact", path: "/about-us" },
-      ].map((link, idx) => (
-        <Link
-          key={idx}
-          href={link.path}
-          className="block px-3 py-2 hover:bg-gray-50 rounded-md"
-        >
-          {link.title}
-        </Link>
-      ))}
-    </div>
-  </div>
-)}
-
-            </div>
-          ))}
-        </nav>
-
-        {/* TABLET NAVBAR */}
-        <nav className="hidden md:flex lg:hidden items-center space-x-5">
-          {navigationItems.map((item, idx) => (
-            <Link
-              key={idx}
-              href={item.path}
-              className={`text-[14px] ${pathname === item.path
-                  ? "text-blue-600 font-semibold"
-                  : "text-[#2C2C2C] hover:text-blue-600"
-                }`}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+                <Link
+                  href={item.path}
+                  className={`flex items-center gap-1 px-3 py-2 rounded-md text-[14px] leading-[24px] tracking-[-0.28px] transition 
+                    ${pathname === item.path || openMenu === item.label
+                      ? "bg-[#1656A5] text-white"
+                      : "text-[#2C2C2C] hover:bg-[#1656A5] hover:text-white"
+                    }`}
+                >
+                  {item.label}
+                  {item.hasMegaMenu && <ChevronDown size={20} className="transition" />}
+                </Link>
+              </div>
+            ))}
+          </nav>
+        )}
 
         {/* RIGHT CONTROLS */}
         <div className="flex items-center gap-2">
-          {/* Desktop / Tablet */}
-          <div className="hidden md:flex items-center gap-3">
-            <button className="flex items-center gap-1 h-[40px] px-4 rounded-lg bg-[rgba(0,0,0,0.05)] text-sm">
-              En <ChevronDown size={16} />
-            </button>
-            <button className="flex items-center justify-center h-[40px] w-[40px] rounded-lg bg-[rgba(0,0,0,0.05)]">
-              <Search size={20} />
-            </button>
-          </div>
-
-          {/* Mobile */}
-          <div className="flex md:hidden items-center gap-2">
-            <button className="flex items-center justify-center p-2 rounded-md bg-[rgba(0,0,0,0.25)] backdrop-blur-[7.5px]">
-              <Search size={24} color="#F9F9F9" />
-            </button>
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="flex items-center justify-center p-2 rounded-md bg-[rgba(0,0,0,0.25)] backdrop-blur-[7.5px]"
-            >
-              {isMenuOpen ? <X size={24} color="#F9F9F9" /> : <Menu size={24} color="#F9F9F9" />}
-            </button>
-          </div>
+          {/* Search Button */}
+          <button
+            onClick={() => setIsSearchOpen(!isSearchOpen)}
+            className="flex items-center justify-center h-[40px] w-[40px] rounded-lg bg-[rgba(0,0,0,0.05)]"
+          >
+            {isSearchOpen ? <X size={20} /> : <Search size={20} />}
+          </button>
         </div>
       </div>
 
-      {/* MOBILE MENU */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg p-4 space-y-4">
-          {navigationItems.map((item, idx) => (
-            <div key={idx}>
-              <button
-                className="flex justify-between w-full text-left py-2 text-[#2C2C2C] font-medium"
-                onClick={() => setMobileOpen(mobileOpen === item.label ? null : item.label)}
-              >
-                {item.label}
-                {item.hasMegaMenu && <ChevronDown size={16} className={`${mobileOpen === item.label ? "rotate-180" : ""}`} />}
-              </button>
-              {item.hasMegaMenu && mobileOpen === item.label && (
-                <div className="pl-4 space-y-2">
-                  <Link href="/about-us" className="block text-sm text-gray-600">Our Story</Link>
-                  <Link href="/about-us" className="block text-sm text-gray-600">Our Vision & Mission</Link>
-                  <Link href="/doctors" className="block text-sm text-gray-600">Our Specialists</Link>
-                  <Link href="/resources" className="block text-sm text-gray-600">Take a Quiz</Link>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
       )}
+
+      {/* SEARCH SECTION */}
+      {isSearchOpen && <SearchSection onClose={() => setIsSearchOpen(false)} />}
     </header>
   );
 }

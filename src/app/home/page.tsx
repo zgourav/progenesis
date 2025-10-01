@@ -1,4 +1,4 @@
-"use client"; // add only if any of the imported components use hooks like useState/useEffect
+"use client";
 
 import ConsultationForm from "../../components/Consultation/ConsultationForm";
 import AwardsSection from "../../components/Home/AwardsSection";
@@ -13,11 +13,11 @@ import StoriesSection from "../../components/Home/StoriesSection";
 import TestimonialsSection from "../../components/Home/TestimonialsSection";
 import TreatmentsSection from "../../components/Home/TreatmentsSection";
 import GradientBanner from "@/components/GradientBanner";
+import VideoSection from "@/components/Home/VideoSection";
 
 export default function Home() {
   return (
     <>
-
       <HeroCarousel />
       <StatsSection />
       <TreatmentsSection />
@@ -28,8 +28,9 @@ export default function Home() {
       <StoriesSection />
       <FaqSection />
       <AwardsSection />
+       <VideoSection />
       <ConsultationForm />
-      <GradientBanner text="Striving to set a new standard for reproductive health care services."/>
+      <GradientBanner text="Striving to set a new standard for reproductive health care services." />
     </>
   );
 }

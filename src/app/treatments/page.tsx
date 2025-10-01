@@ -588,9 +588,8 @@ const evaluations = [
 
 
       <StoriesSectionNew/>
-
       <ConsultationForm />
-      <GradientBanner text="Your dream of parenthood deserves the best. Our specialists offer advanced fertility treatments for higher success." />
+      <GradientBanner text="Every journey to parenthood is unique — with the right care, hope finds its way." />
 
       {/* </div> */}
 

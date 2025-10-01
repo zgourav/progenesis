@@ -142,10 +142,10 @@ const StatItem = ({ item }) => {
       initial={{ opacity: 0, y: 40, scale: 0.95 }}
       animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="flex flex-col md:grid md:grid-cols-3 gap-4 py-8"
+      className="flex flex-col md:grid md:grid-cols-3 gap-4 py-8 "
     >
       {/* Label + mobile value */}
-      <div className="flex justify-between items-center md:block">
+      <div className="flex justify-between items-start md:block">
         <h3 className="text-[48px] font-manrope font-normal text-[#2c2c2c]">
   {item.label}
 </h3>
@@ -155,7 +155,7 @@ const StatItem = ({ item }) => {
       </div>
 
       {/* Description */}
-      <p className="typo-H4-body-copy text-[#2c2c2c] md:col-span-1 max-w-md">
+      <p className="typo-H4-body-copy text-[#2c2c2c] md:col-span-1 max-w-md mt-4">
   {item.description}
 </p>
 

@@ -410,9 +410,9 @@ const OnlineConsultation: React.FC = () => {
 
   {/* 🔹 Content */}
   <div className="relative z-10 max-w-[700px] text-center md:text-left">
-    <span className="inline-block text-[#1656A5] font-[Manrope] text-[12px] font-medium leading-[20px] tracking-[-0.24px] mb-4">
-      Quick Fertility Score, Expert Advice
-    </span>
+    <span className="flex items-center gap-1 px-2 py-1 text-[#1656A5] font-[Manrope] text-[12px] font-medium leading-[20px] tracking-[-0.24px] mb-4">
+  Quick Fertility Score, Expert Advice
+</span>
 
     <h2
       className="

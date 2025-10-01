@@ -29,6 +29,37 @@ const awards = [
   },
 ];
 
+
+
+const knowledge = [
+  {
+    year: "1 month ago",
+    title: "Breaking the Myths Around IVF",
+    subtitle: "Discover the truth behind common misconceptions, so you can approach your fertility journey with clarity and confidence.",
+    image: "/awards/kc1.png", // ✅ public folder
+  },
+  {
+    year: "1 month ago",
+    title: "Nutrition for Fertility Success",
+    subtitle: " Learn how small, mindful changes in your diet can create a healthier foundation for conception and IVF success.",
+    image: "/awards/kc2.png", // ✅ public folder
+  },
+  {
+    year: "1 month ago",
+    title: "Advanced Technology in IVF",
+    subtitle: "Explore how innovations in reproductive science are transforming possibilities and bringing dreams to life.",
+    image: "/awards/kc3.png", // ✅ public folder
+  },
+  {
+    year: "1 month ago",
+    title: "Preparing for Parenthood",
+    subtitle: "Steps you can take today to feel ready — emotionally, physically, and mentally — for the beautiful journey ahead.",
+    image: "/awards/kc4.png", // ✅ public folder
+  },
+];
+
+
+
 export default function AwardsSection() {
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
@@ -87,19 +118,19 @@ export default function AwardsSection() {
                         />
                       </div>
 
-                     <div className="pt-4 sm:pt-5 flex flex-col h-[150px]">
-  <h3
-    className="text-[#2C2C2C] font-[Manrope] text-[20px] font-normal leading-[28px] tracking-[-0.4px] pb-[57px]"
-  >
-    {award.title}
-  </h3>
+                      <div className="pt-4 sm:pt-5 flex flex-col h-[150px]">
+                        <h3
+                          className="text-[#2C2C2C] font-[Manrope] text-[20px] font-normal leading-[28px] tracking-[-0.4px] pb-[57px]"
+                        >
+                          {award.title}
+                        </h3>
 
-  <p
-    className="text-[#606060] font-[Manrope] text-[16px] font-normal leading-[24px] tracking-[-0.32px] opacity-50 mt-3"
-  >
-    {award.subtitle}
-  </p>
-</div>
+                        <p
+                          className="text-[#606060] font-[Manrope] text-[16px] font-normal leading-[24px] tracking-[-0.32px] opacity-50 mt-3"
+                        >
+                          {award.subtitle}
+                        </p>
+                      </div>
 
 
                     </article>
@@ -107,14 +138,54 @@ export default function AwardsSection() {
                 </div>
               </div>
             ) : (
-              <div className="bg-white rounded-2xl p-6 shadow-sm">
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                  Knowledge Center
-                </h4>
-                <p className="text-sm text-gray-600">
-                  Articles, guides and patient resources will appear here.
-                  (Replace this placeholder with your real content.)
-                </p>
+              // <div className="bg-white rounded-2xl p-6 shadow-sm">
+              //   <h4 className="text-lg font-semibold text-gray-900 mb-2">
+              //     Knowledge Center
+              //   </h4>
+              //   <p className="text-sm text-gray-600">
+              //     Articles, guides and patient resources will appear here.
+              //     (Replace this placeholder with your real content.)
+              //   </p>
+              // </div>
+              <div className="mt-2">
+                {/* Grid: single column on mobile, two columns from sm/md */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {knowledge.map((award, idx) => (
+                    <article
+                      key={idx}
+                      className="bg-white rounded-2xl shadow-sm overflow-hidden transition hover:shadow-m h-[490px]
+                      md:p-[24px]"
+                    >
+                      <div className="flex justify-between mb-4 text-[#606060]/50 font-[Manrope] text-[15.8px] font-medium leading-[26.3px] tracking-[-0.316px]">
+                        <span>{award.year}</span>
+                        <span>Awards</span>
+                      </div>
+                      <div className="w-full h-44 sm:h-40 md:h-44 lg:h-48 rounded-2xl  overflow-hidden">
+                        <img
+                          src={award.image}
+                          alt={award.title}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+
+                      <div className="pt-4 sm:pt-5 flex flex-col h-[150px]">
+                        <h3
+                          className="text-[#2C2C2C] font-[Manrope] text-[20px] font-normal leading-[28px] tracking-[-0.4px] pb-[57px]"
+                        >
+                          {award.title}
+                        </h3>
+
+                        <p
+                          className="text-[#606060] font-[Manrope] text-[16px] font-normal leading-[24px] tracking-[-0.32px] opacity-50 mt-3"
+                        >
+                          {award.subtitle}
+                        </p>
+                      </div>
+
+
+                    </article>
+                  ))}
+                </div>
               </div>
             )}
           </div>

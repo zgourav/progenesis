@@ -13,6 +13,7 @@ import StatsSection from "@/components/Home/StatsSection";
 import StoriesSection from "@/components/Home/StoriesSection";
 import TestimonialsSection from "@/components/Home/TestimonialsSection";
 import TreatmentsSection from "@/components/Home/TreatmentsSection";
+import VideoSection from "@/components/Home/VideoSection";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
       <StoriesSection />
       <FaqSection />
       <AwardsSection />
+      <VideoSection />
       <ConsultationForm />
       <GradientBanner text="Striving to set a new standard for reproductive health care services."/>
     </>

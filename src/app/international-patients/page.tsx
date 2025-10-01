@@ -189,9 +189,9 @@ const StepsSection = () => {
           <span className="inline-block text-[12px] font-medium text-[#1656A5] bg-[#1656A5]/5 px-3 py-1 rounded-full mb-4">
             Your Journey Made Simple
           </span>
-          <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-8">
-            Your Steps to Begin
-          </h2>
+          <h2 className="text-[48px] leading-[56px] font-normal text-[#2C2C2C] tracking-[-0.96px] font-[Manrope] mb-8">
+  Your Steps to Begin
+</h2>
           <div className="inline-flex flex-col w-auto divide-y divide-gray-300 border-t border-b border-gray-300 mt-10">
             {steps.map((step, idx) => (
               <button
@@ -356,14 +356,14 @@ const TreatmentsSection = () => {
             {/* Left */}
             <div className="w-[40%] sm:max-w-xl md:max-w-2xl lg:max-w-3xl">
               <span className="inline-block text-sm font-medium text-[#1656A5] bg-[#1656A5]/5 px-3 py-1 rounded-full mb-4">
-                Our Expertise
+                Advanced Fertility Solutions
               </span>
               <h2 className="text-[48px] md:text-5xl font-light text-[#2c2c2c] mb-6">
-                Being India’s Best Fertility & IVF Center. We Specialize in:
+                Personalized fertility care for every parenthood journey
               </h2>
-              <button className="px-[14px] md:px-12 py-[12px] md:py-3 md:rounded-[16px] rounded-[8px] text-[12px] md:text-sm font-medium border border-[#1656A5] text-[#1656A5] hover:bg-[#1656A5] hover:text-white transition">
+              {/* <button className="px-[14px] md:px-12 py-[12px] md:py-3 md:rounded-[16px] rounded-[8px] text-[12px] md:text-sm font-medium border border-[#1656A5] text-[#1656A5] hover:bg-[#1656A5] hover:text-white transition">
                 View all treatments
-              </button>
+              </button> */}
             </div>
 
             {/* Right (Animated Text) */}
