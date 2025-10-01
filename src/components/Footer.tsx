@@ -216,7 +216,7 @@ const Footer: React.FC = () => {
                   <li key={it.label}>
                     <Link
                       href={it.href}
-                      className="text-base font-[Manrope] font-semibold leading-6 text-white hover:opacity-80"
+                      className="text-base font-[Manrope] font-normal leading-6 text-white hover:opacity-80"
                     >
                       {it.label}
                     </Link>
@@ -353,7 +353,7 @@ const Footer: React.FC = () => {
 
             {/* Patient Resources */}
             <div>
-              <h3 className="text-base md:text-lg font-[Manrope] font-semibold leading-6 mb-4 text-white">
+              <h3 className="text-base md:text-lg font-[Manrope] font-normal leading-6 mb-4 text-white">
                 Patient Resources
               </h3>
               <ul className="space-y-2">
@@ -366,7 +366,7 @@ const Footer: React.FC = () => {
                   <li key={it.label}>
                     <Link
                       href={it.href}
-                      className="text-base font-[Manrope] font-semibold leading-6 text-white hover:opacity-80"
+                      className="text-base font-[Manrope] font-normal leading-6 text-white hover:opacity-80"
                     >
                       {it.label}
                     </Link>
@@ -377,7 +377,7 @@ const Footer: React.FC = () => {
 
             {/* Legal & Training */}
             <div>
-              <h3 className="text-base md:text-lg font-[Manrope] font-semibold leading-6 mb-4 text-white">
+              <h3 className="text-base md:text-lg font-[Manrope] font-normal leading-6 mb-4 text-white">
                 Legal & Training
               </h3>
               <ul className="space-y-2">
@@ -388,7 +388,7 @@ const Footer: React.FC = () => {
                   <li key={it.label}>
                     <Link
                       href={it.href}
-                      className="text-base font-[Manrope] font-semibold leading-6 text-white hover:opacity-80"
+                      className="text-base font-[Manrope] font-normal leading-6 text-white hover:opacity-80"
                     >
                       {it.label}
                     </Link>
