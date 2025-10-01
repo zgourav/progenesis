@@ -1,14 +1,7 @@
-import BlogMain from '@/page-components/blog/BlogMain'
-import React from 'react'
+import BlogMain from '@/page-components/blog/BlogMain';
 
+const Page = () => {
+  return <BlogMain showGridFirst />;
+};
 
-
-const page = () => {
-  return (
-    <div>
-        <BlogMain />
-    </div>
-  )
-}
-
-export default page
+export default Page;
