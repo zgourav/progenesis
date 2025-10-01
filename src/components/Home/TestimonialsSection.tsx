@@ -137,8 +137,8 @@ const TestimonialsSection = () => {
                   <div
                     className={`flex flex-col text-left transition-all duration-500 md:ml-[82px] md:mr-[82px] ml-[12px] mr-[12px] ${
                       isActive
-                        ? "w-[300px] md:w-[510px] md:h-[520px] md:px-[83px] px-[46px] md:py-[96px] py-[66px] bg-[#F9F9F9] rounded-2xl scale-100"
-                        : "w-[300px] md:w-[510px] md:h-[520px] md:px-[83px] px-[46px] md:py-[96px] py-[66px] bg-[#F9F9F9] rounded-2xl opacity-50 scale-95"
+                        ? "w-[250px] md:w-[510px] md:h-[520px] md:px-[83px] px-[26px] md:py-[96px] py-[66px] bg-[#F9F9F9] rounded-2xl scale-100"
+                        : "w-[250px] md:w-[510px] md:h-[520px] md:px-[83px] px-[26px] md:py-[96px] py-[66px] bg-[#F9F9F9] rounded-2xl opacity-50 scale-95"
                     }`}
                   >
                     <p className="text-[#1656A5] font-[Manrope] text-[16px] md:text-[32px] md:leading-[40px] leading-[24px] tracking-[-0.64px] font-normal">

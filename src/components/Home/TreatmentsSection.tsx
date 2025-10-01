@@ -356,7 +356,7 @@ const TreatmentsSection = () => {
                 `}
               >
                 {/* Left Side (Text) */}
-                <div className="flex flex-col w-[260px] md:w-[350px] pt-[50px] md:pt-[100px]">
+                <div className="flex flex-col w-[260px] md:w-[350px] pt-[20px] md:pt-[100px]">
                   <h3 className="text-[#2c2c2c] font-semibold font-[Manrope] md:text-[32px] text-[20px] leading-[40px] tracking-[-0.64px] mb-2">
                     {item.title}
                   </h3>
@@ -372,7 +372,7 @@ const TreatmentsSection = () => {
                     alt={item.title}
                     width={150}
                     height={180}
-                    className="object-contain"
+                    className="object-cover"
                   />
                 </div>
 
