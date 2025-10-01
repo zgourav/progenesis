@@ -41,7 +41,7 @@ const TestimonialsSection = () => {
     <section className="w-full h-[750px] md:h-[700px] bg-white">
       <div className="flex flex-col md:flex-row h-[700px]">
         {/* LEFT PANEL */}
-        <div className="bg-blue-700 text-white p-10 flex flex-col justify-between h-full md:w-[428px] px-4 md:px-[80px] lg:px-[120px] pt-[128px]">
+        <div className="bg-blue-700 text-white p-10 flex flex-col justify-between h-full md:w-1/4 px-4 md:px-[80px] lg:px-[120px] pt-[128px]">
           <div className="md:text-left text-center">
             {/* Google Rating */}
             <div className="flex md:flex-row md:items-end items-center justify-center md:justify-start space-x-2 mb-2">

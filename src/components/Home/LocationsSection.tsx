@@ -134,31 +134,31 @@ export default function LocationsSection() {
     <section className="bg-white py-8 px-4 md:px-[80px] lg:px-[120px] md:py-20">
       <div className="mx-auto">
         {/* Header */}
-<div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-8">
-  <div className="md:flex-1">
-    <span className="inline-block text-xs md:text-sm font-medium text-blue-700 bg-blue-100 px-3 py-1 rounded-full mb-4">
-      Trusted Guidance Everywhere.
-    </span>
+        <div className="flex flex-col md:flex-row items-end justify-between gap-6 mb-8">
+          <div className="md:flex-1">
+            <span className="inline-block text-xs md:text-sm font-medium text-blue-700 bg-blue-100 px-3 py-1 rounded-full mb-4">
+              Trusted Guidance Everywhere.
+            </span>
 
-    <h2 className="mt-2 text-3xl md:text-5xl font-light text-gray-900 leading-snug">
-      Trusted care, now across <br />20+ centers near you...
-    </h2>
-  </div>
+            <h2 className="mt-2 text-3xl md:text-5xl font-light text-gray-900 leading-snug">
+              Trusted care, now across <br />20+ centers near you...
+            </h2>
+          </div>
 
-  <div className="md:flex-none flex items-end">
-    <Link href="/centers">
-      <button className="px-4 md:px-6 py-2 border border-blue-600 text-blue-600 rounded-lg transition text-sm hover:bg-blue-600 hover:text-white">
-        View all Centers
-      </button>
-    </Link>
-  </div>
-</div>
+          <div className="md:flex-none flex items-end">
+            <Link href="/centers">
+              <button className="px-4 md:px-6 py-2 border border-blue-600 text-blue-600 rounded-lg transition text-sm hover:bg-blue-600 hover:text-white">
+                View all Centers
+              </button>
+            </Link>
+          </div>
+        </div>
 
 
         {/* Content */}
         <div className="flex flex-col md:flex-row gap-8">
           {/* Left: clickable list */}
-          <div className="hidden md:flex md:flex-col md:w-1/3 space-y-4 pr-2 overflow-y-auto h-[741px]">
+          <div className="hidden md:flex md:flex-col md:w-1/3 space-y-4 pr-2 overflow-y-auto h-[450px]">
             {locations.map((loc, idx) => {
               const isOpen = openCity === loc.city;
 
@@ -166,39 +166,37 @@ export default function LocationsSection() {
               if (loc.subCities) {
                 return (
                   <div key={idx} className="w-full">
-    
+
                     {/* Parent Card */}
-<button
-  onClick={() => toggleCity(loc.city)}
-  className={`w-full flex justify-between items-center rounded-xl px-5 py-4 transition ${
-    isOpen
-      ? "bg-blue-600 text-white"
-      : "bg-gray-50 text-gray-900"
-  }`}
->
-  <span className="text-lg md:text-xl font-semibold">
-    {loc.city}
-  </span>
-  <span
-    className={`flex items-center justify-center w-10 h-10 rounded-full border transition ${
-      isOpen
-        ? "border-white text-white"
-        : "border-black text-black"
-    }`}
-  >
-    {isOpen ? (
-      // Arrow UP
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-        <path d="M9 13L12 10L15 13" stroke="white" strokeLinecap="square" strokeLinejoin="round" />
-      </svg>
-    ) : (
-      // Arrow DOWN
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-        <path d="M9 11L12 14L15 11" stroke="black" strokeLinecap="square" strokeLinejoin="round" />
-      </svg>
-    )}
-  </span>
-</button>
+                    <button
+                      onClick={() => toggleCity(loc.city)}
+                      className={`w-full flex justify-between items-center rounded-xl px-5 py-4 transition ${isOpen
+                          ? "bg-blue-600 text-white"
+                          : "bg-gray-50 text-gray-900"
+                        }`}
+                    >
+                      <span className="text-lg md:text-xl font-semibold">
+                        {loc.city}
+                      </span>
+                      <span
+                        className={`flex items-center justify-center w-10 h-10 rounded-full border transition ${isOpen
+                            ? "border-white text-white"
+                            : "border-black text-black"
+                          }`}
+                      >
+                        {isOpen ? (
+                          // Arrow UP
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path d="M9 13L12 10L15 13" stroke="white" strokeLinecap="square" strokeLinejoin="round" />
+                          </svg>
+                        ) : (
+                          // Arrow DOWN
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path d="M9 11L12 14L15 11" stroke="black" strokeLinecap="square" strokeLinejoin="round" />
+                          </svg>
+                        )}
+                      </span>
+                    </button>
 
 
                     {/* SubCities */}
@@ -212,19 +210,17 @@ export default function LocationsSection() {
                             <button
                               key={i}
                               onClick={() => setActiveLocation(sub)}
-                              className={`rounded-xl p-4 flex justify-between items-center w-full text-left transition ${
-                                isActive
+                              className={`rounded-xl p-4 flex justify-between items-center w-full text-left transition ${isActive
                                   ? "bg-[rgba(22,86,165,0.05)]"
                                   : "bg-gray-50"
-                              }`}
+                                }`}
                             >
                               <div className="pr-3">
                                 <h4
-                                  className={`text-base font-semibold ${
-                                    isActive
+                                  className={`text-base font-semibold ${isActive
                                       ? "text-blue-700"
                                       : "text-gray-900"
-                                  }`}
+                                    }`}
                                 >
                                   {sub.name}
                                 </h4>
@@ -233,13 +229,14 @@ export default function LocationsSection() {
                                 </p>
                               </div>
                               <div
-                                className={`w-10 h-10 flex items-center justify-center rounded-full ${
-                                  isActive
+                                className={`px-[16px] py-[8px] flex items-center justify-center rounded-full ${isActive
                                     ? "bg-blue-600 text-white"
                                     : "bg-black text-white"
-                                }`}
+                                  }`}
                               >
-                                ↗
+                               <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none" >
+  <path d="M0.563447 6.62744L6.77383 0.627488M6.77383 0.627488L0.563444 0.707495M6.77383 0.627488L6.77383 6.62749" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
                               </div>
                             </button>
                           );
@@ -258,54 +255,51 @@ export default function LocationsSection() {
                 <button
                   key={idx}
                   onClick={() => setActiveLocation(loc)}
-                  className={`rounded-xl p-5 flex justify-between items-center w-full text-left transition ${
-                    isActive
+                  className={`rounded-xl p-5 flex justify-between items-center w-full text-left transition ${isActive
                       ? "bg-[rgba(22,86,165,0.05)]"
                       : "bg-gray-50"
-                  }`}
+                    }`}
                 >
                   <div className="pr-3">
                     <h3
-                      className={`text-lg md:text-xl font-semibold ${
-                        isActive ? "text-blue-700" : "text-gray-900"
-                      }`}
+                      className={`text-lg md:text-xl font-semibold ${isActive ? "text-blue-700" : "text-gray-900"
+                        }`}
                     >
                       {loc.city}
                     </h3>
                     <p className="text-sm text-gray-600 mt-1">{loc.address}</p>
                   </div>
                   <div
-                    className={`w-10 h-10 flex items-center justify-center rounded-full ${
-                      isActive
+                    className={`flex items-center justify-center rounded-full px-[16px] py-[8px]  ${isActive
                         ? "bg-blue-600 text-white"
                         : "bg-black text-white"
-                    }`}
-                  >
-                    ↗
-                  </div>
+                      }`}
+                  ><svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+  <path d="M0.563447 6.62744L6.77383 0.627488M6.77383 0.627488L0.563444 0.707495M6.77383 0.627488L6.77383 6.62749" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div>
                 </button>
               );
             })}
           </div>
 
           {/* Right: Dynamic Image */}
-         <div className="w-full md:w-2/3">
- <div className="relative rounded-2xl overflow-hidden shadow-lg max-w-[1115px] aspect-[1115/741] h-[741px]">
-  <Image
-    src={activeLocation.image || "/LocationsSection/location.png"}
-    alt={
-  "city" in activeLocation
-    ? activeLocation.city
-    : activeLocation.name
-}
+          <div className="w-full md:w-2/3">
+            <div className="relative rounded-2xl overflow-hidden shadow-lg max-w-[1115px] h-[450px]">
+              <Image
+                src={activeLocation.image || "/LocationsSection/location.png"}
+                alt={
+                  "city" in activeLocation
+                    ? activeLocation.city
+                    : activeLocation.name
+                }
 
-    fill
-    className="object-cover"
-    priority
-  />
-</div>
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
 
-</div>
+          </div>
 
 
         </div>
