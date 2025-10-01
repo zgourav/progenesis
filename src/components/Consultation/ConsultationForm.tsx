@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, useEffect, useState } from "react";
 import axios from "axios";
+import { API_DOMAIN } from "@/utils/constent/constent";
 
 // Toast Component
 interface ToastProps {
@@ -177,7 +178,7 @@ const ConsultationForm = () => {
 
   useEffect(() => {
     axios
-      .get("http://192.168.1.63:8000/api/forms/", {
+      .get(API_DOMAIN + "api/forms/", {
         headers: {
           "Content-Type": "application/json",
         },
@@ -200,7 +201,7 @@ const ConsultationForm = () => {
     e.preventDefault();
     try {
       await axios.post(
-        "http://192.168.1.63:8000/api/form/save/",
+        API_DOMAIN + "api/form/save/",
         { fields: formData },
         { headers: { "Content-Type": "application/json" } }
       );
@@ -250,15 +251,7 @@ const ConsultationForm = () => {
         />
       )}
 
-      <section className="relative pt-[42px] md:pt-[84px] mx-0 px-4 md:px-[80px] lg:px-[120px] pb-[60px] flex justify-center bg-gray-50">
-        <div className="absolute inset-0 -z-10">
-          <img
-            src="/ConsultationForm/contact.png"
-            alt="Background"
-            className="w-full h-full object-cover"
-          />
-        </div>
-
+      <section className="relative pt-[42px] md:pt-[84px] mx-0 px-4 md:px-[80px] lg:px-[120px] pb-[60px] flex justify-center bg-transparent">
         <div className="bg-white rounded-2xl shadow-lg p-10 flex flex-col md:flex-row w-full max-w-6xl gap-10">
           {/* Left Form */}
           <div className="flex-1 text-center">
