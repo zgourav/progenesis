@@ -396,20 +396,20 @@ const OnlineConsultation: React.FC = () => {
 <section
   id="quiz-section"
   className="
-    relative w-full flex flex-col items-center justify-center 
-    bg-no-repeat bg-cover bg-center
+    relative w-full flex flex-col
+    bg-no-repeat bg-cover bg-center h-[582px] md:h-[474px]
     px-6 md:px-[80px] xl:px-[120px] 
     py-16 md:py-24 lg:py-[80px]
     /* ✅ Mobile Background */
-    bg-[url('/online-consultation/takeaquizbgdesktop.png')]
-    md:bg-[url('/online-consultation/takeaquizbbgmobile.png')]
+    bg-[url('/online-consultation/take_a_quiz_bg_mobile.png')]
+    md:bg-[url('/online-consultation/take_a_quiz_bg_desktop.png')]
   "
 >
   {/* 🔹 Overlay if needed */}
   {/* <div className="absolute inset-0 bg-black/30"></div> */}
 
   {/* 🔹 Content */}
-  <div className="relative z-10 max-w-[700px] text-center md:text-left">
+  <div className="relative z-10 max-w-[700px] text-left md:text-left">
     <span className="flex items-center gap-1 px-2 py-1 text-[#1656A5] font-[Manrope] text-[12px] font-medium leading-[20px] tracking-[-0.24px] mb-4">
   Quick Fertility Score, Expert Advice
 </span>
