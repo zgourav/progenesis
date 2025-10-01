@@ -1,8 +1,12 @@
-import React from "react";
+'use client'
+import React, { useState } from "react";
 import '../about/AboutMain.css'
+import AppointmentForm from '../about/AppointmentForm';  // import form component
 
 const EmiLanding = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
+
     <section id="landing" className="relative w-full h-[60%]">
       {/* Background images: mobile and desktop */}
       <div
@@ -24,7 +28,7 @@ const EmiLanding = () => {
             {/* Breadcrumb-like line */}
             <div>
               <h2 className='font-manrope csLg:text-[18px] font-semibold text-[12px] leading-[26px] tracking-[-0.02em]'>
-                Home <span className="px-[12px]">›</span> <span className="text-[#1656A5]"> EMI Options </span>
+                <button onClick={() => window.location.href = '/'} className='hover:cursor-pointer'> Home </button> <span className="px-[12px]">›</span> <span className="text-[#1656A5]"> EMI Options </span>
               </h2>
             </div>
 
@@ -37,15 +41,19 @@ const EmiLanding = () => {
 
             {/* CTA */}
             <div className='pt-11'>
-              <span className='bg-[#252525] csLg:text-[14px] text-[12px] p-4 text-[#F9F9F9] rounded-xl'>
-                Book Your Appointment
-              </span>
-            </div>
+                        <button 
+                            onClick={() => setIsOpen(true)} 
+                            className='bg-[#252525] csLg:text-[24px] px-6 py-3 text-[#F9F9F9] rounded-lg hover:bg-[#333] transition'
+                        >
+                            Book Your Appointment
+                        </button>
+                    </div>
           </div>
         </div>
 
         {/* Right column removed; background image now covers entire section */}
       </div>
+      {isOpen && <AppointmentForm onClose={() => setIsOpen(false)} />}
     </section>
   );
 };
