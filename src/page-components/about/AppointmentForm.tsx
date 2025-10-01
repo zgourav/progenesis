@@ -107,6 +107,8 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({ onClose }) => {
   const [formFields, setFormFields] = useState<any[]>([]);
   const [formData, setFormData] = useState<any>({});
   const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
+  const [isFormOpen, setIsFormOpen] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -122,6 +124,9 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({ onClose }) => {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(false); // Stop loading once data is fetched or error occurs
       });
   }, []);
 
@@ -140,26 +145,30 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({ onClose }) => {
       
       // Reset form data
       setFormData({});
-      onClose();
+      setIsFormOpen(false); // Close the form
       
       // Reset the form element itself
       if (formRef.current) {
         formRef.current.reset();
       }
       
-      // Show success toast
-      setToast({
-        message: "Your appointment has been booked successfully!",
-        type: "success",
-      });
+      // Show success toast after form closes
+      setTimeout(() => {
+        setToast({
+          message: "Your appointment has been booked successfully!",
+          type: "success",
+        });
+      }, 300); // Slight delay to ensure form closes first
     } catch (error) {
       console.error(error);
       
-      // Show error toast
-      setToast({
-        message: "Failed to submit form. Please try again.",
-        type: "error",
-      });
+      // Show error toast after form closes
+      setTimeout(() => {
+        setToast({
+          message: "Failed to submit form. Please try again.",
+          type: "error",
+        });
+      }, 300);
     }
   };
 
@@ -241,248 +250,208 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({ onClose }) => {
 
   return (
     <>
-      {/* Toast Notification */}
-      <div className="fixed inset-0 flex items-center justify-center backdrop-blur-md z-50">
-      
-        {/* Desktop View (1024px and above) */}
-        <div className="hidden md:hidden lg:block w-[90%] md:w-[800px] shadow-lg">
-        {toast && (
-        <Toast
-          message={toast.message}
-          type={toast.type}
-          onClose={() => setToast(null)}
-        />
-      )}
-          <div className="bg-white rounded-lg p-6 flex flex-row items-center justify-between relative">
-            {/* Close Button */}
-            <button
-              onClick={onClose}
-              className="absolute top-2 right-2 text-gray-600 hover:text-black text-xl font-bold"
-            >
-              ✕
-            </button>
-            <div className="w-full md:w-1/2 pr-6">
-              <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800">
-                Just focus on your fertility journey,<br />We got the rest covered!
-              </h2>
-              <a href="#" className="text-blue-600 text-sm mb-6 block text-center">Schedule a Consultation</a>
+      {isFormOpen && (
+        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-md z-50">
+          {/* Desktop View (1024px and above) */}
+          <div className="hidden md:hidden lg:block w-[90%] md:w-[800px] shadow-lg">
+            {isLoading ? (
+              <div className="bg-white rounded-lg p-6 flex items-center justify-center h-[500px]">
+                <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-[#1656A5]"></div>
+              </div>
+            ) : (
+              <div className="bg-white rounded-lg p-6 flex flex-row items-center justify-between relative overflow-y-auto max-h-[90vh]">
+                {/* Close Button */}
+                <button
+                  onClick={onClose}
+                  className="absolute top-2 right-2 text-gray-600 hover:text-black text-xl font-bold"
+                >
+                  ✕
+                </button>
+                <div className="w-full md:w-1/2 pr-6">
+                  <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800">
+                    Just focus on your fertility journey,<br />We got the rest covered!
+                  </h2>
+                  <a href="#" className="text-blue-600 text-sm mb-6 block text-center">Schedule a Consultation</a>
 
-              <form ref={formRef} className="flex flex-col gap-4" onSubmit={handleSubmit}>
-                {/* Grouped fields in 2-column grid */}
-                {groupedFields.map((row, rowIdx) => (
-                  <div key={rowIdx} className="flex flex-col md:flex-row gap-4">
-                    {row.map((field, idx) => (
-                      <div key={idx} className="w-full">
-                        {renderField(field, "border border-gray-300 rounded-lg px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full")}
+                  <form ref={formRef} className="flex flex-col gap-4" onSubmit={handleSubmit}>
+                    {/* Grouped fields in 2-column grid */}
+                    {groupedFields.map((row, rowIdx) => (
+                      <div key={rowIdx} className="flex flex-col md:flex-row gap-4">
+                        {row.map((field, idx) => (
+                          <div key={idx} className="w-full">
+                            {renderField(field, "border border-gray-300 rounded-lg px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full")}
+                          </div>
+                        ))}
                       </div>
                     ))}
-                  </div>
-                ))}
 
-                {/* Checkbox (Terms & Conditions) */}
-                {checkboxFields.map((field, idx) => (
-                  <label key={idx} className="text-sm text-gray-500 flex items-center">
-                    <input
-                      type="checkbox"
-                      className="mr-2"
-                      onChange={(e) => handleChange(field.name, e.target.checked)}
-                      checked={formData[field.name] || false}
-                      required={field.required}
-                    />
-                    {field.options && field.options.length > 0 ? (
-                      <>
-                        {field.options[0].label.split(/(\bPrivacy Policy\b|\bT&C\b)/g).map((part: string, i: number) => {
-                          if (part === "Privacy Policy" || part === "T&C") {
-                            return (
-                              <a key={i} href="#" className="text-blue-600 underline">
-                                {part}
-                              </a>
-                            );
-                          }
-                          return part;
-                        })}
-                      </>
-                    ) : (
-                      <>
-                        Clicking means you agree to our{" "}
-                        <a href="#" className="text-blue-600 underline">
-                          Privacy Policy
-                        </a>{" "}
-                        and{" "}
-                        <a href="#" className="text-blue-600 underline">
-                          T&C
-                        </a>
-                      </>
-                    )}
-                  </label>
-                ))}
+                    {/* Checkbox (Terms & Conditions) */}
+                    {checkboxFields.map((field, idx) => (
+                      <label key={idx} className="text-sm text-gray-500 flex items-center space-x-1">
+                        <input
+                          type="checkbox"
+                          className="mr-2"
+                          onChange={(e) => handleChange(field.name, e.target.checked)}
+                          checked={formData[field.name] || false}
+                          required={field.required}
+                        />
+                        <span>By clicking, you agree to our</span>
+                        <a href="#" className="text-blue-600 underline">Privacy Policy</a>
+                        <span>and</span>
+                        <a href="#" className="text-blue-600 underline">T&C</a>
+                      </label>
+                    ))}
 
+                    <button
+                      type="submit"
+                      className="bg-[#1656A5] text-white py-2 rounded-lg hover:bg-[#0f3f7a] transition-colors w-full text-lg font-medium flex flex-col items-center"
+                    >
+                      <span>Book</span>
+                      <span>Appointment</span>
+                    </button>
+                  </form>
+                </div>
+                <div className="w-full md:w-1/2">
+                  <img
+                    src="/images/about-banner-img.png"
+                    alt="Family"
+                    className="rounded-lg object-cover w-full h-full"
+                  />
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Medium View (768px to 1023px) */}
+          <div className="hidden md:block lg:hidden xl:hidden w-[90%] md:w-[600px] shadow-lg">
+            {isLoading ? (
+              <div className="bg-white rounded-lg p-4 flex items-center justify-center h-[400px]">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-[#1656A5]"></div>
+              </div>
+            ) : (
+              <div className="bg-white rounded-lg p-4 flex flex-col items-center relative overflow-y-auto max-h-[90vh]">
+                {/* Close Button */}
                 <button
-                  type="submit"
-                  className="bg-[#1656A5] text-white py-2 rounded-lg hover:bg-[#0f3f7a] transition-colors w-full text-lg font-medium"
+                  onClick={onClose}
+                  className="absolute top-2 right-2 text-gray-600 hover:text-black text-xl font-bold"
                 >
-                  Book Appointment
+                  ✕
                 </button>
-              </form>
-            </div>
-            <div className="w-full md:w-1/2">
-              <img
-                src="/images/about-banner-img.png"
-                alt="Family"
-                className="rounded-lg object-cover w-full h-full"
-              />
-            </div>
+                <h2 className="text-xl font-semibold mb-4 text-center text-gray-800">
+                  Just focus on your fertility journey,<br />We got the rest covered!
+                </h2>
+                <a href="#" className="text-blue-600 text-sm mb-4 block text-center">Schedule a Consultation</a>
+
+                <form ref={formRef} className="flex flex-col gap-3" onSubmit={handleSubmit}>
+                  {nonCheckboxFields.map((field, idx) => (
+                    <div key={idx}>
+                      {renderField(field, "border border-gray-300 rounded-lg px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full")}
+                    </div>
+                  ))}
+
+                  {checkboxFields.map((field, idx) => (
+                    <label key={idx} className="text-sm text-gray-500 flex items-center space-x-1">
+                      <input
+                        type="checkbox"
+                        className="mr-2"
+                        onChange={(e) => handleChange(field.name, e.target.checked)}
+                        checked={formData[field.name] || false}
+                        required={field.required}
+                      />
+                      <span>By clicking, you agree to our</span>
+                      <a href="#" className="text-blue-600 underline">Privacy Policy</a>
+                      <span>and</span>
+                      <a href="#" className="text-blue-600 underline">T&C</a>
+                    </label>
+                  ))}
+
+                  <button
+                    type="submit"
+                    className="bg-[#1656A5] text-white py-2 rounded-lg hover:bg-[#0f3f7a] transition-colors w-full text-base font-medium flex flex-col items-center"
+                  >
+                    <span>Book</span>
+                    <span>Appointment</span>
+                  </button>
+                </form>
+                <img
+                  src="/images/about-banner-img.png"
+                  alt="Family"
+                  className="rounded-lg object-cover w-full h-fit mt-4"
+                />
+              </div>
+            )}
+          </div>
+
+          {/* Mobile View (up to 767px) */}
+          <div className="block md:hidden w-[90%] md:w-[300px] shadow-lg">
+            {isLoading ? (
+              <div className="bg-white rounded-lg p-3 flex items-center justify-center h-[300px]">
+                <div className="animate-spin rounded-full h-10 w-10 border-t-4 border-b-4 border-[#1656A5]"></div>
+              </div>
+            ) : (
+              <div className="bg-white rounded-lg p-3 flex flex-col items-center relative overflow-y-auto max-h-[90vh]">
+                {/* Close Button */}
+                <button
+                  onClick={onClose}
+                  className="absolute top-2 right-2 text-gray-600 hover:text-black text-lg font-bold"
+                >
+                  ✕
+                </button>
+                <h2 className="text-lg font-semibold mb-3 text-center text-gray-800">
+                  Just focus on your fertility journey,<br />We got the rest covered!
+                </h2>
+                <a href="#" className="text-blue-600 text-xs mb-3 block text-center">Schedule a Consultation</a>
+
+                <form ref={formRef} className="flex flex-col gap-2" onSubmit={handleSubmit}>
+                  {nonCheckboxFields.map((field, idx) => (
+                    <div key={idx}>
+                      {renderField(field, "border border-gray-300 rounded-lg px-2 py-1 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full")}
+                    </div>
+                  ))}
+
+                  {checkboxFields.map((field, idx) => (
+                    <label key={idx} className="text-xs text-gray-500 flex items-center space-x-1">
+                      <input
+                        type="checkbox"
+                        className="mr-1"
+                        onChange={(e) => handleChange(field.name, e.target.checked)}
+                        checked={formData[field.name] || false}
+                        required={field.required}
+                      />
+                      <span>By clicking, you agree to our</span>
+                      <a href="#" className="text-blue-600 underline">Privacy Policy</a>
+                      <span>and</span>
+                      <a href="#" className="text-blue-600 underline">T&C</a>
+                    </label>
+                  ))}
+
+                  <button
+                    type="submit"
+                    className="bg-[#1656A5] text-white py-1 rounded-lg hover:bg-[#0f3f7a] transition-colors w-full text-sm font-medium flex flex-col items-center"
+                  >
+                    <span>Book</span>
+                    <span>Appointment</span>
+                  </button>
+                </form>
+                <img
+                  src="/images/about-banner-img.png"
+                  alt="Family"
+                  className="rounded-lg object-cover w-full h-fit mt-3"
+                />
+              </div>
+            )}
           </div>
         </div>
+      )}
 
-        {/* Medium View (768px to 1023px) */}
-        <div className="hidden md:block lg:hidden xl:hidden w-[90%] md:w-[600px] shadow-lg">
-        {toast && (
+      {/* Toast Notification (appears after form closes) */}
+      {toast && (
         <Toast
           message={toast.message}
           type={toast.type}
           onClose={() => setToast(null)}
         />
       )}
-          <div className="bg-white rounded-lg p-4 flex flex-col items-center relative">
-            {/* Close Button */}
-            <button
-              onClick={onClose}
-              className="absolute top-2 right-2 text-gray-600 hover:text-black text-xl font-bold"
-            >
-              ✕
-            </button>
-            <h2 className="text-xl font-semibold mb-4 text-center text-gray-800">
-              Just focus on your fertility journey,<br />We got the rest covered!
-            </h2>
-            <a href="#" className="text-blue-600 text-sm mb-4 block text-center">Schedule a Consultation</a>
-
-            <form ref={formRef} className="flex flex-col gap-3" onSubmit={handleSubmit}>
-              {nonCheckboxFields.map((field, idx) => (
-                <div key={idx}>
-                  {renderField(field, "border border-gray-300 rounded-lg px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full")}
-                </div>
-              ))}
-
-              {checkboxFields.map((field, idx) => (
-                <label key={idx} className="text-sm text-gray-500 flex items-center">
-                  <input
-                    type="checkbox"
-                    className="mr-2"
-                    onChange={(e) => handleChange(field.name, e.target.checked)}
-                    checked={formData[field.name] || false}
-                    required={field.required}
-                  />
-                  {field.options && field.options.length > 0 ? (
-                    <>
-                      {field.options[0].label.split(/(\bPrivacy Policy\b|\bT&C\b)/g).map((part: string, i: number) => {
-                        if (part === "Privacy Policy" || part === "T&C") {
-                          return (
-                            <a key={i} href="#" className="text-blue-600 underline">
-                              {part}
-                            </a>
-                          );
-                        }
-                        return part;
-                      })}
-                    </>
-                  ) : (
-                    <>
-                      Clicking means you agree to our Privacy Policy and T&C
-                    </>
-                  )}
-                </label>
-              ))}
-
-              <button
-                type="submit"
-                className="bg-[#1656A5] text-white py-2 rounded-lg hover:bg-[#0f3f7a] transition-colors w-full text-base font-medium"
-              >
-                Book Appointment
-              </button>
-            </form>
-            <img
-              src="/images/about-banner-img.png"
-              alt="Family"
-              className="rounded-lg object-cover w-full h-fit mt-4"
-            />
-          </div>
-        </div>
-
-        {/* Mobile View (up to 767px) */}
-        <div className="block md:hidden w-[90%] md:w-[300px] shadow-lg">
-        {toast && (
-        <Toast
-          message={toast.message}
-          type={toast.type}
-          onClose={() => setToast(null)}
-        />
-      )}
-          <div className="bg-white rounded-lg p-3 flex flex-col items-center relative">
-            {/* Close Button */}
-            <button
-              onClick={onClose}
-              className="absolute top-2 right-2 text-gray-600 hover:text-black text-lg font-bold"
-            >
-              ✕
-            </button>
-            <h2 className="text-lg font-semibold mb-3 text-center text-gray-800">
-              Just focus on your fertility journey,<br />We got the rest covered!
-            </h2>
-            <a href="#" className="text-blue-600 text-xs mb-3 block text-center">Schedule a Consultation</a>
-
-            <form ref={formRef} className="flex flex-col gap-2" onSubmit={handleSubmit}>
-              {nonCheckboxFields.map((field, idx) => (
-                <div key={idx}>
-                  {renderField(field, "border border-gray-300 rounded-lg px-2 py-1 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full")}
-                </div>
-              ))}
-
-              {checkboxFields.map((field, idx) => (
-                <label key={idx} className="text-xs text-gray-500 flex items-center">
-                  <input
-                    type="checkbox"
-                    className="mr-1"
-                    onChange={(e) => handleChange(field.name, e.target.checked)}
-                    checked={formData[field.name] || false}
-                    required={field.required}
-                  />
-                  {field.options && field.options.length > 0 ? (
-                    <>
-                      {field.options[0].label.split(/(\bPrivacy Policy\b|\bT&C\b)/g).map((part: string, i: number) => {
-                        if (part === "Privacy Policy" || part === "T&C") {
-                          return (
-                            <a key={i} href="#" className="text-blue-600 underline">
-                              {part}
-                            </a>
-                          );
-                        }
-                        return part;
-                      })}
-                    </>
-                  ) : (
-                    <>
-                      Clicking means you agree to our Privacy Policy and T&C
-                    </>
-                  )}
-                </label>
-              ))}
-
-              <button
-                type="submit"
-                className="bg-[#1656A5] text-white py-1 rounded-lg hover:bg-[#0f3f7a] transition-colors w-full text-sm font-medium"
-              >
-                Book Appointment
-              </button>
-            </form>
-            <img
-              src="/images/about-banner-img.png"
-              alt="Family"
-              className="rounded-lg object-cover w-full h-fit mt-3"
-            />
-          </div>
-        </div>
-      </div>
 
       <style>{`
         @keyframes slideIn {
@@ -498,6 +467,19 @@ const AppointmentForm: React.FC<AppointmentFormProps> = ({ onClose }) => {
 
         .animate-slideIn {
           animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        .animate-spin {
+          animation: spin 1s linear infinite;
         }
       `}</style>
     </>
