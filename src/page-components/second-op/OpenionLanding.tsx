@@ -1,7 +1,10 @@
-import React from "react";
+'use client'
+import React, { useState } from "react";
 import '../about/AboutMain.css'
+import AppointmentForm from "../about/AppointmentForm";
 
 const OpenionLanding = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <section className="relative w-full h-[60%]">
       {/* Background images: mobile and desktop */}
@@ -24,7 +27,7 @@ const OpenionLanding = () => {
             {/* Breadcrumb-like line */}
             <div>
               <h2 className='font-manrope csLg:text-[18px] font-semibold text-[12px] leading-[26px] tracking-[-0.02em]'>
-                Home <span className="px-[12px]">›</span> <span className="text-[#1656A5]"> Second Opinion </span>
+                <button onClick={() => window.location.href = '/'} className='hover:cursor-pointer'> Home </button> <span className="px-[12px]">›</span> <span className="text-[#1656A5]"> Second Opinion </span>
               </h2>
             </div>
 
@@ -36,16 +39,20 @@ const OpenionLanding = () => {
             </div>
 
             {/* CTA */}
-            <div className='pt-[44px]' style={{paddingTop:'44px'}}>
-              <span className='bg-[#252525] csLg:text-[14px] text-[12px] p-8 text-[#F9F9F9]' style={{padding:"16px",borderRadius:"12px"}}>
-                Book Your Appointment
-              </span>
-            </div>
+            <div className='pt-11'>
+                        <button 
+                            onClick={() => setIsOpen(true)} 
+                            className='bg-[#252525] csLg:text-[24px] px-6 py-3 text-[#F9F9F9] rounded-lg hover:bg-[#333] transition'
+                        >
+                            Book Your Appointment
+                        </button>
+                    </div>
           </div>
         </div>
 
         {/* Right column removed; background image now covers entire section */}
       </div>
+      {isOpen && <AppointmentForm onClose={() => setIsOpen(false)} />}
     </section>
   );
 };

@@ -64,7 +64,7 @@ const LeadershipTeam: React.FC = () => {
       >
         <div className="relative z-10">
           <nav className="text-sm text-gray-600 mb-2">
-            Home <span className="mx-1">›</span> About Us{" "}
+            <button onClick={() => window.location.href = '/'} className='hover:cursor-pointer'> Home </button><span className="mx-1">›</span> <button onClick={() => window.location.href = '/about-us'} className='hover:cursor-pointer'> About Us </button>
             <span className="mx-1">›</span>{" "}
             <span className="text-[#1656A5] font-medium">Leadership Team</span>
           </nav>
