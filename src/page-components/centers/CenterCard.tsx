@@ -25,7 +25,6 @@ export interface Center {
 
 // Centers data
 export const centersData: Center[] = [
- 
   {
     id: 1,
     name: "Andheri",
@@ -45,7 +44,7 @@ export const centersData: Center[] = [
       weekends: "9:00 AM - 5:00 PM"
     }
   },
-   {
+  {
     id: 2,
     name: "Thane",
     city: "Thane",
@@ -89,7 +88,7 @@ export const centersData: Center[] = [
     city: "Pune",
     state: "MAHARASHTRA",
     address: "Crystal Plaza, 3rd Floor, Near FC Road, Shivajinagar, Pune 411005",
-    image: "/images/Vashi.png",
+    image: "/images/Pune.png",
     phone: "+91 1234567893",
     email: "pune@progenesis.in",
     services: ["IVF", "IUI", "Fertility Counseling"],
@@ -108,7 +107,7 @@ export const centersData: Center[] = [
     city: "Nashik",
     state: "MAHARASHTRA",
     address: "Medicare Center, College Road, Near City Center Mall, Nashik 422005",
-    image: "/images/Nasik.jpg",
+    image: "/images/Nashik.png",
     phone: "+91 1234567894",
     email: "nashik@progenesis.in",
     services: ["IVF", "Fertility Treatment", "Embryology"],
@@ -123,44 +122,214 @@ export const centersData: Center[] = [
   },
   {
     id: 6,
-    name: "Pune",
-    city: "Pune",
+    name: "Jalgaon",
+    city: "Jalgaon",
     state: "MAHARASHTRA",
-    address: "Crystal Plaza, 3rd Floor, Near FC Road, Shivajinagar, Pune 411005",
-    image: "/images/Vashi.png",
-    phone: "+91 1234567893",
-    email: "pune@progenesis.in",
-    services: ["IVF", "IUI", "Fertility Counseling"],
+    address: "Jalgaon Medical Hub, Near Railway Station, Jalgaon 425001",
+    image: "/images/Jalgaon.png",
+    phone: "+91 1234567895",
+    email: "jalgaon@progenesis.in",
+    services: ["IVF", "IUI", "Fertility Consultation"],
     coordinates: {
-      lat: 18.5204,
-      lng: 73.8567
+      lat: 21.0075,
+      lng: 75.5636
     },
     timings: {
-      weekdays: "9:00 AM - 8:00 PM",
-      weekends: "9:00 AM - 4:00 PM"
+      weekdays: "9:00 AM - 6:00 PM",
+      weekends: "10:00 AM - 2:00 PM"
     }
   },
   {
     id: 7,
-    name: "Vashi",
-    city: "Navi Mumbai",
+    name: "Ghatkopar",
+    city: "Mumbai",
     state: "MAHARASHTRA",
-    address: "Crystal Plaza, 3rd Floor, Near FC Road, Shivajinagar, Pune 411005",
-    image: "/images/Vashi.png",
-    phone: "+91 1234567893",
-    email: "pune@progenesis.in",
-    services: ["IVF", "IUI", "Fertility Counseling"],
+    address: "Ghatkopar Health Center, Near Ghatkopar Station, Mumbai 400077",
+    image: "/images/Ghatkopar.png",
+    phone: "+91 1234567896",
+    email: "ghatkopar@progenesis.in",
+    services: ["IVF", "IUI", "Genetic Counseling"],
     coordinates: {
-      lat: 18.5204,
-      lng: 73.8567
+      lat: 19.0812,
+      lng: 72.9065
     },
     timings: {
       weekdays: "9:00 AM - 8:00 PM",
-      weekends: "9:00 AM - 4:00 PM"
+      weekends: "9:00 AM - 3:00 PM"
     }
   },
+  {
+    id: 8,
+    name: "Vashi",
+    city: "Navi Mumbai",
+    state: "MAHARASHTRA",
+    address: "Vashi Plaza, Sector 17, Vashi, Navi Mumbai 400703",
+    image: "/images/Vashi.png",
+    phone: "+91 1234567897",
+    email: "vashi@progenesis.in",
+    services: ["IVF", "IUI", "Surrogacy"],
+    coordinates: {
+      lat: 19.0648,
+      lng: 73.0031
+    },
+    timings: {
+      weekdays: "9:00 AM - 7:00 PM",
+      weekends: "10:00 AM - 2:00 PM"
+    }
+  },
+  {
+    id: 9,
+    name: "Virar",
+    city: "Palghar",
+    state: "MAHARASHTRA",
+    address: "Virar Medical Complex, Near Virar Station, Virar West 401303",
+    image: "/images/Virar.png",
+    phone: "+91 1234567898",
+    email: "virar@progenesis.in",
+    services: ["IVF", "Fertility Assessment", "Egg Freezing"],
+    coordinates: {
+      lat: 19.4597,
+      lng: 72.8065
+    },
+    timings: {
+      weekdays: "9:00 AM - 6:00 PM",
+      weekends: "10:00 AM - 1:00 PM"
+    }
+  },
+  {
+    id: 10,
+    name: "Kalyan",
+    city: "Thane",
+    state: "MAHARASHTRA",
+    address: "Kalyan Health Clinic, Near Kalyan Station, Kalyan West 421301",
+    image: "/images/Kalyan.png",
+    phone: "+91 1234567899",
+    email: "kalyan@progenesis.in",
+    services: ["IVF", "IUI", "Fertility Preservation"],
+    coordinates: {
+      lat: 19.2424,
+      lng: 73.1355
+    },
+    timings: {
+      weekdays: "9:00 AM - 7:00 PM",
+      weekends: "9:00 AM - 2:00 PM"
+    }
+  },
+  {
+    id: 11,
+    name: "Panvel",
+    city: "Navi Mumbai",
+    state: "MAHARASHTRA",
+    address: "Panvel Medical Center, Near Panvel Station, Panvel 410206",
+    image: "/images/Panvel.png",
+    phone: "+91 1234567800",
+    email: "panvel@progenesis.in",
+    services: ["IVF", "IUI", "Genetic Testing"],
+    coordinates: {
+      lat: 18.9894,
+      lng: 73.1182
+    },
+    timings: {
+      weekdays: "9:00 AM - 6:00 PM",
+      weekends: "10:00 AM - 2:00 PM"
+    }
+  },
+  {
+    id: 12,
+    name: "Solapur",
+    city: "Solapur",
+    state: "MAHARASHTRA",
+    address: "Solapur Fertility Clinic, Near Old Bus Stand, Solapur 413001",
+    image: "/images/Solapur.png",
+    phone: "+91 1234567801",
+    email: "solapur@progenesis.in",
+    services: ["IVF", "Fertility Treatment", "Counseling"],
+    coordinates: {
+      lat: 17.6871,
+      lng: 75.9064
+    },
+    timings: {
+      weekdays: "9:00 AM - 7:00 PM",
+      weekends: "9:00 AM - 1:00 PM"
+    }
+  },
+  {
+    id: 13,
+    name: "Nagpur",
+    city: "Nagpur",
+    state: "MAHARASHTRA",
+    address: "Nagpur Health Hub, Near Sitabuldi, Nagpur 440001",
+    image: "/images/Nagpur.png",
+    phone: "+91 1234567802",
+    email: "nagpur@progenesis.in",
+    services: ["IVF", "IUI", "Embryology"],
+    coordinates: {
+      lat: 21.1458,
+      lng: 79.0882
+    },
+    timings: {
+      weekdays: "9:00 AM - 8:00 PM",
+      weekends: "9:00 AM - 3:00 PM"
+    }
+  },
+  {
+    id: 14,
+    name: "Kolhapur",
+    city: "Kolhapur",
+    state: "MAHARASHTRA",
+    address: "Kolhapur Fertility Center, Near Rankala Lake, Kolhapur 416001",
+    image: "/images/Kolhapur.png",
+    phone: "+91 1234567803",
+    email: "kolhapur@progenesis.in",
+    services: ["IVF", "IUI", "Surrogacy"],
+    coordinates: {
+      lat: 16.7041,
+      lng: 74.2433
+    },
+    timings: {
+      weekdays: "9:00 AM - 7:00 PM",
+      weekends: "10:00 AM - 2:00 PM"
+    }
+  },
+  {
+    id: 15,
+    name: "Amravati",
+    city: "Amravati",
+    state: "MAHARASHTRA",
+    address: "Amravati Medical Plaza, Near Rajkamal Chowk, Amravati 444601",
+    image: "/images/Amravati.png",
+    phone: "+91 1234567804",
+    email: "amravati@progenesis.in",
+    services: ["IVF", "Fertility Assessment", "Genetic Testing"],
+    coordinates: {
+      lat: 20.9366,
+      lng: 77.7666
+    },
+    timings: {
+      weekdays: "9:00 AM - 6:00 PM",
+      weekends: "10:00 AM - 1:00 PM"
+    }
+  },
+  {
+    id: 16,
+    name: "Ahilyanagar",
+    city: "Ahilyanagar",
+    state: "MAHARASHTRA",
+    address: "Ahilyanagar Health Clinic, Near Central Bus Stand, Ahilyanagar 414001",
+    image: "/images/Ahilyanagar.png",
+    phone: "+91 1234567805",
+    email: "ahilyanagar@progenesis.in",
+    services: ["IVF", "IUI", "Fertility Counseling"],
+    coordinates: {
+      lat: 19.0946,
+      lng: 74.7402
+    },
+    timings: {
+      weekdays: "9:00 AM - 7:00 PM",
+      weekends: "9:00 AM - 2:00 PM"
+    }
+  }
 ];
-
 interface CenterCardProps {
   name: string;
   address: string;
