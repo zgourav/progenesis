@@ -555,25 +555,17 @@
 
 
 
-
-
-
-
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Search, Menu, X, ChevronDown } from "lucide-react";
+import { Search, X, ChevronDown } from "lucide-react";
 
-
-
-
-
-
+/* -------------------- SEARCH SECTION -------------------- */
 export function SearchSection({ onClose }: { onClose: () => void }) {
-  const [activeStep, setActiveStep] = useState<"what" | "where" | "who" | "doctor" | null>("what");
+  const [activeStep, setActiveStep] = useState<"what" | "where" | "who" | null>("what");
 
   const treatments = [
     "IVF Treatment", "IUI Procedure", "PCOS", "Irregular Periods",
@@ -582,32 +574,29 @@ export function SearchSection({ onClose }: { onClose: () => void }) {
   ];
 
   const locations = [
-    { name: "Nearby", desc: "Find clinic around you", icon: "/icons/nearby.png" },
-    { name: "Pune", desc: "(Aundh – ITI Rd)", icon: "/LocationSection/Pune.png" },
-    { name: "Nashik", desc: "(College Rd)", icon: "/LocationSection/Nashik.png" },
-    { name: "Thane", desc: "(Ghodhbunder Rd)", icon: "/LocationSection/Thane.png" }
+    { name: "Nearby", desc: "Find clinic around you", icon: "/LocationsSection/Nearby.svg" },
+    { name: "Pune", desc: "(Aundh – ITI Rd)", icon: "/LocationsSection/pune.png" },
+    { name: "Nashik", desc: "(College Rd)", icon: "/LocationsSection/nasik.png" },
+    { name: "Thane", desc: "(Ghodhbunder Rd)", icon: "/LocationsSection/thane.png" }
   ];
 
   const doctors = [
-    { name: "Dr. Dinesh Wade", role: "Fertility Consultant, Pune", img: "/Doctors/dinesh.png" },
-    { name: "Dr. Unnati Mamtora", role: "Fertility Consultant, Borivali", img: "/Doctors/unnati.png" },
-    { name: "Dr. Darshna Wahane", role: "Fertility Consultant, Panvel", img: "/Doctors/darshna.png" },
-    { name: "Dr. Priti Pardeshi", role: "Fertility Consultant, Kalyan", img: "/Doctors/priti.png" },
+    { name: "Dr. Dinesh Wade", role: "Fertility Consultant, Pune", img: "/DoctorsSection/DrDinesh.png" },
+    { name: "Dr. Unnati Mamtora", role: "Fertility Consultant, Borivali", img: "/DoctorsSection/DrUnnati.png" },
+    { name: "Dr. Darshna Wahane", role: "Fertility Consultant, Panvel", img: "/DoctorsSection/DrDarshna.png" },
+    { name: "Dr. Priti Pardeshi", role: "Fertility Consultant, Kalyan", img: "/DoctorsSection/DrPriti.png" },
   ];
 
   return (
     <section className="relative w-full bg-white shadow-md">
-      {/* Search Row */}
+      {/* Search Tabs */}
       <div className="flex items-center w-full max-w-[1600px] mx-auto px-4 py-4 md:px-[80px] lg:px-[120px] gap-2">
-        {["what", "where", "who", "doctor"].map((step, idx) => (
+        {["what", "where", "who"].map((step, idx) => (
           <button
             key={idx}
             onClick={() => setActiveStep(step as any)}
-            className={`flex-1 px-4 py-3 rounded-xl text-left text-sm md:text-base transition ${
-              activeStep === step
-                ? "bg-[#1656A5] text-white"
-                : "bg-gray-100 text-gray-600"
-            }`}
+            className={`flex-1 px-4 py-3 rounded-xl text-left text-sm md:text-base transition 
+              ${activeStep === step ? "bg-[#1656A5] text-white" : "bg-gray-100 text-gray-600"}`}
           >
             {step === "what" && "What"}
             {step === "where" && "Where"}
@@ -616,7 +605,7 @@ export function SearchSection({ onClose }: { onClose: () => void }) {
         ))}
 
         {/* Close */}
-         <button
+        <button
           onClick={onClose}
           className="h-[44px] w-[44px] rounded-xl bg-[#1656A5] flex items-center justify-center"
         >
@@ -624,7 +613,7 @@ export function SearchSection({ onClose }: { onClose: () => void }) {
         </button>
       </div>
 
-      {/* Dropdown / Popup */}
+      {/* Popup */}
       {activeStep && (
         <div className="absolute left-1/2 top-[80px] -translate-x-1/2 bg-white rounded-2xl shadow-xl p-6 w-[90%] max-w-[600px] max-h-[400px] overflow-y-auto z-50">
           {activeStep === "what" && (
@@ -632,32 +621,19 @@ export function SearchSection({ onClose }: { onClose: () => void }) {
               {treatments.map((t, i) => (
                 <button
                   key={i}
-                  className={`px-4 py-2 rounded-lg border text-sm ${
-                    i === 0
-                      ? "bg-[#1656A5] text-white"
-                      : "border-[#1656A5] text-[#1656A5]"
-                  }`}
+                  className={`px-4 py-2 rounded-lg border text-sm 
+                    ${i === 0 ? "bg-[#1656A5] text-white" : "border-[#1656A5] text-[#1656A5]"}`}
                 >
                   {t}
                 </button>
               ))}
             </div>
           )}
-
           {activeStep === "where" && (
             <div className="space-y-3">
               {locations.map((l, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer"
-                >
-                  <Image
-                    src={l.icon}
-                    alt={l.name}
-                    width={40}
-                    height={40}
-                    className="rounded-md object-cover"
-                  />
+                <div key={i} className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+                  <Image src={l.icon} alt={l.name} width={40} height={40} className="rounded-md object-cover" />
                   <div>
                     <p className="font-medium text-gray-900">{l.name}</p>
                     <p className="text-sm text-gray-600">{l.desc}</p>
@@ -666,21 +642,11 @@ export function SearchSection({ onClose }: { onClose: () => void }) {
               ))}
             </div>
           )}
-
           {activeStep === "who" && (
             <div className="space-y-3">
               {doctors.map((d, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer"
-                >
-                  <Image
-                    src={d.img}
-                    alt={d.name}
-                    width={48}
-                    height={48}
-                    className="rounded-full object-cover"
-                  />
+                <div key={i} className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+                  <Image src={d.img} alt={d.name} width={48} height={48} className="rounded-full object-cover" />
                   <div>
                     <p className="font-medium text-gray-900">{d.name}</p>
                     <p className="text-sm text-gray-600">{d.role}</p>
@@ -689,125 +655,128 @@ export function SearchSection({ onClose }: { onClose: () => void }) {
               ))}
             </div>
           )}
-
-        
         </div>
       )}
     </section>
   );
 }
 
+/* -------------------- DROPDOWN DATA -------------------- */
+const megaMenuData: Record<string, any> = {
+  "About Us": {
+    image: "/Navbar/about-image.png",
+    columns: [
+      { title: "Discover Us", links: [{ label: "Our Story" }, { label: "Our Approach" }, { label: "Our Vision & Mission" }, { label: "Why choose us" }, { label: "Leadership Team" }, { label: "Impact & Growth" }, { label: "FAQs" }, ] },
+      { title: "Quick Links", links: [{ label: "Book Appointment" }, { label: "+91 94239 71260" }, { label: "+91 70309 44041" }, { label: "Take a Quiz" }, { label: "Online Consult" }, { label: "EMI Options" }, ] },
+      { links: [{ label: "Fellowship" }, { label: "Our Centers" }, { label: "Our Social Impact" }] },
+    ],
+  },
+  "Infertility Issues": {
+    image: "/Navbar/infertility-image.png",
+    columns: [
+      { title: "Know Infertility", links: [{ label: "What is Infertility" }, { label: "Female Infertility Causes" }, { label: "Male Infertility Causes" }, { label: " Real Stories. Real Miracles." }] },
+    { title: "Quick Links", links: [{ label: "Book Appointment" }, { label: "+91 94239 71260" }, { label: "+91 70309 44041" }, { label: "Take a Quiz" }, { label: "Online Consult" }, { label: "EMI Options" }, ] },
+      { links: [{ label: "Fellowship" }, { label: "Our Centers" }, { label: "Our Social Impact" }] },
+    
+    ],
+  },
+  "Our Centers": {
+    image: "/Navbar/infertility-image.png",
+    columns: [{ title: "Where We Are", links: [{ label: "Mumbai" }, { label: "Nashik" }, { label: "Jalgaon" }, { label: "Ahilyanagar" },{ label: "Amravati" }, { label: "Kolhapur" }, { label: "Nagpur" }, { label: "Solapur" }, { label: "Pune" },  ] }],
+  },
+  "Treatments": {
+    image: "/Navbar/infertility-image.png",
+    columns: [
+      { title: "Solutions", links: [{ label: "IVF" }, { label: "IUI" }, { label: "ICSI" }] },
+      { title: "Preservation", links: [{ label: "Female Preservation" }, { label: "Male Preservation" }] },
+    ],
+  },
+};
 
+/* -------------------- MEGA MENU -------------------- */
+const MegaMenu = ({ menu }: { menu: any }) => {
+  if (!menu) return null;
+  return (
+    <div className="fixed left-1/2 top-[80px] -translate-x-1/2 bg-white shadow-lg rounded-2xl z-50 w-[90vw] max-w-[1646px] flex gap-8 p-6">
+      {menu.image && (
+        <div className="hidden lg:block w-[350px] h-[300px] flex-shrink-0">
+          <Image src={menu.image} alt="menu-img" width={350} height={300} className="w-full h-full object-cover rounded-lg" />
+        </div>
+      )}
+      {menu.columns.map((col: any, idx: number) => (
+        <div key={idx} className="flex-1">
+          {col.title && <h3 className="text-lg font-semibold mb-3">{col.title}</h3>}
+          <ul className="space-y-2">
+            {col.links.map((link: any, i: number) => (
+              <li key={i}>
+                <Link href={link.path || "#"} className="text-sm text-gray-700 hover:text-blue-600">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  );
+};
 
-
-const navigationItems = [
-  { label: "About Us", path: "/about-us", hasMegaMenu: true },
-  { label: "Infertility Issues", path: "/infertility-issues", hasMegaMenu: true },
-  { label: "Our Centers", path: "/centers", hasMegaMenu: true },
-  { label: "Treatments", path: "/infertility-treatment", hasMegaMenu: true },
-  { label: "Doctors", path: "/doctors", hasMegaMenu: false },
-  { label: "Patient Resources", path: "/resources", hasMegaMenu: false },
-  { label: "Careers", path: "/careers", hasMegaMenu: false },
-];
-
-
-
+/* -------------------- NAVBAR -------------------- */
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
-  const [mobileOpen, setMobileOpen] = useState<string | null>(null);
-  const [isSearchOpen, setIsSearchOpen] = useState(false); // ✅ search toggle
-
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const pathname = usePathname();
   const closeTimeoutRef = useRef<number | null>(null);
 
+  const navigationItems = [
+    { label: "About Us", path: "/about-us", hasMegaMenu: true },
+    { label: "Infertility Issues", path: "/infertility-issues", hasMegaMenu: true },
+    { label: "Our Centers", path: "/centers", hasMegaMenu: true },
+    { label: "Treatments", path: "/treatments", hasMegaMenu: true },
+    { label: "Doctors", path: "/doctors", hasMegaMenu: false },
+    { label: "Patient Resources", path: "/resources", hasMegaMenu: false },
+    { label: "Careers", path: "/careers", hasMegaMenu: false },
+  ];
+
   const handleMouseEnter = (label: string) => {
-    if (closeTimeoutRef.current) {
-      window.clearTimeout(closeTimeoutRef.current);
-      closeTimeoutRef.current = null;
-    }
+    if (closeTimeoutRef.current) window.clearTimeout(closeTimeoutRef.current);
     setOpenMenu(label);
   };
-
   const handleMouseLeave = () => {
-    if (closeTimeoutRef.current) window.clearTimeout(closeTimeoutRef.current);
-    closeTimeoutRef.current = window.setTimeout(() => {
-      setOpenMenu(null);
-      closeTimeoutRef.current = null;
-    }, 200);
+    closeTimeoutRef.current = window.setTimeout(() => setOpenMenu(null), 200);
   };
-
-  useEffect(() => {
-    return () => {
-      if (closeTimeoutRef.current) {
-        window.clearTimeout(closeTimeoutRef.current);
-        closeTimeoutRef.current = null;
-      }
-    };
-  }, []);
 
   return (
     <header className="w-full bg-white font-sans relative">
-
-
+      {/* Top bar */}
       {!isSearchOpen && (
-      <div className="mx-auto flex items-center justify-between h-20 px-4 md:px-[80px] lg:px-[120px]">
-        {/* LOGO */}
-        <div className="flex items-center">
-          <Link href="/" className="flex-shrink-0 relative">
-            <div className="hidden lg:block w-[180.84px] h-[41.517px] relative">
-              <Image src="/logo1.png" alt="Progenesis Logo" fill className="object-contain" priority />
-            </div>
-            <div className="hidden md:block lg:hidden w-[140px] h-[32px] relative">
-              <Image src="/logo1.png" alt="Progenesis Logo" fill className="object-contain" />
-            </div>
-            <div className="block md:hidden w-[104px] h-[23.88px] relative">
-              <Image src="/logo1.png" alt="Progenesis Logo" fill className="object-contain" />
-            </div>
+        <div className="mx-auto flex items-center justify-between h-20 px-6 lg:px-[120px]">
+          <Link href="/" className="w-[150px] h-[40px] relative">
+            <Image src="/logo1.png" alt="Logo" fill className="object-contain" />
           </Link>
-        </div>
-
-        {/* DESKTOP NAVBAR (hidden when search is open) */}
-        {!isSearchOpen && (
           <nav className="hidden lg:flex items-center space-x-6">
-            {navigationItems.map((item, index) => (
-              <div
-                key={index}
-                className="relative"
-                onMouseEnter={() => handleMouseEnter(item.label)}
-                onMouseLeave={handleMouseLeave}
-              >
+            {navigationItems.map((item, idx) => (
+              <div key={idx} className="relative" onMouseEnter={() => handleMouseEnter(item.label)} onMouseLeave={handleMouseLeave}>
                 <Link
                   href={item.path}
-                  className={`flex items-center gap-1 px-3 py-2 rounded-md text-[14px] leading-[24px] tracking-[-0.28px] transition 
+                  className={`flex items-center gap-1 px-3 py-2 rounded-md text-sm transition 
                     ${pathname === item.path || openMenu === item.label
                       ? "bg-[#1656A5] text-white"
-                      : "text-[#2C2C2C] hover:bg-[#1656A5] hover:text-white"
-                    }`}
+                      : "text-gray-700 hover:bg-[#1656A5] hover:text-white"}`}
                 >
                   {item.label}
-                  {item.hasMegaMenu && <ChevronDown size={20} className="transition" />}
+                  {item.hasMegaMenu && <ChevronDown size={18} />}
                 </Link>
+                {item.hasMegaMenu && openMenu === item.label && <MegaMenu menu={megaMenuData[item.label]} />}
               </div>
             ))}
           </nav>
-        )}
-
-        {/* RIGHT CONTROLS */}
-        <div className="flex items-center gap-2">
-          {/* Search Button */}
-          <button
-            onClick={() => setIsSearchOpen(!isSearchOpen)}
-            className="flex items-center justify-center h-[40px] w-[40px] rounded-lg bg-[rgba(0,0,0,0.05)]"
-          >
-            {isSearchOpen ? <X size={20} /> : <Search size={20} />}
+          <button onClick={() => setIsSearchOpen(true)} className="h-10 w-10 flex items-center justify-center bg-gray-100 rounded-lg">
+            <Search size={18} />
           </button>
         </div>
-      </div>
-
       )}
-
-      {/* SEARCH SECTION */}
+      {/* Search Section */}
       {isSearchOpen && <SearchSection onClose={() => setIsSearchOpen(false)} />}
     </header>
   );

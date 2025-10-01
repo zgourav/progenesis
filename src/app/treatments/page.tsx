@@ -237,7 +237,7 @@ const evaluations = [
       </div>
 
       {/* 3️⃣ Personalized Treatments */}
-      <section id="path" className="px-[12px] md:px-[120px] py-[80px]">
+      <section id="path" className="px-[12px] md:px-[120px] py-[80px] bg-[#F9F9F9]">
         {/* Label */}
         <div className="mb-4">
 
@@ -255,7 +255,7 @@ const evaluations = [
           md:text-[48px] md:leading-[56px] md:tracking-normal
         "
         >
-          Personalized Fertility Treatments for Every Journey
+          Personalized Fertility Treatments for <br/>Every Journey
         </h2>
 
         {/* Divider */}
@@ -265,33 +265,34 @@ const evaluations = [
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
           {/* Subheading */}
           <h3
-            className="
-            text-[#2C2C2C] font-[Manrope] 
-            text-[16px] leading-[24px] tracking-[-0.32px] font-normal
-            md:text-[32px] md:leading-[40px] md:tracking-[-0.64px]
-          "
-          >
-            Advanced Fertility Care
-          </h3>
+  className="
+    font-[Manrope] font-normal
+    text-[#2C2C2C] text-[24px] leading-[32px] tracking-[-0.48px]
+    md:text-[32px] md:leading-[40px] md:tracking-[-0.64px]
+  "
+>
+  Advanced Fertility Care
+</h3>
 
           {/* Paragraph */}
           <p
-            className="
-            text-[#606060] font-[Manrope] 
-            text-[16px] leading-[24px] tracking-[-0.32px] font-normal
-            max-w-3xl
-          "
-          >
-            From initial evaluation to the most advanced fertility treatments, Progenesis walks beside you at every step.
-            We combine medical excellence with compassionate guidance to provide holistic fertility solutions tailored to
-            your unique health needs, personal lifestyle, and emotional journey. Whether you are just beginning to explore
-            your options or seeking advanced interventions, we are here to turn hope into reality with care, clarity, and confidence.
-          </p>
+  className="
+    font-[Manrope] font-normal
+    text-[#606060] text-[16px] leading-[24px] tracking-[-0.32px]
+    max-w-3xl
+  "
+>
+  From initial evaluation to the most advanced fertility treatments, Progenesis walks beside you at every step.
+  We combine medical excellence with compassionate guidance to provide holistic fertility solutions tailored to
+  your unique health needs, personal lifestyle, and emotional journey. Whether you are just beginning to explore
+  your options or seeking advanced interventions, we are here to turn hope into reality with care, clarity, and confidence.
+</p>
+
         </div>
       </section>
 
       {/* 4️⃣ Cutting Edge Techniques */}
-      <section id="advanced" className="px-[12px] md:px-[120px] py-[80px]">
+      <section id="advanced" className="px-[12px] md:px-[120px] py-[80px] bg-[#fff]">
 
         <span className="inline-block text-[12px] font-medium text-[#1656A5] bg-[#1656A5]/5 px-3 py-1 rounded-full mb-4">
           Advanced Infertility Treatments
