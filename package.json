@@ -14,6 +14,7 @@
     "@tailwindcss/line-clamp": "^0.4.4",
     "@tanstack/react-table": "^8.21.3",
     "antd": "^5.27.3",
+    "axios": "^1.12.2",
     "fa": "^1.0.1",
     "formik": "^2.4.6",
     "framer-motion": "^12.23.12",
