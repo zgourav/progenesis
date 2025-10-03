@@ -680,9 +680,9 @@ const megaMenuData: Record<string, any> = {
       {
         title: "Quick Links",
         links: [
-          { label: "Book Appointment", path: "/appointment" },
-          { label: "+91 94239 71260", path: "tel:+919423971260" },
-          { label: "+91 70309 44041", path: "tel:+917030944041" },
+          { label: "Book Appointment", path: "/appointment", isButton: true },
+          { label: "+91 94239 71260", path: "tel:+919423971260", isPhone: true },
+          { label: "+91 70309 44041", path: "tel:+917030944041", isPhone: true },
           { label: "Take a Quiz", path: "/quiz" },
           { label: "Online Consult", path: "/online-consult" },
           { label: "EMI Options", path: "/emi-options" },
@@ -749,6 +749,7 @@ const megaMenuData: Record<string, any> = {
           { label: "Pune", path: "/centers/4#pune" },
           { label: "Book Appointment", path: "/appointment", isButton: true },
           { label: "+91 94239 71260", path: "tel:+919423971260", isPhone: true },
+          { label: "+91 70309 44041", path: "tel:+917030944041", isPhone: true },
         ],
       },
       {
