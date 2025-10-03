@@ -107,7 +107,7 @@ export const centersData: Center[] = [
     city: "Nashik",
     state: "MAHARASHTRA",
     address: "Medicare Center, College Road, Near City Center Mall, Nashik 422005",
-    image: "/images/Nashik.png",
+    image: "/images/Nashik.jpg",
     phone: "+91 1234567894",
     email: "nashik@progenesis.in",
     services: ["IVF", "Fertility Treatment", "Embryology"],
