@@ -557,7 +557,7 @@
 
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -568,16 +568,23 @@ export function SearchSection({ onClose }: { onClose: () => void }) {
   const [activeStep, setActiveStep] = useState<"what" | "where" | "who" | null>("what");
 
   const treatments = [
-    "IVF Treatment", "IUI Procedure", "PCOS", "Irregular Periods",
-    "Repeated Miscarriages", "Infertility Issues", "Pregnancy after Menopause",
-    "Ovulation Induction", "Low AMH", "Fibroids"
+    "IVF Treatment",
+    "IUI Procedure",
+    "PCOS",
+    "Irregular Periods",
+    "Repeated Miscarriages",
+    "Infertility Issues",
+    "Pregnancy after Menopause",
+    "Ovulation Induction",
+    "Low AMH",
+    "Fibroids",
   ];
 
   const locations = [
     { name: "Nearby", desc: "Find clinic around you", icon: "/LocationsSection/Nearby.svg" },
     { name: "Pune", desc: "(Aundh – ITI Rd)", icon: "/LocationsSection/pune.png" },
     { name: "Nashik", desc: "(College Rd)", icon: "/LocationsSection/nasik.png" },
-    { name: "Thane", desc: "(Ghodhbunder Rd)", icon: "/LocationsSection/thane.png" }
+    { name: "Thane", desc: "(Ghodhbunder Rd)", icon: "/LocationsSection/thane.png" },
   ];
 
   const doctors = [
@@ -666,29 +673,108 @@ const megaMenuData: Record<string, any> = {
   "About Us": {
     image: "/Navbar/about-image.png",
     columns: [
-      { title: "Discover Us", links: [{ label: "Our Story" }, { label: "Our Approach" }, { label: "Our Vision & Mission" }, { label: "Why choose us" }, { label: "Leadership Team" }, { label: "Impact & Growth" }, { label: "FAQs" }, ] },
-      { title: "Quick Links", links: [{ label: "Book Appointment" }, { label: "+91 94239 71260" }, { label: "+91 70309 44041" }, { label: "Take a Quiz" }, { label: "Online Consult" }, { label: "EMI Options" }, ] },
-      { links: [{ label: "Fellowship" }, { label: "Our Centers" }, { label: "Our Social Impact" }] },
+      {
+        title: "Discover Us",
+        links: [
+          { label: "Why Progenesis", path: "/about-us#why-1" },
+          { label: "Our Approach", path: "/about-us#our-approach" },
+          { label: "Our Vision & Mission", path: "/about-us#our-vision" },
+          { label: "Why choose us", path: "/about-us#why-choose-us" },
+          { label: "Leadership Team", path: "/about-us#leadership" },
+          { label: "Impact & Growth", path: "/about-us#impact-growth" },
+          { label: "FAQs", path: "/about-us#faqs" },
+        ],
+      },
+      {
+        title: "Quick Links",
+        links: [
+          { label: "Book Appointment", path: "/appointment" },
+          { label: "+91 94239 71260", path: "tel:+919423971260" },
+          { label: "+91 70309 44041", path: "tel:+917030944041" },
+          { label: "Take a Quiz", path: "/quiz" },
+          { label: "Online Consult", path: "/online-consult" },
+          { label: "EMI Options", path: "/emi-options" },
+        ],
+      },
+      {
+        links: [
+          { label: "Fellowship", path: "/fellowship" },
+          { label: "Our Centers", path: "/centers" },
+          { label: "Our Social Impact", path: "/social-impact" },
+        ],
+      },
     ],
   },
+  // Other dropdowns unchanged
   "Infertility Issues": {
     image: "/Navbar/infertility-image.png",
     columns: [
-      { title: "Know Infertility", links: [{ label: "What is Infertility" }, { label: "Female Infertility Causes" }, { label: "Male Infertility Causes" }, { label: " Real Stories. Real Miracles." }] },
-    { title: "Quick Links", links: [{ label: "Book Appointment" }, { label: "+91 94239 71260" }, { label: "+91 70309 44041" }, { label: "Take a Quiz" }, { label: "Online Consult" }, { label: "EMI Options" }, ] },
-      { links: [{ label: "Fellowship" }, { label: "Our Centers" }, { label: "Our Social Impact" }] },
-    
+      {
+        title: "Know Infertility",
+        links: [
+          { label: "What is Infertility", path: "/infertility-issues#what" },
+          { label: "Female Infertility Causes", path: "/infertility-issues#female" },
+          { label: "Male Infertility Causes", path: "/infertility-issues#male" },
+          { label: "Real Stories. Real Miracles.", path: "/stories" },
+        ],
+      },
+      {
+        title: "Quick Links",
+        links: [
+          { label: "Book Appointment", path: "/appointment" },
+          { label: "+91 94239 71260", path: "tel:+919423971260" },
+          { label: "+91 70309 44041", path: "tel:+917030944041" },
+          { label: "Take a Quiz", path: "/quiz" },
+          { label: "Online Consult", path: "/online-consult" },
+          { label: "EMI Options", path: "/emi-options" },
+        ],
+      },
+      {
+        links: [
+          { label: "Fellowship", path: "/fellowship" },
+          { label: "Our Centers", path: "/centers" },
+          { label: "Our Social Impact", path: "/social-impact" },
+        ],
+      },
     ],
   },
   "Our Centers": {
     image: "/Navbar/infertility-image.png",
-    columns: [{ title: "Where We Are", links: [{ label: "Mumbai" }, { label: "Nashik" }, { label: "Jalgaon" }, { label: "Ahilyanagar" },{ label: "Amravati" }, { label: "Kolhapur" }, { label: "Nagpur" }, { label: "Solapur" }, { label: "Pune" },  ] }],
+    columns: [
+      {
+        title: "Where We Are",
+        links: [
+          { label: "Mumbai", path: "/centers#mumbai" },
+          { label: "Nashik", path: "/centers#nashik" },
+          { label: "Jalgaon", path: "/centers#jalgaon" },
+          { label: "Ahilyanagar", path: "/centers#ahilyanagar" },
+          { label: "Amravati", path: "/centers#amravati" },
+          { label: "Kolhapur", path: "/centers#kolhapur" },
+          { label: "Nagpur", path: "/centers#nagpur" },
+          { label: "Solapur", path: "/centers#solapur" },
+          { label: "Pune", path: "/centers#pune" },
+        ],
+      },
+    ],
   },
   "Treatments": {
     image: "/Navbar/infertility-image.png",
     columns: [
-      { title: "Solutions", links: [{ label: "IVF" }, { label: "IUI" }, { label: "ICSI" }] },
-      { title: "Preservation", links: [{ label: "Female Preservation" }, { label: "Male Preservation" }] },
+      {
+        title: "Solutions",
+        links: [
+          { label: "IVF", path: "/treatments#ivf" },
+          { label: "IUI", path: "/treatments#iui" },
+          { label: "ICSI", path: "/treatments#icsi" },
+        ],
+      },
+      {
+        title: "Preservation",
+        links: [
+          { label: "Female Preservation", path: "/treatments#female-preservation" },
+          { label: "Male Preservation", path: "/treatments#male-preservation" },
+        ],
+      },
     ],
   },
 };
@@ -700,7 +786,13 @@ const MegaMenu = ({ menu }: { menu: any }) => {
     <div className="fixed left-1/2 top-[80px] -translate-x-1/2 bg-white shadow-lg rounded-2xl z-50 w-[90vw] max-w-[1646px] flex gap-8 p-6">
       {menu.image && (
         <div className="hidden lg:block w-[350px] h-[300px] flex-shrink-0">
-          <Image src={menu.image} alt="menu-img" width={350} height={300} className="w-full h-full object-cover rounded-lg" />
+          <Image
+            src={menu.image}
+            alt="menu-img"
+            width={350}
+            height={300}
+            className="w-full h-full object-cover rounded-lg"
+          />
         </div>
       )}
       {menu.columns.map((col: any, idx: number) => (
@@ -756,13 +848,20 @@ export default function Navbar() {
           </Link>
           <nav className="hidden lg:flex items-center space-x-6">
             {navigationItems.map((item, idx) => (
-              <div key={idx} className="relative" onMouseEnter={() => handleMouseEnter(item.label)} onMouseLeave={handleMouseLeave}>
+              <div
+                key={idx}
+                className="relative"
+                onMouseEnter={() => handleMouseEnter(item.label)}
+                onMouseLeave={handleMouseLeave}
+              >
                 <Link
                   href={item.path}
                   className={`flex items-center gap-1 px-3 py-2 rounded-md text-sm transition 
-                    ${pathname === item.path || openMenu === item.label
-                      ? "bg-[#1656A5] text-white"
-                      : "text-gray-700 hover:bg-[#1656A5] hover:text-white"}`}
+                    ${
+                      pathname === item.path || openMenu === item.label
+                        ? "bg-[#1656A5] text-white"
+                        : "text-gray-700 hover:bg-[#1656A5] hover:text-white"
+                    }`}
                 >
                   {item.label}
                   {item.hasMegaMenu && <ChevronDown size={18} />}
@@ -771,7 +870,10 @@ export default function Navbar() {
               </div>
             ))}
           </nav>
-          <button onClick={() => setIsSearchOpen(true)} className="h-10 w-10 flex items-center justify-center bg-gray-100 rounded-lg">
+          <button
+            onClick={() => setIsSearchOpen(true)}
+            className="h-10 w-10 flex items-center justify-center bg-gray-100 rounded-lg"
+          >
             <Search size={18} />
           </button>
         </div>
