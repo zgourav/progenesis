@@ -556,17 +556,15 @@
 
 
 "use client";
-
 import React, { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Search, X, ChevronDown } from "lucide-react";
-
+import { Search, X, ChevronDown, Phone } from "lucide-react";
+import { centersData } from "@/page-components/centers/CenterCard";
 /* -------------------- SEARCH SECTION -------------------- */
 export function SearchSection({ onClose }: { onClose: () => void }) {
   const [activeStep, setActiveStep] = useState<"what" | "where" | "who" | null>("what");
-
   const treatments = [
     "IVF Treatment",
     "IUI Procedure",
@@ -579,21 +577,18 @@ export function SearchSection({ onClose }: { onClose: () => void }) {
     "Low AMH",
     "Fibroids",
   ];
-
   const locations = [
     { name: "Nearby", desc: "Find clinic around you", icon: "/LocationsSection/Nearby.svg" },
     { name: "Pune", desc: "(Aundh – ITI Rd)", icon: "/LocationsSection/pune.png" },
     { name: "Nashik", desc: "(College Rd)", icon: "/LocationsSection/nasik.png" },
     { name: "Thane", desc: "(Ghodhbunder Rd)", icon: "/LocationsSection/thane.png" },
   ];
-
   const doctors = [
     { name: "Dr. Dinesh Wade", role: "Fertility Consultant, Pune", img: "/DoctorsSection/DrDinesh.png" },
     { name: "Dr. Unnati Mamtora", role: "Fertility Consultant, Borivali", img: "/DoctorsSection/DrUnnati.png" },
     { name: "Dr. Darshna Wahane", role: "Fertility Consultant, Panvel", img: "/DoctorsSection/DrDarshna.png" },
     { name: "Dr. Priti Pardeshi", role: "Fertility Consultant, Kalyan", img: "/DoctorsSection/DrPriti.png" },
   ];
-
   return (
     <section className="relative w-full bg-white shadow-md">
       {/* Search Tabs */}
@@ -602,7 +597,7 @@ export function SearchSection({ onClose }: { onClose: () => void }) {
           <button
             key={idx}
             onClick={() => setActiveStep(step as any)}
-            className={`flex-1 px-4 py-3 rounded-xl text-left text-sm md:text-base transition 
+            className={`flex-1 px-4 py-3 rounded-xl text-left text-sm md:text-base transition
               ${activeStep === step ? "bg-[#1656A5] text-white" : "bg-gray-100 text-gray-600"}`}
           >
             {step === "what" && "What"}
@@ -610,7 +605,6 @@ export function SearchSection({ onClose }: { onClose: () => void }) {
             {step === "who" && "Who"}
           </button>
         ))}
-
         {/* Close */}
         <button
           onClick={onClose}
@@ -619,7 +613,6 @@ export function SearchSection({ onClose }: { onClose: () => void }) {
           <X size={20} color="#fff" />
         </button>
       </div>
-
       {/* Popup */}
       {activeStep && (
         <div className="absolute left-1/2 top-[80px] -translate-x-1/2 bg-white rounded-2xl shadow-xl p-6 w-[90%] max-w-[600px] max-h-[400px] overflow-y-auto z-50">
@@ -628,7 +621,7 @@ export function SearchSection({ onClose }: { onClose: () => void }) {
               {treatments.map((t, i) => (
                 <button
                   key={i}
-                  className={`px-4 py-2 rounded-lg border text-sm 
+                  className={`px-4 py-2 rounded-lg border text-sm
                     ${i === 0 ? "bg-[#1656A5] text-white" : "border-[#1656A5] text-[#1656A5]"}`}
                 >
                   {t}
@@ -667,7 +660,6 @@ export function SearchSection({ onClose }: { onClose: () => void }) {
     </section>
   );
 }
-
 /* -------------------- DROPDOWN DATA -------------------- */
 const megaMenuData: Record<string, any> = {
   "About Us": {
@@ -680,7 +672,7 @@ const megaMenuData: Record<string, any> = {
           { label: "Our Approach", path: "/about-us#our-approach" },
           { label: "Our Vision & Mission", path: "/about-us#our-vision" },
           { label: "Why choose us", path: "/about-us#why-choose-us" },
-          { label: "Leadership Team", path: "/about-us#leadership" },
+          { label: "Leadership Team", path: "/leadership-team" },
           { label: "Impact & Growth", path: "/about-us#impact-growth" },
           { label: "FAQs", path: "/about-us#faqs" },
         ],
@@ -705,7 +697,6 @@ const megaMenuData: Record<string, any> = {
       },
     ],
   },
-  // Other dropdowns unchanged
   "Infertility Issues": {
     image: "/Navbar/infertility-image.png",
     columns: [
@@ -743,16 +734,30 @@ const megaMenuData: Record<string, any> = {
     columns: [
       {
         title: "Where We Are",
+        links: centersData.map((center) => ({
+          label: center.name,
+          path: `/centers/${center.id}#${center.name.toLowerCase()}`,
+        })).slice(0, 9), // Showing first 9 centers like the image
+      },
+      {
         links: [
-          { label: "Mumbai", path: "/centers#mumbai" },
-          { label: "Nashik", path: "/centers#nashik" },
-          { label: "Jalgaon", path: "/centers#jalgaon" },
-          { label: "Ahilyanagar", path: "/centers#ahilyanagar" },
-          { label: "Amravati", path: "/centers#amravati" },
-          { label: "Kolhapur", path: "/centers#kolhapur" },
-          { label: "Nagpur", path: "/centers#nagpur" },
-          { label: "Solapur", path: "/centers#solapur" },
-          { label: "Pune", path: "/centers#pune" },
+          { label: "Ahilyanagar", path: "/centers/16#ahilyanagar" },
+          { label: "Amravati", path: "/centers/15#amravati" },
+          { label: "Kolhapur", path: "/centers/14#kolhapur" },
+          { label: "Nagpur", path: "/centers/13#nagpur" },
+          { label: "Solapur", path: "/centers/12#solapur" },
+          { label: "Pune", path: "/centers/4#pune" },
+          { label: "Book Appointment", path: "/appointment", isButton: true },
+          { label: "+91 94239 71260", path: "tel:+919423971260", isPhone: true },
+        ],
+      },
+      {
+        links: [
+          { label: "Take a Quiz", path: "/quiz" },
+          { label: "Online Consult", path: "/online-consult" },
+          { label: "EMI Options", path: "/emi-options" },
+          { label: "Fellowship", path: "/fellowship" },
+          { label: "View All Centers", path: "/centers" },
         ],
       },
     ],
@@ -778,7 +783,6 @@ const megaMenuData: Record<string, any> = {
     ],
   },
 };
-
 /* -------------------- MEGA MENU -------------------- */
 const MegaMenu = ({ menu }: { menu: any }) => {
   if (!menu) return null;
@@ -797,13 +801,34 @@ const MegaMenu = ({ menu }: { menu: any }) => {
       )}
       {menu.columns.map((col: any, idx: number) => (
         <div key={idx} className="flex-1">
-          {col.title && <h3 className="text-lg font-semibold mb-3">{col.title}</h3>}
+          {col.title && (
+            <h3 className="text-lg font-semibold mb-3 text-gray-900">{col.title}</h3>
+          )}
           <ul className="space-y-2">
             {col.links.map((link: any, i: number) => (
-              <li key={i}>
-                <Link href={link.path || "#"} className="text-sm text-gray-700 hover:text-blue-600">
-                  {link.label}
-                </Link>
+              <li key={i} className="text-sm">
+                {link.isButton ? (
+                  <Link
+                    href={link.path}
+                    className="inline-flex items-center px-4 py-2 bg-[#1656A5] text-white rounded-lg hover:bg-blue-700 transition"
+                  >
+                    {link.label}
+                  </Link>
+                ) : link.isPhone ? (
+                  <a
+                    href={link.path}
+                    className="inline-flex items-center text-gray-700 hover:text-blue-600"
+                  >
+                    <Phone size={16} className="mr-2" /> {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    href={link.path}
+                    className="text-gray-700 hover:text-blue-600"
+                  >
+                    {link.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
@@ -812,14 +837,12 @@ const MegaMenu = ({ menu }: { menu: any }) => {
     </div>
   );
 };
-
 /* -------------------- NAVBAR -------------------- */
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const pathname = usePathname();
   const closeTimeoutRef = useRef<number | null>(null);
-
   const navigationItems = [
     { label: "About Us", path: "/about-us", hasMegaMenu: true },
     { label: "Infertility Issues", path: "/infertility-issues", hasMegaMenu: true },
@@ -829,7 +852,6 @@ export default function Navbar() {
     { label: "Patient Resources", path: "/resources", hasMegaMenu: false },
     { label: "Careers", path: "/careers", hasMegaMenu: false },
   ];
-
   const handleMouseEnter = (label: string) => {
     if (closeTimeoutRef.current) window.clearTimeout(closeTimeoutRef.current);
     setOpenMenu(label);
@@ -837,7 +859,6 @@ export default function Navbar() {
   const handleMouseLeave = () => {
     closeTimeoutRef.current = window.setTimeout(() => setOpenMenu(null), 200);
   };
-
   return (
     <header className="w-full bg-white font-sans relative">
       {/* Top bar */}
@@ -856,7 +877,7 @@ export default function Navbar() {
               >
                 <Link
                   href={item.path}
-                  className={`flex items-center gap-1 px-3 py-2 rounded-md text-sm transition 
+                  className={`flex items-center gap-1 px-3 py-2 rounded-md text-sm transition
                     ${
                       pathname === item.path || openMenu === item.label
                         ? "bg-[#1656A5] text-white"
