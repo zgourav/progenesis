@@ -358,10 +358,10 @@ const Footer: React.FC = () => {
               </h3>
               <ul className="space-y-2">
                 {[
-                  { label: "International Patients", href: "/patients/international" },
-                  { label: "EMI Options", href: "/patients/emi" },
-                  { label: "Second Opinion", href: "/patients/second-opinion" },
-                  { label: "Blogs", href: "/blogs" },
+                  { label: "International Patients", href: "/international-patients" },
+                  { label: "EMI Options", href: "/emi-options" },
+                  { label: "Second Opinion", href: "/second-opinion" },
+                  { label: "Blogs", href: "/blog" },
                 ].map((it) => (
                   <li key={it.label}>
                     <Link
@@ -382,7 +382,7 @@ const Footer: React.FC = () => {
               </h3>
               <ul className="space-y-2">
                 {[
-                  { label: "Privacy Policy", href: "/privacy" },
+                  { label: "Privacy Policy", href: "/privacy-policy" },
                   { label: "Fellowships", href: "/fellowships" },
                 ].map((it) => (
                   <li key={it.label}>
